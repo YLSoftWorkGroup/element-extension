@@ -1,0 +1,51 @@
+
+{
+  "root": true, 
+  "parserOptions": {
+    "parser": "babel-eslint" 
+  },
+  "extends": [
+    "standard", 
+    "plugin:vue/recommended"  
+  ],
+  "plugins": [
+    "vue"
+  ],
+  "globals": {
+    "Vue": false
+  },
+  "env": {
+    "browser": true,
+    "es6": true 
+  },
+  "rules": {
+    "prefer-const": 2,
+    "vue/html-indent": [1, 2, {
+      "alignAttributesVertically": false
+    }],
+    "vue/html-closing-bracket-newline": 0,
+    "vue/max-attributes-per-line": 0,
+    "vue/script-indent": ["error", 2, { "baseIndent": 1, "switchCase": 1 }],
+    "complexity": [ 1, 5 ],
+    "max-len": [
+      1,
+      {
+        "code": 120,
+        "tabWidth": 2,
+        "ignoreComments": true,
+        "ignoreTrailingComments": true,
+        "ignoreUrls": true,
+        "ignoreStrings": true,
+        "ignoreTemplateLiterals": true
+      }
+    ]
+  },
+  "overrides": [
+    {
+      "files": ["*.vue"],
+      "rules": {
+        "indent": "off"
+      }
+    }
+  ]
+}

@@ -1,0 +1,58 @@
+[
+    {
+      "id": 10001,
+      "parentId": -1,
+      "name": "root",
+      "fullName": "root",
+      "fullId": "10001"
+    },
+    {
+        "id": 20001,
+        "parentId": 10001,
+        "name": "1XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX1111",
+        "fullName": "root|1",
+        "fullId": "10001|20001"
+    },
+    {
+        "id": 30001,
+        "parentId": 20001,
+        "name": "1XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX1111",
+        "fullName": "root|1|1",
+        "fullId": "10001|20001|30001"
+    },
+    {
+        "id": 40001,
+        "parentId": 30001,
+        "name": "1XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX1111",
+        "fullName": "root|1|1|1|1",
+        "fullId": "10001|20001|30001|40001"
+    },
+    {
+        "id": 40002,
+        "parentId": 30001,
+        "name": "2",
+        "fullName": "root|1|1|1|2",
+        "fullId": "10001|20001|30001|40002"
+    },
+    {
+        "id": 30002,
+        "parentId": 20001,
+        "name": "2",
+        "fullName": "root|1|2",
+        "fullId": "10001|20001|30002"
+    },
+    {
+        "id": 20002,
+        "parentId": 10001,
+        "name": "21XXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXXX1111",
+        "fullName": "root|2",
+        "fullId": "10001|20002"
+    },
+    {
+        "id": 20003,
+        "parentId": 10001,
+        "name": "3",
+        "fullName": "root|3",
+        "fullId": "10001|20003"
+    }
+]
