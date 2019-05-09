@@ -7,14 +7,7 @@
   **功能：** 包裹 提供工具栏、标题,主要用于页面信息展示
 
   **示例：**
-
-  <yl-toolbar >
-   <el-button> 按钮</el-button>
-   <el-button> 按钮</el-button>
-   <el-button> 按钮</el-button>
-  </yl-toolbar>
-
-
+:::demo
   ```html
 
    <template>
@@ -40,7 +33,7 @@
    </style>
 
   ```
-
+:::
   **属性**
 
   暂无

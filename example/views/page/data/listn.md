@@ -7,23 +7,7 @@
   **功能：**  提供上一页/下一页翻页方式的数据呈现组件
 
   **示例：**
-
-<yl-listn style="height:400px"
-        :listloading="listNloading"
-        :listData=listNData
-        :input="listNParams"
-        :pagination="listNpagination"
-        wrapClass="list_warpper"
-        itemWrapClass="item_warpper"
-        @reload="getListDataN"
-    >
-    <template v-slot:default="slotProps">
-            <p>{{ slotProps.item.code }}</p>
-            <p>{{ slotProps.item.name }}</p>
-            <p>{{ slotProps.item.model }}</p>
-    </template>
-</yl-listn>
-
+:::demo
   ```html
    <template> 
 
@@ -109,11 +93,11 @@
     </style>
 
   ```
+:::
 
+**属性**
 
-  **属性**
-
-```
+```js
  listloading:true/false  // 数据加载遮罩层
  listData:[  // 数据
      {}  // data项结构

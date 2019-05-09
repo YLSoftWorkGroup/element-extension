@@ -9,16 +9,7 @@
   **示例：**
 
   水平布局
-  <yl-timebar 
-        ref="timebar"
-        :dataPickOptions="dataPickOptions"
-        :currentValue="currentValue"
-        :btnItems="btnItems"
-        @change="change"
-     >
-    </yl-timebar>
-
-
+:::demo
   ```html
 
    <template>
@@ -62,7 +53,7 @@
    </style>
 
   ```
-
+:::
   **属性**
 
   | 参数        | 说明           |类型   |默认值|可选值|

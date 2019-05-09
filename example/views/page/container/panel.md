@@ -7,17 +7,7 @@
   **功能：** 包裹内容块，提供工具栏、标题
 
   **示例：**
-
-  <yl-panel :title="title" width="200px" style="height:300px">
-      <div slot="tool">
-         <i  class="el-icon-refresh" @click="_reload"></i>
-      </div>
-      <div>
-          我是内容区域
-      </div>
-  </yl-panel>
-
-
+:::demo
   ```html
 
    <template>
@@ -50,7 +40,7 @@
    </style>
 
   ```
-
+:::
   **属性**
 
   | 参数        | 说明           |类型   |默认值|可选值|

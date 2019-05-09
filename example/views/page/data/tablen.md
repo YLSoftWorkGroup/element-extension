@@ -7,24 +7,7 @@
   **功能：**  提供上一页/下一页翻页方式的数据表格呈现组件
 
   **示例：**
-<div style="height:500px">
-<yl-tablen 
-        :tableloading="tableNloading"
-        :tableData=tableNData
-        :configs="tableNConfig"
-        :input="tableNParams"
-        :pagination="tableNpagination"
-        @reload="gettableNData"
-    >
-        <template
-            slot="createdAt"
-            slot-scope="scope"
-        >
-        {{formatDate(scope.row.created,'YYYY-MM-DD hh:mm:ss')}}
-        </template>
-</yl-tablen>
-</div>
-
+:::demo
   ```html
 
    <template>
@@ -123,11 +106,11 @@
    </style>
 
   ```
-
+:::
 
 **属性**
 
-```
+```js
  tableloading:true/false  // 数据加载遮罩层
  tableData:[  // 数据
      {}  // data项结构

@@ -1,5 +1,6 @@
 <template>
   <div class="demo-block">
+     
     <div class="demo-block-source">
       <slot name="source"></slot>
       <span class="demo-block-code-icon"
@@ -51,8 +52,8 @@ export default {
 }
 .demo-block .demo-block-code-icon {
   position: absolute;
-  right: 16px;
-  bottom: 14px;
+  right: 24px;
+  bottom: 10px;
   cursor: pointer;
   width: 18px;
   height: 18px;
@@ -78,7 +79,7 @@ export default {
 }
 .demo-block .demo-block-source {
   border-bottom: 1px solid #ebedf0;
-  padding: 20px 24px 20px;
+  padding: 20px 24px 40px;
   color: #444;
   position: relative;
   margin-bottom: -1px;
