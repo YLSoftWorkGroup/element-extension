@@ -105,32 +105,35 @@ module.exports = {
                     loader: 'vue-markdown-loader/lib/markdown-compiler',
                     options: {
                         raw: true,
+                        preventExtract: true,
                         use: [
-                            [require('markdown-it-container'), 'demo', {
+                            [ require('markdown-it-container'), 'demo', {
                               validate: function(params) {
                                 return params.trim().match(/^demo\s*(.*)$/)
                               },
-                
-                              render: function(tokens, idx) {
-                                var m = tokens[idx].info.trim().match(/^demo\s*(.*)$/)
-                                if (tokens[idx].nesting === 1) {
-                                  var description = (m && m.length > 1) ? m[1] : ''
-                                  var content = tokens[idx + 1].content
-                                  var html = convert(striptags.strip(content, ['script', 'style'])).replace(/(<[^>]*)=""(?=.*>)/g, '$1')
-                                  var script = striptags.fetch(content, 'script')
-                                  var style = striptags.fetch(content, 'style')
-                                  var jsfiddle = { html: html, script: script, style: style }
-                                  var descriptionHTML = description
-                                    ? md.render(description)
-                                    : ''
-                                  jsfiddle = md.utils.escapeHtml(JSON.stringify(jsfiddle))
-                
-                                  return `<demo-block class="demo-box" :jsfiddle="${jsfiddle}">
-                                            <div class="source" slot="source">${html}</div>
-                                            ${descriptionHTML}
-                                            <div class="highlight" slot="highlight">`
+                              render: function(tokens, index) {
+                                let { nesting, info } = tokens[index]
+                                if (nesting === 1) {
+                                // 1.获取代码块的描述内容
+                                let content = info.trim().match(/^demo\s+(.*)$/) || []
+                                let description = content.length > 1 ? content[1] : ""
+                                var md = require("markdown-it")()
+                                if (description) {
+                                    description = md.render(description)
                                 }
-                                return '</div></demo-block>\n'
+                                // 2.获取代码块内的html和js代码
+                                let code = tokens[index + 1].content
+                                // 3.代码块包裹
+                                return `
+                                    <k-example-code>
+                                        <div class="source" slot="source">${code}</div>
+                                        ${description}
+                                        <div class="highlight" slot="code">`
+                                } else {
+                                return `
+                                    </div>
+                                    </k-example-code>\n`
+                                }
                               }
                             }],
                             [require('markdown-it-container'), 'tip'],

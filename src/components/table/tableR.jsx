@@ -20,7 +20,7 @@ export default {
           sortable: true
         }
       },
-      currentPage:1,
+      currentPage: 1,
       pageData: []
     }
   },
@@ -43,7 +43,7 @@ export default {
     },
     pagination: {
       type: Object,
-      default: function() {
+      default: function () {
         return {
           small: false,
           background: true,

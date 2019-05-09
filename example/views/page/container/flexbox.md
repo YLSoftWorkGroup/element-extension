@@ -1,4 +1,5 @@
 
+
 #### flexbox
 
 > 标签： `<yl-flexbox></yl-flexbox>` 
@@ -8,7 +9,7 @@
 
 **示例：**
 
-:::demo  
+:::demo   ### 描述标题 aaaa
 ```html
 
 <template>
@@ -52,7 +53,6 @@ export default {
   | ------------- |:-------------:|
   | fixed| flexbox固定区域 | 
   | flex| flexbox弹性区域 | 
-
 
 ---
 

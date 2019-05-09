@@ -9,7 +9,8 @@ import App from './App.vue'
 import DemoBlock from './components/demoBlock'
 Vue.use(elementMini)
 Vue.use(ylComponent)
-Vue.component('demo-block', DemoBlock)
+Vue.component('k-example-code', DemoBlock)
+
 // import VueAMap from 'vue-amap'
 // Vue.use(VueAMap);
 // VueAMap.initAMapApiLoader({
