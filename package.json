@@ -4,10 +4,11 @@
   "description": "易龙软件PC端业务组件集合",
   "main": "lib/yl-component.common.js",
   "scripts": {
+    "clean": "rimraf lib && rimraf src/*/lib",
     "dev": "webpack-dev-server  --config build/webpack.dev.conf.js",
     "start": "yarn || cnpm i || npm i",
-    "clean": "rimraf lib && rimraf src/*/lib",
-    "build": "webpack --config build/webpack.build.conf.js "
+    "build": "webpack --config build/webpack.build.conf.js ",
+    "docs": "webpack --config build/webpack.doc.conf.js "
   },
   "keywords": [
     "vue",
