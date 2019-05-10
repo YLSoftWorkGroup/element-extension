@@ -1,92 +1,106 @@
 [
     {
-        "menuName":"基础",
+        "label":"基础",
+        "name":"base",
         "url":"/base",
         "icon":"el-icon-setting"
     },
     {
-        "menuName":"布局",
-        "url":"/container",
+        "label":"布局",
+        "name":"layout",
         "icon":"el-icon-cluster",
         "children":[
             {
-                "menuName":"flexbox",
+                "label":"flexbox",
+                "name":"flexbox",
                 "url":"/flexbox"
             },
             {
-                "menuName":"panel",
+                "label":"panel",
+                "name":"panel",
                 "url":"/panel"
             },
             {
-                "menuName":"pageheader",
+                "label":"pageheader",
+                "name":"pageheader",
                 "url":"/pageheader"
             },
             {
-                "menuName":"toolbar",
+                "label":"toolbar",
+                "name":"toolbar",
                 "url":"/toolbar"
             }
         ]
     },
     {
-        "menuName":"表单",
-        "url":"/form",
+        "label":"表单",
+        "name":"form",
         "icon":"el-icon-edit-outline",
         "children":[
             {
-                "menuName":"timebar",
+                "label":"timebar",
+                "name":"timebar",
                 "url":"/timebar"
             },
             {
-                "menuName":"treeSelect",
+                "label":"treeSelect",
+                "name":"treeSelect",
                 "url":"/treeSelect"
             }
         ]
     },
     {
-        "menuName":"数据",
-        "url":"/data",
+        "label":"数据",
+        "name":"data",
         "icon":"el-icon-tickets",
         "children":[
             {
-                "menuName":"list",
+                "label":"list",
+                "name":"list",
                 "url":"/list"
             },
             {
-                "menuName":"listr",
+                "label":"listr",
+                "name":"listr",
                 "url":"/listr"
             },
             {
-                "menuName":"listn",
+                "label":"listn",
+                "name":"listn",
                 "url":"/listn"
             },
             {
-                "menuName":"table",
+                "label":"table",
+                "name":"table",
                 "url":"/table"
             },
             {
-                "menuName":"tabler",
+                "label":"tabler",
+                "name":"tabler",
                 "url":"/tabler"
             },
             {
-                "menuName":"tablen",
+                "label":"tablen",
+                "name":"tablen",
                 "url":"/tablen"
             }
         ]
     },
-   
     {
-        "menuName":"其他",
-        "url":"/other",
+        "label":"其他",
+        "name":"other",
         "icon":"el-icon-more",
         "children":[
             {
-                "menuName":"map",
+                "label":"map",
+                "name":"map",
                 "url":"/map"
             }
         ]
     },
     {
-        "menuName":"日志",
+        "label":"日志",
+        "name":"log",
         "url":"/log",
         "icon":"el-icon-filesearch"
     }

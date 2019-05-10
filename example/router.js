@@ -1,8 +1,33 @@
 import Vue from 'vue'
 import Router from 'vue-router'
-
+import menuData from './views/data/menuData.json'
 Vue.use(Router)
 
+function getRouter () {
+  const routeList = []
+  menuData.map((i, index) => {
+    if (i.url) {
+      const item = {
+        path: i.name,
+        component: () => import('./views/page/' + i.name + '.md'),
+        name: i.label
+      }
+      routeList.push(item)
+    } else {
+      i.children.map((ii, iindex) => {
+        if (ii.url) {
+          const item = {
+            path: ii.name,
+            component: () => import('./views/page/' + ii.name + '.md'),
+            name: ii.label
+          }
+          routeList.push(item)
+        }
+      })
+    }
+  })
+  return routeList
+}
 const Main = resolve => require(['./views/Main'], resolve)
 export default new Router({
   routes: [{
@@ -10,66 +35,6 @@ export default new Router({
     name: 'main',
     component: Main,
     redirect: 'base',
-    children: [{
-      path: 'base',
-      component: () => import('./views/page/base.md'),
-      name: '基础'
-    },
-    {
-      path: 'flexbox',
-      component: () => import('./views/page/container/flexbox.md'),
-      name: 'flexbox'
-    },
-    {
-      path: 'pageheader',
-      component: () => import('./views/page/container/pageheader.md'),
-      name: 'pageheader'
-    },
-    {
-      path: 'panel',
-      component: () => import('./views/page/container/panel.md'),
-      name: 'panel'
-    },
-    {
-      path: 'toolbar',
-      component: () => import('./views/page/container/toolbar.md'),
-      name: 'toolbar'
-    },
-    {
-      path: 'timebar',
-      component: () => import('./views/page/form/timebar.md'),
-      name: 'timebar'
-    },
-    {
-      path: 'treeSelect',
-      component: () => import('./views/page/form/treeSelect.md'),
-      name: 'treeSelect'
-    },
-    {
-      path: 'listn',
-      component: () => import('./views/page/data/listn.md'),
-      name: 'listn'
-    },
-    {
-      path: 'tablen',
-      component: () => import('./views/page/data/tablen.md'),
-      name: 'tablen'
-    },
-    {
-      path: 'other',
-      component: () => import('./views/page/other/other'),
-      name: '其他'
-    },
-    {
-      path: 'log',
-      component: () => import('./views/page/log.md'),
-      name: '日志'
-    },
-    {
-      path: 'markdown',
-      component: () => import('./views/page/markdown.md'),
-      name: 'markdown'
-    },
-    ]
+    children: getRouter()
   }]
 })

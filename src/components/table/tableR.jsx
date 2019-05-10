@@ -51,15 +51,15 @@ export default {
           pageSizes: [10, 20, 50],
           // prevText:'上一页',
           // nextText:'下一页',
-          layout: "sizes,prev, pager, next,  total" // prev, pager, next, jumper, ->, total, slot
-        };
+          layout: 'sizes,prev, pager, next,  total' // prev, pager, next, jumper, ->, total, slot
+        }
       }
     }
   },
   computed: {
     paginationAttr: {
-      get() {
-        return this.pagination;
+      get () {
+        return this.pagination
       }
     }
   },
@@ -77,11 +77,11 @@ export default {
       }
     },
     handleSizeChange (val) {
-      this.paginationAttr.pageSize =val;
+      this.paginationAttr.pageSize = val
       this.getpagination()
     },
     handleCurrentChange (val) {
-      this.currentPage=val;
+      this.currentPage=val
       this.getpagination()
     },
     loading () {
@@ -168,7 +168,7 @@ export default {
     const columnDefaultAttr =   Object.assign({}, this.defaultAttr.column , this.configs.columnDefault  || {} )// 列默认配置
     return (
       <yl-flexbox vertical  isReverse>
-        <div slot="flex" style="padding:3px 10px; box-sizing: border-box;">
+        <div slot="flex" style="padding:3px 10px box-sizing: border-box">
           <el-table
             ref="tableR"
             v-loading={this.tableloading}

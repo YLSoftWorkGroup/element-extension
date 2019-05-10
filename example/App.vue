@@ -6,10 +6,13 @@
   </div>
 </template>
 <script type="text/babel">
-export default {
-}
+  export default {
+  }
 </script>
 <style scoped>
+#app{
+  height: 100%;
+}
 .bounce-enter-active {
   animation: bounce-in 1s;
 }

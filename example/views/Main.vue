@@ -1,31 +1,54 @@
 <template>
   <div class="main">
     <div class="header">
-      <div class="title">yl-component 组件库文档</div>
+      <div class="logo">
+        <img width="50px" src="../asset/img/logo.png"
+          alt="logo">
+      </div>
+      <div class="title">
+        业务组件库文档
+      </div>
     </div>
     <div class="content">
-      <el-menu :default-active="defaultActive" router class="menu">
+      <!-- <el-menu :default-active="defaultActive" router class="menu">
         <template v-for="(item, index) in menuData">
-          <el-submenu :index="item.url" v-if="item.children" :key="index">
+          <el-submenu v-if="item.children" :key="index" :index="item.url">
             <template slot="title">
               <i :class="item.icon" />
-              <span>{{item.menuName}}</span>
+              <span>{{ item.label }}</span>
             </template>
-            <el-menu-item :index="iitem.url" v-for="(iitem, iindex) in item.children" :key="iindex">
+            <el-menu-item v-for="(iitem, iindex) in item.children" :key="iindex" :index="iitem.url">
               <i :class="iitem.icon" />
-              <span slot="title">{{ iitem.menuName }}</span>
+              <span slot="title">{{ iitem.label }}</span>
             </el-menu-item>
           </el-submenu>
-          <el-menu-item v-else :index="item.url" :key="index">
+          <el-menu-item v-else :key="index" :index="item.url">
             <i :class="item.icon" />
-            <span slot="title">{{item.menuName}}</span>
+            <span slot="title">{{ item.label }}</span>
           </el-menu-item>
         </template>
-      </el-menu>
+      </el-menu> -->
+      <div class="menu">
+        <el-scrollbar style="height:100%" wrap-class="pagepanel" view-class="menupanel_view">
+          <template v-for="(i,index) in menuData">
+            <div v-if="i.url" :key="index" class="item" @click="goUrl(i.url)">
+              {{ i.label }}
+            </div>
+            <div v-else :key="index">
+              <span class="subtitle"> {{ i.label }} </span>
+              <div v-for="(ii, iindex) in i.children" :key="iindex" class="item" @click="goUrl(ii.url)">
+                {{ ii.label }}
+              </div>
+            </div>
+          </template>
+        </el-scrollbar>
+      </div>
       <div class="page">
-        <transition name="fade">
-          <router-view />
-        </transition>
+        <el-scrollbar style="height:100%" wrap-class="pagepanel" view-class="pagepanel_view">
+          <transition name="fade">
+            <router-view />
+          </transition>
+        </el-scrollbar>
       </div>
     </div>
   </div>
@@ -45,29 +68,38 @@
         }
       }
     },
-    methods: {
-    },
     mounted () {
       if (this.$route.path) {
         this.defaultActive = this.$route.path
       } else {
         this.defaultActive = menuList[0].url
       }
+      console.log(this.menuData)
+    },
+    methods: {
+      goUrl (url) {
+        this.$router.push({
+          path: url
+        })
+      }
     }
   }
 </script>
 
-<style lang="postcss" scoped>
+<style lang="postcss" >
+  @import  '../../src//styl/var.pcss';
   .main {
     height: 100%;
     width: 100%;
+    display: flex;
+    flex-direction:column;
     & > .header {
-      position: absolute;
-      left: 0;
-      right: 0;
-      top: 0;
       height: 55px;
-      background: #e6a23c;
+      line-height:55px;
+      background:$color-primary;
+      display: flex;
+      padding-left:10px;
+      padding-top:5px;
       & > .title {
         height: 100%;
         line-height: 55px;
@@ -77,23 +109,48 @@
         padding-left: 20px;
       }
     }
-    & .menu {
-      position: absolute;
-      left: 0;
-      top: 55px;
-      bottom: 0px;
-      width: 180px;
-      overflow: auto;
+    & > .content{
+      flex:1;
+      display: flex;
+      overflow: hidden;
+      & > .menu{
+        height: 100%;
+        width: 220px;
+        color: $color-text-regular;
+        font-size: 16px;
+        & .subtitle {
+          color: #aaa;
+          font-size: 14px;
+        }
+        & .item {
+          line-height: 45px;
+          height: 45px;
+          cursor: pointer;
+          &:hover {
+            color: $color-primary;
+          }
+        }
+      }
+      & > .page {
+        height: 100%;
+        flex:1;
+        overflow: hidden;
+        padding: 20px 30px;
+        box-sizing: border-box;
+      }
     }
-    & .page {
-      position: absolute;
-      right: 0;
-      left: 180px;
-      top: 55px;
-      bottom: 0px;
-      overflow: auto;
-      padding: 20px 30px;
-      box-sizing: border-box;
-    }
+  }
+  .pagepanel {
+    overflow: auto;
+  }
+  .menupanel_view {
+    padding: 10px 20px;
+    margin: 0;
+    box-sizing: border-box;
+  }
+  .pagepanel_view {
+    padding: 20px;
+    margin: 0;
+    box-sizing: border-box;
   }
 </style>

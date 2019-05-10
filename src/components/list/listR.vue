@@ -31,8 +31,8 @@
 
 <script type="text/babel">
   export default {
-    name:'ylListr',
-    data() {
+    name: 'ylListr',
+    data () {
       return {
         pageData: [],
         currentPage:1

@@ -14,30 +14,30 @@
   </div>
 </template>
 <script>
-export default {
-  name: "ylPanel",
-  props: {
-    icon: {
-      type: String,
-      default: ""
+  export default {
+    name: "ylPanel",
+    props: {
+      icon: {
+        type: String,
+        default: ""
+      },
+      title: {
+        type: String,
+        default: ""
+      },
+      width: {
+        type: String,
+        default: "100%"
+      },
+      showHeader:{
+        type:Boolean,
+        default:true
+      }
     },
-    title: {
-      type: String,
-      default: ""
+    methods: {
     },
-    width: {
-      type: String,
-      default: "100%"
-    },
-    showHeader:{
-      type:Boolean,
-      default:true
-    }
-  },
-  methods: {
-  },
-  mounted(){}
-};
+    mounted(){}
+  }
 </script>
 <style lang="postcss">
 @import  '../../styl/var.pcss';

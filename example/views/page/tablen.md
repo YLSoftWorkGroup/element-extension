@@ -29,7 +29,7 @@
 
    </template>
    <script>
-   import DataR from '../../data/dataR.json'
+   import DataR from '../data/dataR.json'
    import dayjs from 'dayjs'
    export default {
      data(){
