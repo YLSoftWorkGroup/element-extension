@@ -10,24 +10,6 @@
       </div>
     </div>
     <div class="content">
-      <!-- <el-menu :default-active="defaultActive" router class="menu">
-        <template v-for="(item, index) in menuData">
-          <el-submenu v-if="item.children" :key="index" :index="item.url">
-            <template slot="title">
-              <i :class="item.icon" />
-              <span>{{ item.label }}</span>
-            </template>
-            <el-menu-item v-for="(iitem, iindex) in item.children" :key="iindex" :index="iitem.url">
-              <i :class="iitem.icon" />
-              <span slot="title">{{ iitem.label }}</span>
-            </el-menu-item>
-          </el-submenu>
-          <el-menu-item v-else :key="index" :index="item.url">
-            <i :class="item.icon" />
-            <span slot="title">{{ item.label }}</span>
-          </el-menu-item>
-        </template>
-      </el-menu> -->
       <div class="menu">
         <el-scrollbar style="height:100%" wrap-class="pagepanel" view-class="menupanel_view">
           <template v-for="(i,index) in menuData">

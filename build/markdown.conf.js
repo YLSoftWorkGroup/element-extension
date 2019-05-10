@@ -52,7 +52,7 @@ function markdownConf() {
             ],
         preprocess: function(MarkdownIt, source) {
         MarkdownIt.renderer.rules.table_open = function() {
-            return '<table class="table">';
+            return '<table class="table-md">';
         };
         MarkdownIt.renderer.rules.fence = wrap(MarkdownIt.renderer.rules.fence)
         return source;
