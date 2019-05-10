@@ -26,14 +26,14 @@ function markdownConf() {
                     }
                     let code = tokens[index + 1].content
                     return `
-                        <k-example-code>
+                        <demo-code>
                             <div class="source" slot="source">${code}</div>
                             ${description}
                             <div class="highlight" slot="highlight">`
                     } else {
                     return `
                         </div>
-                        </k-example-code>\n`
+                        </demo-code>\n`
                     }
                 }
                 }],

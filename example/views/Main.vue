@@ -6,7 +6,7 @@
           alt="logo">
       </div>
       <div class="title">
-        业务组件库文档
+        易龙业务组件库文档
       </div>
     </div>
     <div class="content">

@@ -25,11 +25,6 @@ module.exports = {
             example: path.resolve(__dirname, '../example')
         }
     },
-    externals: {
-      vue: 'Vue',
-      'vue-router': 'VueRouter',
-      'highlight.js': 'hljs'
-    },
     module: {
         rules: [
             {
