@@ -46,6 +46,11 @@
                 "label":"treeSelect",
                 "name":"treeSelect",
                 "url":"/treeSelect"
+            },
+            {
+                "label":"tableedit",
+                "name":"tableedit",
+                "url":"/tableedit"
             }
         ]
     },
@@ -68,6 +73,11 @@
                 "label":"listn",
                 "name":"listn",
                 "url":"/listn"
+            },
+            {
+                "label":"onlytable",
+                "name":"onlytable",
+                "url":"/onlytable"
             },
             {
                 "label":"table",

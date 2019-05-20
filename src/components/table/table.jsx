@@ -1,26 +1,26 @@
 export default {
-  name: "ylTable",
-  data() {
+  name: 'ylTable',
+  data () {
     return {
       defaultAttr: {
         table: {
           // table的默认属性
-          height: "100%",
+          height: '100%',
           border: true,
           stripe: true,
-          size: "small",
+          size: 'small',
           highlightCurrent: true,
-          style: { width: "100%", height: "100%" }
+          style: { width: '100%', height: '100%' }
         },
         column: {
           // column的默认属性
           showOverflowTooltip: true,
-          headerAlign: "left",
+          headerAlign: 'left',
           resizable: true,
           sortable: true
         }
       }
-    };
+    }
   },
   props: {
     // table的配置,具体见README.md
@@ -38,7 +38,7 @@ export default {
     },
     pagination: {
       type: Object,
-      default: function() {
+      default: function () {
         return {
           small: false,
           background: true,
@@ -46,45 +46,47 @@ export default {
           pageSizes: [10, 20, 50],
           // prevText:'上一页',
           // nextText:'下一页',
-          layout: "sizes,prev, pager, next,  total" // prev, pager, next, jumper, ->, total, slot
-        };
+          layout: 'sizes,prev, pager, next,  total' // prev, pager, next, jumper, ->, total, slot
+        }
       }
     }
   },
   computed: {
     paginationAttr: {
-      get() {
-        return this.pagination;
-        
+      get () {
+        return this.pagination
       }
     }
   },
+  created () {
+    this.input.limit = this.paginationAttr.pageSize
+  },
   methods: {
-    clearSelection(selection) {
-      this.$refs.table.clearSelection(selection);
+    clearSelection (selection) {
+      this.$refs.table.clearSelection(selection)
     },
-    toggleRowSelection(row, selected) {
-      this.$refs.table.toggleRowSelection(row, selected);
+    toggleRowSelection (row, selected) {
+      this.$refs.table.toggleRowSelection(row, selected)
     },
-    handleEvent(action) {
-      const _self = this;
-      return function() {
-        _self.$emit(action, ...arguments);
-      };
+    handleEvent (action) {
+      const _self = this
+      return function () {
+        _self.$emit(action, ...arguments)
+      }
     },
-    handleSizeChange(val) {
-      this.input.limit = val;
-      this.input.offset = val * (this.input.draw - 1);
-      this.$emit("reload");
+    handleSizeChange (val) {
+      this.input.limit = val
+      this.input.offset = val * (this.input.draw - 1)
+      this.$emit('reload')
     },
-    handleCurrentChange(val) {
-      this.input.draw = val;
-      this.input.offset = this.input.limit * (val - 1);
-      this.$emit("reload");
+    handleCurrentChange (val) {
+      this.input.draw = val
+      this.input.offset = this.input.limit * (val - 1)
+      this.$emit('reload')
     },
-    renderItem(h, columns, columnDefaultAttr) {
+    renderItem (h, columns, columnDefaultAttr) {
       return columns.map((column, index) => {
-        const columnAttr = Object.assign({}, columnDefaultAttr, column.attr);
+        const columnAttr = Object.assign({}, columnDefaultAttr, column.attr)
         if (column.isParent) {
           // 父节点
           return (
@@ -99,7 +101,7 @@ export default {
             >
               {this.renderItem(h, column.items, columnDefaultAttr)}
             </el-table-column>
-          );
+          )
         } else {
           // 子节点
           return (
@@ -134,24 +136,20 @@ export default {
             >
               {columnAttr.scopedSlot
                 ? this.$scopedSlots[columnAttr.scopedSlot]
-                : ""}
+                : ''}
             </el-table-column>
-          );
+          )
         }
-      });
+      })
     }
   },
-  created() {
-    this.input.limit = this.paginationAttr.pageSize;
-  },
-  mounted() {},
-  render(h) {
+  render (h) {
     const tableAttr = Object.assign({}, this.defaultAttr.table, this.configs.table.attr || {}) // 表格属性
     const columns = this.configs.columns // 列配置
-    const columnDefaultAttr =   Object.assign({}, this.defaultAttr.column , this.configs.columnDefault  || {} )// 列默认配置  
+    const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {}) // 列默认配置
     return (
-      <yl-flexbox vertical  isReverse>
-        <div slot="flex" style="padding:3px 10px; box-sizing: border-box;">
+      <yl-flexbox vertical isReverse>
+        <div slot='flex' style="padding:3px 10px box-sizing: border-box">
           <el-table
             ref="table"
             v-loading={this.tableloading}
@@ -189,23 +187,23 @@ export default {
             lazy={tableAttr.lazy}
             load={tableAttr.load}
             select-on-indeterminate={tableAttr.selectOnIndeterminate}
-            on-select={this.handleEvent("select")}
-            on-select-all={this.handleEvent("select-all")}
-            on-selection-change={this.handleEvent("selection-change")}
-            on-cell-mouse-enter={this.handleEvent("cell-mouse-enter")}
-            on-cell-mouse-leave={this.handleEvent("cell-mouse-leave")}
-            on-cell-click={this.handleEvent("cell-click")}
-            on-cell-dblclick={this.handleEvent("cell-dblclick")}
-            on-row-click={this.handleEvent("row-click")}
-            on-row-contextmenu={this.handleEvent("row-contextmenu")}
-            on-row-dblclick={this.handleEvent("row-dblclick")}
-            on-header-click={this.handleEvent("header-click")}
-            on-header-contextmenu={this.handleEvent("header-contextmenu")}
-            on-sort-change={this.handleEvent("sort-change")}
-            on-filter-change={this.handleEvent("filter-change")}
-            on-current-change={this.handleEvent("current-change")}
-            on-header-dragend={this.handleEvent("header-dragend")}
-            on-expand-change={this.handleEvent("expand-change")}
+            on-select={this.handleEvent('select')}
+            on-select-all={this.handleEvent('select-all')}
+            on-selection-change={this.handleEvent('selection-change')}
+            on-cell-mouse-enter={this.handleEvent('cell-mouse-enter')}
+            on-cell-mouse-leave={this.handleEvent('cell-mouse-leave')}
+            on-cell-click={this.handleEvent('cell-click')}
+            on-cell-dblclick={this.handleEvent('cell-dblclick')}
+            on-row-click={this.handleEvent('row-click')}
+            on-row-contextmenu={this.handleEvent('row-contextmenu')}
+            on-row-dblclick={this.handleEvent('row-dblclick')}
+            on-header-click={this.handleEvent('header-click')}
+            on-header-contextmenu={this.handleEvent('header-contextmenu')}
+            on-sort-change={this.handleEvent('sort-change')}
+            on-filter-change={this.handleEvent('filter-change')}
+            on-current-change={this.handleEvent('current-change')}
+            on-header-dragend={this.handleEvent('header-dragend')}
+            on-expand-change={this.handleEvent('expand-change')}
           >
             {this.renderItem(h, columns, columnDefaultAttr)}
 
@@ -232,6 +230,6 @@ export default {
           </yl-toolbar>
         </div>
       </yl-flexbox>
-    );
+    )
   }
-};
+}

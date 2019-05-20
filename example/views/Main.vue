@@ -56,7 +56,6 @@
       } else {
         this.defaultActive = menuList[0].url
       }
-      console.log(this.menuData)
     },
     methods: {
       goUrl (url) {
