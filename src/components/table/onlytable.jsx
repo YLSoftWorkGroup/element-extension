@@ -39,6 +39,8 @@ export default {
       }
     }
   },
+  mounted () {
+  },
   methods: {
     clearSelection (selection) {
       this.$refs.table.clearSelection(selection)
@@ -102,9 +104,9 @@ export default {
               filter-method={columnAttr.filterMethod}
               filtered-value={columnAttr.filterValue}
             >
-              {columnAttr.scopedSlot
-                ? this.$scopedSlots[columnAttr.scopedSlot]
-                : ''}
+              {
+                columnAttr.scopedSlot ? this.$scopedSlots[columnAttr.scopedSlot] : ''
+              }
             </el-table-column>
           )
         }

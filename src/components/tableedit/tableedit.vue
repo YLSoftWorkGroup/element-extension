@@ -5,38 +5,32 @@
       :tableData="tableData"
       :tableloading="tableloading"
       @current-change="_currentChange">
-      <!-- <template v-for="(item,index) in tableConfig.solSlotConf" :slot="item.name" scope="scope">
-        <yl-rendertablerowcoms
+      <template v-for="(item,index) in config.soltConf" :slot="item.name" slot-scope="scope">
+        <yl-renderComs
           :key="index"
           :name="item.name"
           :option="item"
           :model="scope.row"
-          @sumCount="_sumCount">
-        </yl-rendertablerowcoms>
-      </template> -->
-      <!-- <template slot="id" scope="scope">
-        <div class="yl-table-icon">
-          <i class="icon-cancel3"
-            @click="_delItem(scope.row)" />
+          @sumCount="_sumCount" />
+      </template>
+      <template slot="id" slot-scope="scope">
+        <div style="font-size:16px;text-align: center;color:#F56C6C;" @click="_delItem(scope.row)">
+          <i class="el-icon-circle-close-outline" />
         </div>
-      </template> -->
-      <slot>
-      </slot>
+      </template>
     </yl-onlytable>
     <div v-if="!sumRowConf.disable" class="sum-text">
       <span class="heji-title">
         <i class="el-icon-edit" /> {{ sumRowConf.sumText }}
       </span>
-      <template v-for="(item,index) in sumRowConf.items">
-        <span v-if="item.capitalCol" :key="index" class="heji-title" style="padding-left:10px;">
-          大写金额：
-          <span
-            class="heji-text"
-            v-text="getdataDX(item.sumval)"
-          />
-        </span>
-      </template>
-      <span v-for="(item,index) in sumRowConf.items" :key="index" class="heji-title" style="padding-left:10px;">
+      <span v-if="capitalColItem.capitalCol" class="heji-title" style="padding-left:10px;">
+        大写金额：
+        <span
+          class="heji-text"
+          v-text="getdataDX(capitalColItem.sumval)"
+        />
+      </span> 
+      <span v-for="(item,index) in sumItems" :key="index" class="heji-title" style="padding-left:10px;">
         {{ item.text }}：
         <span
           class="heji-text"> {{ item.sumval }}
@@ -46,9 +40,13 @@
   </div>
 </template>
 <script type="text/babel">
-  // import util from '../../utils/util'
+  import renderComs from './renderComs'
+  import util from '../../utils/util'
   export default {
     name: 'ylTableedit',
+    components: {
+      'yl-renderComs': renderComs
+    },
     props: {
       config: {
         type: Object,
@@ -94,7 +92,9 @@
     data () {
       return {
         tableloading: false,
-        tableData: []
+        tableData: [],
+        sumItems: {},
+        capitalColItem: {}
       }
     },
     computed: {
@@ -107,9 +107,21 @@
         }
       }
     },
+    mounted () {
+      this._initComs()
+    },
     methods: {
+      _initComs () {
+        this.sumItems = this.sumRowConf.items
+        for (const key in this.sumItems) {
+          if (this.sumItems[key].capitalCol) {
+            this.capitalColItem = this.sumItems[key]
+          }
+        }
+      },
       _sumCount () {
-        this.$emit('sumCount')
+        // 执行计算逻辑
+        this.$emit('sumCount', this.tableData)
       },
       _currentChange (val) {
         // 单选时的方法
@@ -118,10 +130,10 @@
         this.$emit('delItem', row)
       },
       _getTableData (addObj) {
-        let row = {}
         let { rows, dataType } = addObj
         if (rows.length) {
           rows.map((item, index) => {
+            let row = {}
             this.mapConfig[dataType].map((model, index) => {
               if (model.isReplace) {
                 if (model.eventConf && model.eventConf.isOn) {
@@ -161,7 +173,7 @@
         return this.tableData
       },
       getdataDX (data) {
-        return '' // util.turnDX(data)
+        return util.turnDX(data)
       }
     }
   }
@@ -188,11 +200,11 @@
       justify-content: flex-end;
       align-items: center;
       &> .heji-title {
-        color: #324057;
+        color: #606266;
         font-weight: 600;
         font-size: 14px;
         &>.heji-text {
-          color: #324057;
+          color: #303133;
           font-weight: 600;
         }
       }
