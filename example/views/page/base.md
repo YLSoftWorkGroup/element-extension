@@ -1,6 +1,6 @@
-### `yl-componoent`  
+### `element-extension`  
 
-> `yl-componoent` 是易龙软件提供的针对物资领域系统软件相关的业务组建库，其中大部分组建依赖`element-mini-ui` 
+> `element-extension` 是易龙软件提供的针对物资领域系统软件相关的业务组建库，其中大部分组建依赖`element-mini-ui` 
 
 
 #### 使用方式
@@ -9,8 +9,8 @@
 
 ```bash
 
- yarn add  git@git.pmone.vip:dev/products/materials-products/tools/yearrow-business-component.git
- npm  add  git@git.pmone.vip:dev/products/materials-products/tools/yearrow-business-component.git
+ yarn add  element-extension 
+ npm  i  element-extension --save
 
 ```
 
@@ -18,15 +18,15 @@
 vue全局引入：
 
 ```js
- import yl-component from 'yl-component/src/index' //引入源码
- import yl-component from 'yl-component' //引入打包文件
+
+ import element-extension from 'element-extension/src/index' //引入源码
+ import element-extension from 'element-extension' //引入打包文件
  
- Vue.use(yl-component)
+ Vue.use(element-extension)
 
 ```
 
 
+文档地址：
 
-组件列表：
-`
-`
+[element-mini-ui](https://ylsoftworkgroup.github.io/element-extension/#/base)

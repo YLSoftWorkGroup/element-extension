@@ -1,8 +1,8 @@
 {
-  "name": "yl-component",
-  "version": "1.1.0",
-  "description": "易龙软件PC端业务组件集合",
-  "main": "lib/yl-component.common.js",
+  "name": "element-extension",
+  "version": "1.1.2",
+  "description": "基于elementUI组件扩展组件库",
+  "main": "lib/element-extension.js",
   "scripts": {
     "start": "yarn || cnpm i || npm i",
     "clean": "rimraf lib && rimraf src/*/lib",
@@ -11,6 +11,10 @@
     "docs": "webpack --config build/webpack.doc.conf.js ",
     "publish": "npm run build && npm run docs"
   },
+  "repository": {
+    "url": "https://github.com/YLSoftWorkGroup/element-extension"
+  },
+  "homepage": "https://ylsoftworkgroup.github.io/element-extension/#/base",
   "keywords": [
     "vue",
     "component",
@@ -63,7 +67,7 @@
     "vue-router": "^3.0.2",
     "vue-template-compiler": "^2.6.8",
     "webpack": "^4.29.6",
-    "webpack-cli": "^3.2.3",
+    "webpack-cli": "^3.3.2",
     "webpack-dev-server": "^3.2.1",
     "webpack-node-externals": "^1.7.2"
   },

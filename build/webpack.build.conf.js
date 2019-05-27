@@ -14,7 +14,7 @@ module.exports =  {
     },
     output: {
         path: path.resolve(process.cwd(), './lib'),
-        filename: 'yl-component.common.js',
+        filename: 'element-extension.js',
         chunkFilename: '[id].js',
         libraryTarget: 'commonjs2',
         libraryExport: 'default'
