@@ -6,6 +6,12 @@
         "icon":"el-icon-setting"
     },
     {
+        "label":"图标",
+        "name":"icon",
+        "url":"/icon",
+        "icon":"el-icon-icon"
+    },
+    {
         "label":"布局",
         "name":"layout",
         "icon":"el-icon-cluster",
