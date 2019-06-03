@@ -12,7 +12,7 @@
 
    <template>
 
- <yl-tablen style="height:300px"
+ <yl-tablen style="height:200px"
       :tableloading="tableNloading"
       :tableData=tableNData
       :configs="tableNConfig"

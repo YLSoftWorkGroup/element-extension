@@ -1,34 +1,34 @@
 export default {
-  name: "ylTablen",
+  name: 'ylTablen',
   data() {
     return {
       defaultAttr: {
         table: {
           // table的默认属性
-          height: "100%",
+          height: '100%',
           border: true,
           stripe: true,
-          size: "small",
+          size: 'small',
           highlightCurrent: true,
-          style: { width: "100%", height: "100%" }
+          style: { width: '100%', height: '100%' }
         },
         column: {
           // column的默认属性
           showOverflowTooltip: true,
-          headerAlign: "left",
+          headerAlign: 'left',
           resizable: true,
           sortable: true
         }
       },
-      pageData:[]
-    };
+      pageData: []
+    }
   },
   props: {
     // table的配置,具体见README.md
     tableData: {
       type: Array,
       required: true,
-      function(){
+      function () {
         return []
       }
     },
@@ -53,7 +53,7 @@ export default {
           pageSize: 11,
           prevText:'上一页',
           nextText:'下一页',
-          layout: "prev, next"
+          layout: 'prev, next'
         };
       }
     }
@@ -101,17 +101,17 @@ export default {
       this.$el.getElementsByClassName('btn-prev')[0].disabled=true;
       this.input.draw = val;
       this.input.offset = (this.input.limit-1) * (val - 1);
-      this.$emit("reload");
+      this.$emit('reload');
     },
     nextClick(val){
       this.$el.getElementsByClassName('btn-next')[0].disabled=true;
       this.input.draw = val;
       this.input.offset = (this.input.limit-1) * (val - 1);
-      this.$emit("reload");
+      this.$emit('reload');
     },
     renderItem(h, columns, columnDefaultAttr) {
       return columns.map((column, index) => {
-        const columnAttr = Object.assign({}, columnDefaultAttr, column.attr);
+        const columnAttr = Object.assign({}, columnDefaultAttr, column.attr)
         if (column.isParent) {
           // 父节点
           return (
@@ -126,7 +126,7 @@ export default {
             >
               {this.renderItem(h, column.items, columnDefaultAttr)}
             </el-table-column>
-          );
+          )
         } else {
           // 子节点
           return (
@@ -161,7 +161,7 @@ export default {
             >
               {columnAttr.scopedSlot
                 ? this.$scopedSlots[columnAttr.scopedSlot]
-                : ""}
+                : ''}
             </el-table-column>
           );
         }
@@ -175,12 +175,12 @@ export default {
   render(h) {
     const tableAttr = Object.assign({}, this.defaultAttr.table, this.configs.table.attr || {}) // 表格属性
     const columns = this.configs.columns // 列配置
-    const columnDefaultAttr =   Object.assign({}, this.defaultAttr.column , this.configs.columnDefault  || {} )// 列默认配置  
+    const columnDefaultAttr =   Object.assign({}, this.defaultAttr.column, this.configs.columnDefault  || {} )// 列默认配置  
     
     return (
       <yl-flexbox vertical isReverse>
         <div slot="flex" style="padding:3px 10px; box-sizing: border-box;">
-          <el-table
+          <el-table 
             ref="tableN"
             v-loading={this.tableloading}
             element-loading-text="加载中..."
@@ -217,23 +217,23 @@ export default {
             lazy={tableAttr.lazy}
             load={tableAttr.load}
             select-on-indeterminate={tableAttr.selectOnIndeterminate}
-            on-select={this.handleEvent("select")}
-            on-select-all={this.handleEvent("select-all")}
-            on-selection-change={this.handleEvent("selection-change")}
-            on-cell-mouse-enter={this.handleEvent("cell-mouse-enter")}
-            on-cell-mouse-leave={this.handleEvent("cell-mouse-leave")}
-            on-cell-click={this.handleEvent("cell-click")}
-            on-cell-dblclick={this.handleEvent("cell-dblclick")}
-            on-row-click={this.handleEvent("row-click")}
-            on-row-contextmenu={this.handleEvent("row-contextmenu")}
-            on-row-dblclick={this.handleEvent("row-dblclick")}
-            on-header-click={this.handleEvent("header-click")}
-            on-header-contextmenu={this.handleEvent("header-contextmenu")}
-            on-sort-change={this.handleEvent("sort-change")}
-            on-filter-change={this.handleEvent("filter-change")}
-            on-current-change={this.handleEvent("current-change")}
-            on-header-dragend={this.handleEvent("header-dragend")}
-            on-expand-change={this.handleEvent("expand-change")}
+            on-select={this.handleEvent('select')}
+            on-select-all={this.handleEvent('select-all')}
+            on-selection-change={this.handleEvent('selection-change')}
+            on-cell-mouse-enter={this.handleEvent('cell-mouse-enter')}
+            on-cell-mouse-leave={this.handleEvent('cell-mouse-leave')}
+            on-cell-click={this.handleEvent('cell-click')}
+            on-cell-dblclick={this.handleEvent('cell-dblclick')}
+            on-row-click={this.handleEvent('row-click')}
+            on-row-contextmenu={this.handleEvent('row-contextmenu')}
+            on-row-dblclick={this.handleEvent('row-dblclick')}
+            on-header-click={this.handleEvent('header-click')}
+            on-header-contextmenu={this.handleEvent('header-contextmenu')}
+            on-sort-change={this.handleEvent('sort-change')}
+            on-filter-change={this.handleEvent('filter-change')}
+            on-current-change={this.handleEvent('current-change')}
+            on-header-dragend={this.handleEvent('header-dragend')}
+            on-expand-change={this.handleEvent('expand-change')}
           >
             {this.renderItem(h, columns, columnDefaultAttr)}
 
@@ -260,6 +260,6 @@ export default {
          
         </div>
       </yl-flexbox>
-    );
+    )
   }
-};
+}

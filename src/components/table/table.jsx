@@ -149,7 +149,7 @@ export default {
     const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {}) // 列默认配置
     return (
       <yl-flexbox vertical isReverse>
-        <div slot='flex' style="padding:3px 10px box-sizing: border-box">
+        <div slot='flex' style="padding:3px 10px; box-sizing: border-box;">
           <el-table
             ref="table"
             v-loading={this.tableloading}

@@ -165,10 +165,10 @@ export default {
   render (h) {
     const tableAttr = Object.assign({}, this.defaultAttr.table, this.configs.table.attr || {}) // 表格属性
     const columns = this.configs.columns // 列配置
-    const columnDefaultAttr =   Object.assign({}, this.defaultAttr.column , this.configs.columnDefault  || {} )// 列默认配置
+    const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {})// 列默认配置
     return (
-      <yl-flexbox vertical  isReverse>
-        <div slot="flex" style="padding:3px 10px box-sizing: border-box">
+      <yl-flexbox vertical isReverse>
+        <div slot='flex' style="padding:3px 10px; box-sizing: border-box;">
           <el-table
             ref="tableR"
             v-loading={this.tableloading}
