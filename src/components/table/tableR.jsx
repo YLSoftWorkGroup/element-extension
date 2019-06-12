@@ -65,10 +65,10 @@ export default {
   },
   methods: {
     clearSelection (selection) {
-      this.$refs.table.clearSelection(selection)
+      this.$refs.tableR.clearSelection(selection)
     },
     toggleRowSelection (row, selected) {
-      this.$refs.table.toggleRowSelection(row, selected)
+      this.$refs.tableR.toggleRowSelection(row, selected)
     },
     handleEvent (action) {
       const _self = this

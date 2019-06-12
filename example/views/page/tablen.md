@@ -57,9 +57,9 @@
                         }
                     },
                     columns: [
-                        { attr: {type: "index",label: "序号", width: 55,align: "center", headerAlign: "center"}},
+                        { attr: { type: "index",label: "序号", width: 55, align: "center", headerAlign: "center"}},
                         { attr: { prop: "code", label: "编码", width: 120 } },
-                        { attr: { prop: "name", label: "名称", width: 160 } },
+                        { attr: { prop: "name", label: "名称", width: 160 , className: "column-style"} },
                         { attr: { prop: "model", label: "规格" } },
                         { attr: { prop: "unit", label: "单位", width: 70 } },
                         { attr: { prop: "quantity", label: "数量", width: 100 } },
@@ -155,3 +155,4 @@ input:{ //分页参数
 
 
 ---
+

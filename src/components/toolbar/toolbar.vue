@@ -15,16 +15,15 @@ export default {
     },
     mounted(){
     },
-    watch:{
-        
+    watch:{ 
     }
-    
+
 }
 </script>
 
 <style lang="postcss"  scoped>
 .yl-toolbar{
-  padding:4px;
+  padding:3px;
   padding-left: 10px;
   box-sizing:border-box;
   display: flex;
@@ -34,5 +33,5 @@ export default {
     margin: 0px 5px;
   }
 }
-    
+
 </style>

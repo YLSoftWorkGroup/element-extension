@@ -86,10 +86,10 @@ export default {
   },
   methods: {
     clearSelection(selection) {
-      this.$refs.table.clearSelection(selection);
+      this.$refs.tableN.clearSelection(selection);
     },
     toggleRowSelection(row, selected) {
-      this.$refs.table.toggleRowSelection(row, selected);
+      this.$refs.tableN.toggleRowSelection(row, selected);
     },
     handleEvent(action) {
       const _self = this;
