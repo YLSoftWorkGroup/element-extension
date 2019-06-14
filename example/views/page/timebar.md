@@ -8,12 +8,12 @@
 
   **示例：**
 
-  水平布局
 :::demo
   ```html
 
    <template>
      <yl-timebar 
+         ref ="timebar"
         :dataPickOptions="dataPickOptions"
         :currentValue="currentValue"
         :btnItems="btnItems"
@@ -32,9 +32,13 @@
                type:'datetime'
            },
            btnItems:{
-               day:true, week:true, month:true,year:true,
+              day:true,
+              week:true,
+              month:true,
+              quarter:true,
+              year:true
            },
-           currentValue:'day'
+           currentValue:'month'
        }
      },
      methods:{
