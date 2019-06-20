@@ -85,25 +85,25 @@ export default {
       }
   },
   methods: {
-    clearSelection(selection) {
+    clearSelection (selection) {
       this.$refs.tableN.clearSelection(selection);
     },
-    toggleRowSelection(row, selected) {
+    toggleRowSelection (row, selected) {
       this.$refs.tableN.toggleRowSelection(row, selected);
     },
-    handleEvent(action) {
+    handleEvent (action) {
       const _self = this;
-      return function() {
+      return function () {
         _self.$emit(action, ...arguments);
       };
     },
-    prevClick(val){
+    prevClick (val) {
       this.$el.getElementsByClassName('btn-prev')[0].disabled=true;
       this.input.draw = val;
       this.input.offset = (this.input.limit-1) * (val - 1);
       this.$emit('reload');
     },
-    nextClick(val){
+    nextClick (val) {
       this.$el.getElementsByClassName('btn-next')[0].disabled=true;
       this.input.draw = val;
       this.input.offset = (this.input.limit-1) * (val - 1);
