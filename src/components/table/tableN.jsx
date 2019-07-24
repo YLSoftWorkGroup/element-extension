@@ -175,12 +175,11 @@ export default {
   render(h) {
     const tableAttr = Object.assign({}, this.defaultAttr.table, this.configs.table.attr || {}) // 表格属性
     const columns = this.configs.columns // 列配置
-    const columnDefaultAttr =   Object.assign({}, this.defaultAttr.column, this.configs.columnDefault  || {} )// 列默认配置  
-    
+    const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {}) // 列默认配置  
     return (
       <yl-flexbox vertical isReverse>
         <div slot="flex" style="padding:3px 10px; box-sizing: border-box;">
-          <el-table 
+          <el-table
             ref="tableN"
             v-loading={this.tableloading}
             element-loading-text="加载中..."
@@ -241,23 +240,22 @@ export default {
         </div>
         <div slot="fixed">
           <yl-toolbar style="text-align:center">
-              <el-pagination
-                on-prev-click={this.prevClick}
-                on-next-click={this.nextClick}
-                current-page={this.input.draw}
-                page-size={this.paginationAttr.pageSize}
-                prev-text={this.paginationAttr.prevText}
-                next-text={this.paginationAttr.nextText}
-                disabled={this.paginationAttr.disabled}
-                background={this.paginationAttr.background}
-                layout={this.paginationAttr.layout}
-                small={this.paginationAttr.small}
-              />
-               <span style="color: #606266;display: inline-block;font-size: 13px;line-height:28px;padding-bottom:4px;">
-                第{this.input.draw}页
-              </span>
+            <el-pagination
+              on-prev-click={this.prevClick}
+              on-next-click={this.nextClick}
+              current-page={this.input.draw}
+              page-size={this.paginationAttr.pageSize}
+              prev-text={this.paginationAttr.prevText}
+              next-text={this.paginationAttr.nextText}
+              disabled={this.paginationAttr.disabled}
+              background={this.paginationAttr.background}
+              layout={this.paginationAttr.layout}
+              small={this.paginationAttr.small}
+            />
+            <span style="color: #606266;display: inline-block;font-size: 13px;line-height:28px;padding-bottom:4px;">
+              第{this.input.draw}页
+            </span>
           </yl-toolbar>
-         
         </div>
       </yl-flexbox>
     )

@@ -4,14 +4,14 @@
     <div slot="flex"
       v-loading="listloading"
       element-loading-text="加载中...">
-      <div class="list-warpper" :class="wrapClass">
+      <div v-if="pageData.length" class="list-warpper" :class="wrapClass">
         <div v-for="(item,index) in pageData" :key="index"
           :class="itemWrapClass"
           class="item-warpper">
           <slot :item="item" />
         </div>
       </div>
-      <div v-if="!pageData.length" class="nodata">暂无数据</div>
+      <div v-else class="nodata">暂无数据</div>
     </div>
     <div slot="fixed">
       <yl-toolbar>
@@ -145,7 +145,7 @@
   height: 100%;
 }
 .nodata {
-  height: 100px;
+  height: 60px;
   text-align: center;
   font-size: 14px;
   padding-top: 80px;

@@ -97,7 +97,6 @@ export default {
           : array.slice(offset, offset + pageSize)
     },
     renderItem (h, columns, columnDefaultAttr) {
-      console.log(columns)
       return columns.map(column => {
         const columnAttr = Object.assign({}, columnDefaultAttr, column.attr)
         if (column.isParent) {
