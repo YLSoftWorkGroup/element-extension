@@ -184,7 +184,7 @@ export default {
 </script>
 
 <style>
-.amap-wrapper {width: 300px; height: 300px;position:relative ;}
+.amap-wrapper {width: 100%; height: 300px;position:relative ;}
 .search-box { position:absolute !important; top: 15px;left: 40px;}
 .amap-box {width:100%;height:100%;}
 .amap-toolbar {top:60px !important;}

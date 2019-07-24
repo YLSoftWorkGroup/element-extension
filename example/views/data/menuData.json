@@ -55,14 +55,29 @@
                 "url":"/timebar"
             },
             {
-                "label":"treeSelect",
-                "name":"treeSelect",
-                "url":"/treeSelect"
+                "label":"treeselect",
+                "name":"treeselect",
+                "url":"/treeselect"
             },
             {
                 "label":"tableedit",
                 "name":"tableedit",
                 "url":"/tableedit"
+            },
+            {
+                "label":"dataDictionaryForSel",
+                "name":"dataDictionaryForSel",
+                "url":"/dataDictionaryForSel"
+            },
+            {
+                "label":"dataDictionaryForTree",
+                "name":"dataDictionaryForTree",
+                "url":"/dataDictionaryForTree"
+            },
+            {
+                "label":"comDataDictionary",
+                "name":"comDataDictionary",
+                "url":"/comDataDictionary"
             }
         ]
     },
