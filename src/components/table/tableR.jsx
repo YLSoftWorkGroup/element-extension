@@ -155,6 +155,7 @@ export default {
   watch: {
     tableData: function (n, o) {
       if (n.length > 0) {
+        this.currentPage = 1
         this.getpagination()
       } else {
         this.pageData = []

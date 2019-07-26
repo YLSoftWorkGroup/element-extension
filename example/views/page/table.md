@@ -1,39 +1,42 @@
 
-  #### tabler
+  #### table
 
-  > 标签： `<yl-tabler></yl-tabler>` 
+  > 标签： `<yl-table></yl-table>` 
 
 
-  **功能：**  提供树形方式的数据表格呈现组件
+  **功能：**  提供分页方式的数据表格呈现组件
 
   **示例：**
 :::demo
+
   ```html
 
    <template>
 
- <yl-tabler style=""
-        :tableloading="tableRloading"
-        :tableData=tableDataR
-        :configs="tableRConfig"
-        :pagination="pagination"
->
-    <template
+ <yl-table style="height:300px"
+       :tableloading="tableloading"
+       :configs="tableConfig"
+       :input="tableParams"
+       :pagination="pagination"
+       @reload="gettableData"
+  >
+     <template
         slot="createdAt"
         slot-scope="scope"
     >{{formatDate(scope.row.created,'YYYY-MM-DD hh:mm:ss')}}
     </template>
-</yl-tabler>
+  </yl-table>
+
    </template>
-   
    <script>
-   import DataR from '../data/DataR.json'
+   import Data from '../data/data.json'
    import dayjs from 'dayjs'
    export default {
      data(){
        return {
-            tableRloading:false,
-            tableDataR:[],
+            tableloading:false,
+            tableData:[],
+            tableParams:this.paramsModel(),
             pagination:{
                  small: false,
                  background: true,
@@ -44,18 +47,17 @@
        }
      },
      computed:{
-         tableRConfig: {
+         tableConfig: {
             get() {
                 return {
                     table: {
                         attr: {
-                            highlightCurrent: true,
-                            lazy:true,
-                            load:this.trLoad,
-                            rowKey:"id"
+                        data: this.tableData,
+                        highlightCurrent: true
                         }
                     },
                     columns: [
+                        {attr: {type: "index",label: "序号", width: 55,align: "center", headerAlign: "center"}},
                         { attr: { prop: "code", label: "编码", width: 120 } },
                         { attr: { prop: "name", label: "名称", width: 160 } },
                         { attr: { prop: "model", label: "规格" } },
@@ -71,15 +73,32 @@
        formatDate(value,format){
            return dayjs(value).format(format);
         },
-        gettableDataR(){
-            this.tableDataR=DataR.map((i,index)=>{
-                return i
-            });
-            this.tableDataR[0].hasChildren=true;
+        paramsModel (limit = 10, draw = 1, order = [], condtionItems = []) {
+            return {
+                limit: limit,
+                draw: draw,
+                offset: limit * (draw - 1),
+                order: order,
+                condtionItems: condtionItems
+            }
         },
+          gettableData(){
+            this.tableloading=true
+            setTimeout(()=>{
+                this.tableloading=false
+                let offset=this.tableParams.offset;
+                let limit=this.tableParams.limit;
+                const DataSource = Data
+                const data ={ rows:[],count:45};
+                data.rows = offset  >= DataSource.rows.length
+                ? DataSource.rows.slice(offset, DataSource.rows.length)
+                : DataSource.rows.slice(offset, offset + limit)
+                this.tableData = data
+            },1000)
+        }
      },
      mounted(){
-       this.gettableDataR();
+       this.gettableData();
     }
    }
    </script>

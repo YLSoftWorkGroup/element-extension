@@ -15,6 +15,9 @@ import Tablen from './components/table/tablen.jsx'
 import Tabler from './components/table/tabler.jsx'
 import OnlyTable from './components/table/onlytable.jsx'
 import Map from './components/map/Map.vue'
+import DataDictionaryForSel from './components/datadictionary/dataDictionaryForSel.vue'
+import DataDictionaryForTree from './components/datadictionary/dataDictionaryForTree.vue'
+import ComDataDictionary from './components/comdatadictionary/comDataDictionary.vue'
 
 const components = [
   Flexbox,
@@ -33,7 +36,10 @@ const components = [
   Treeselect,
   Commontree,
   Commonpaneltree,
-  Map
+  Map,
+  DataDictionaryForSel,
+  DataDictionaryForTree,
+  ComDataDictionary
 ]
 
 const install = function (Vue) {
@@ -65,5 +71,8 @@ export default {
   Treeselect,
   Commontree,
   Commonpaneltree,
-  Map
+  Map,
+  DataDictionaryForSel,
+  DataDictionaryForTree,
+  ComDataDictionary
 }

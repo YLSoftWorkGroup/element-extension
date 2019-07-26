@@ -53,8 +53,8 @@
       },
       listData: {
         type: Array,
-        default: function() {
-          return [];
+        default: function () {
+          return []
         }
       },
       pagination: {
@@ -103,6 +103,7 @@
     watch: {
       listData: function (n, o) {
         if (n.length > 0) {
+          this.currentPage = 1
           this.getpagination()
         } else {
           this.pageData = []
