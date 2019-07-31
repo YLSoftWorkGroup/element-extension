@@ -9,13 +9,13 @@
 :::demo
   ```html
 <template>
-   <yl-dataDictionaryForTree 
+   <yl-DataDictionaryForTree 
         :code="'ceshi'" 
         v-model="dataDictionaryText"  
         :isexpand="true"
         @getCurrentNode="_getCurrentNode"  
         style="width:200px">
-   </yl-dataDictionaryForTree>
+   </yl-DataDictionaryForTree>
 </template>
  <script>
    import DataDiction from '../data/dataDiction.json'

@@ -85,25 +85,25 @@ export default {
       }
   },
   methods: {
-    clearSelection(selection) {
+    clearSelection (selection) {
       this.$refs.tableN.clearSelection(selection);
     },
-    toggleRowSelection(row, selected) {
+    toggleRowSelection (row, selected) {
       this.$refs.tableN.toggleRowSelection(row, selected);
     },
-    handleEvent(action) {
+    handleEvent (action) {
       const _self = this;
-      return function() {
+      return function () {
         _self.$emit(action, ...arguments);
       };
     },
-    prevClick(val){
+    prevClick (val) {
       this.$el.getElementsByClassName('btn-prev')[0].disabled=true;
       this.input.draw = val;
       this.input.offset = (this.input.limit-1) * (val - 1);
       this.$emit('reload');
     },
-    nextClick(val){
+    nextClick (val) {
       this.$el.getElementsByClassName('btn-next')[0].disabled=true;
       this.input.draw = val;
       this.input.offset = (this.input.limit-1) * (val - 1);
@@ -175,12 +175,11 @@ export default {
   render(h) {
     const tableAttr = Object.assign({}, this.defaultAttr.table, this.configs.table.attr || {}) // 表格属性
     const columns = this.configs.columns // 列配置
-    const columnDefaultAttr =   Object.assign({}, this.defaultAttr.column, this.configs.columnDefault  || {} )// 列默认配置  
-    
+    const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {}) // 列默认配置  
     return (
       <yl-flexbox vertical isReverse>
         <div slot="flex" style="padding:3px 10px; box-sizing: border-box;">
-          <el-table 
+          <el-table
             ref="tableN"
             v-loading={this.tableloading}
             element-loading-text="加载中..."
@@ -241,23 +240,22 @@ export default {
         </div>
         <div slot="fixed">
           <yl-toolbar style="text-align:center">
-              <el-pagination
-                on-prev-click={this.prevClick}
-                on-next-click={this.nextClick}
-                current-page={this.input.draw}
-                page-size={this.paginationAttr.pageSize}
-                prev-text={this.paginationAttr.prevText}
-                next-text={this.paginationAttr.nextText}
-                disabled={this.paginationAttr.disabled}
-                background={this.paginationAttr.background}
-                layout={this.paginationAttr.layout}
-                small={this.paginationAttr.small}
-              />
-               <span style="color: #606266;display: inline-block;font-size: 13px;line-height:28px;padding-bottom:4px;">
-                第{this.input.draw}页
-              </span>
+            <el-pagination
+              on-prev-click={this.prevClick}
+              on-next-click={this.nextClick}
+              current-page={this.input.draw}
+              page-size={this.paginationAttr.pageSize}
+              prev-text={this.paginationAttr.prevText}
+              next-text={this.paginationAttr.nextText}
+              disabled={this.paginationAttr.disabled}
+              background={this.paginationAttr.background}
+              layout={this.paginationAttr.layout}
+              small={this.paginationAttr.small}
+            />
+            <span style="color: #606266;display: inline-block;font-size: 13px;line-height:28px;padding-bottom:4px;">
+              第{this.input.draw}页
+            </span>
           </yl-toolbar>
-         
         </div>
       </yl-flexbox>
     )

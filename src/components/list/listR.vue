@@ -2,14 +2,14 @@
 <template>
   <yl-flexbox class="yl-list" vertical  isReverse>
     <div slot="flex" v-loading="listloading" element-loading-text="加载中...">
-     <div class="list-warpper" :class="wrapClass">
+     <div v-if="pageData.length" class="list-warpper" :class="wrapClass">
         <div v-for="(item,index) in pageData" :key="index"
           :class="itemWrapClass"
           class="item-warpper">
           <slot :item="item" />
         </div>
       </div>
-      <div v-if="pageData.length==0" class="nodata">暂无数据</div>
+      <div v-else class="nodata">暂无数据</div>
     </div>
     <div slot="fixed">
       <yl-toolbar>
@@ -53,8 +53,8 @@
       },
       listData: {
         type: Array,
-        default: function() {
-          return [];
+        default: function () {
+          return []
         }
       },
       pagination: {
@@ -103,6 +103,7 @@
     watch: {
       listData: function (n, o) {
         if (n.length > 0) {
+          this.currentPage = 1
           this.getpagination()
         } else {
           this.pageData = []

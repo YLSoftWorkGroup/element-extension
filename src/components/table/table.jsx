@@ -206,12 +206,10 @@ export default {
             on-expand-change={this.handleEvent('expand-change')}
           >
             {this.renderItem(h, columns, columnDefaultAttr)}
-
           </el-table>
         </div>
         <div slot="fixed">
           <yl-toolbar style="text-align:center">
-
             <el-pagination
               on-size-change={this.handleSizeChange}
               on-current-change={this.handleCurrentChange}
@@ -226,7 +224,6 @@ export default {
               layout={this.paginationAttr.layout}
               small={this.paginationAttr.small}
             />
-
           </yl-toolbar>
         </div>
       </yl-flexbox>

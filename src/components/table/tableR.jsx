@@ -81,7 +81,7 @@ export default {
       this.getpagination()
     },
     handleCurrentChange (val) {
-      this.currentPage=val
+      this.currentPage = val
       this.getpagination()
     },
     loading () {
@@ -90,7 +90,7 @@ export default {
     getpagination () {
       let array = this.tableData
       let pageSize = this.paginationAttr.pageSize
-      let offset = this.paginationAttr.pageSize*(this.currentPage-1)
+      let offset = this.paginationAttr.pageSize * (this.currentPage - 1)
       this.pageData =
         offset + pageSize >= array.length
           ? array.slice(offset, array.length)
@@ -110,7 +110,7 @@ export default {
               class-name={columnAttr.className}
               label-class-name={columnAttr.labelClassName}
             >
-              {this.renderItem(column.items, columnDefaultAttr)}
+              {this.renderItem(h, column.items, columnDefaultAttr)}
             </el-table-column>
           )
         } else {
@@ -138,7 +138,6 @@ export default {
               label-class-name={columnAttr.labelClassName}
               selectable={columnAttr.selectable}
               reserve-selection={columnAttr.reserveSelection}
-
               filters={columnAttr.filters}
               filter-placement={columnAttr.filterPlacement}
               filter-multiple={columnAttr.filterMultiple}
@@ -156,6 +155,7 @@ export default {
   watch: {
     tableData: function (n, o) {
       if (n.length > 0) {
+        this.currentPage = 1
         this.getpagination()
       } else {
         this.pageData = []

@@ -67,7 +67,6 @@
                 data = offset >= DataSource.length
                 ? DataSource.slice(offset, DataSource.length)
                 : DataSource.slice(offset, offset + limit)
-                console.log(data)
                 this.listNData = data
             },1000)
         },
