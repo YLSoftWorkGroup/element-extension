@@ -27,31 +27,7 @@ export default {
     },
     data(){
         return{
-            treedata:[
-                {
-                    "id": 531817854578688,
-                    "orgId": 521304275808256,
-                    "parentId": -1,
-                    "name": "存放地1",
-                    "dictType": "storageLocation",
-                    "fullId": "531817854578688",
-                    "fullName": "存放地1",
-                    "level": 1,
-                    "isLeaf": false,
-                    "isTree": false,
-                    "code": "01",
-                    "remark": "",
-                    "sortCode": 1,
-                    "isRemoved": false,
-                    "creatorId": 10004,
-                    "creatorName": "租户管理员",
-                    "createdAt": "2019-07-03T07:46:29.000Z",
-                    "modifierId": 10004,
-                    "modifierName": "租户管理员",
-                    "updatedAt": "2019-07-03T07:46:29.000Z",
-                    "version": 531817854578688
-                }
-            ],
+            treedata:[],
             defaultProps: {
               children: 'children',
               label: 'text',

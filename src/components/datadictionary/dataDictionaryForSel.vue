@@ -21,23 +21,7 @@ export default {
     name: 'YlDataDictionaryForSel',
     data(){ 
         return{
-            data:[
-                 {
-                    "id": 536618993086976,
-                    "name": "吨",
-                    "code": "Ton"
-                },
-                {
-                    "id": 536619111953408,
-                    "name": "千克",
-                    "code": "Kilogram"
-                },
-                {
-                    "id": 536620111761408,
-                    "name": "方",
-                    "code": "001"
-                }
-            ],
+            data:[],
             defaultProps: {
               children: 'children',
               label: 'text',
@@ -87,7 +71,7 @@ export default {
             this.$emit('getCurrentvalue',val);
         },
         _getTreeList(){
-           this.$http.get( '/cbaseinfo/g-data-dictionary-code' + this.code) .then(data => {
+           this.$http.get( '/cbaseinfo/g-data-dictionary-code/' + this.code) .then(data => {
                     resolve(data);
                 })
             },
