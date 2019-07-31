@@ -25,16 +25,16 @@
     components: {
       'yl-treeselect': treeselect
     },
-    data(){
-        return{
-            treedata:[],
-            defaultProps: {
-              children: 'children',
-              label: 'text',
-              id: 'id'
-            },
-            textOnly:true,
-        }
+    data () {
+      return {
+        treedata: [],
+        defaultProps: {
+          children: 'children',
+          label: 'text',
+          id: 'id'
+        },
+        textOnly: true,
+      }
     },
     props: {
       code: {
