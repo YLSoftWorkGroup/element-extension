@@ -72,7 +72,7 @@ export default {
         },
         _getTreeList(){
            this.$http.get( '/cbaseinfo/g-data-dictionary-code/' + this.code) .then(data => {
-                    resolve(data);
+                this.data = data
                 })
             },
          _setCurrentValue(value) {
