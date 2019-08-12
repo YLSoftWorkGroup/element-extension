@@ -94,9 +94,16 @@
   ```
 :::
 
+::: warning
+*注意* `list`、`listn`、`table`、`tablen`等组件在过滤器控件或查询按钮查询时要注意重置分页参数,以防止重新查询后数据分页错乱问题。
+:::
+
+
 **属性**
 
 ```js
+ wrapClass: "wrap-class" // 内容块外层类名称
+ itemWrapClass: "item-wrap-class" // 内容块内层类名称
  listloading:true/false  // 数据加载遮罩层
  listData:[  // 数据
      {}  // data项结构
@@ -109,7 +116,6 @@
     nextText:'下一页',
     layout: "prev, next" 
  } 
-
  input:{ //分页参数 
     limit: limit,
     draw: draw,

@@ -1,64 +1,64 @@
-#### dataDictionaryForTree
+#### datadictionaryfortree
 
-> 标签： `<yl-DataDictionaryForTree></yl-DataDictionaryForTree>`
+> 标签： `<yl-datadictionaryfortree />`
 
 
-  **功能：**  提供字典平行结构
+  **功能：**  提供树形结构字典
 
   **示例：**
-:::demo
-  ```html
+
+```html
+
 <template>
-   <yl-DataDictionaryForTree 
-        :code="'ceshi'" 
-        v-model="dataDictionaryText"  
-        :isexpand="true"
-        @getCurrentNode="_getCurrentNode"  
-        style="width:200px">
-   </yl-DataDictionaryForTree>
+    <datadictionaryfortree 
+      v-model="value"
+      width="320px"
+      code="StoreRoom"
+      placeholder="选择字段"
+      @clear="_clear"
+      @getCurrentValue = "_getCurrentValue"
+    />
 </template>
  <script>
-   import DataDiction from '../data/dataDiction.json'
    export default {
      data(){
        return {
-            formModel:{
-                 infoThrUnit:''
-            }
+          value:''
        }
      },
      methods:{
+      _clear(){
+        console.log (this.testvalue)
+      },
+      _getCurrentValue(node) {
+        console.log(node)
+      },
      },
      mounted(){
+       
     }
    }
    </script>
+   <style lang="css" >
+   </style>
 
-   ```
-:::
+```
 
-  **属性**
+ **属性**
 
   | 参数        | 说明           |类型   |默认值|可选值|
   | ------------- |:-------------:| -----:|---:|---:|
-  | code| 编码code | Stirng|"" |--|
-  | placeholder| 提示文本 | String|"" |--|
-  | disabled| 是否禁用 | Boolean|false |false/true|
-  | size| 控件大小 | String|"" |--|
-  | clearable| 清除 | Boolean|false |false/true|
-  | isexpand| 是否默认展开 | Boolean|false |false/true|
-  | filterVisibe| 是否显示过滤框 | Boolean|false |false/true|
-  | autofocus| 是否聚焦 | Boolean|false |false/true|
-  | readonly| 是否只读 | Boolean|false |false/true|
+  | code| 字典编码 | String|"" |--|
+  | width| 控件宽度 | String|"240px" |--|
+  | size| 输入框大小  | String|'small' |参考el-input的size属性|
+  | disabled| 禁用状态  | Boolean|false |true/false|
+  | placeholder| 提示输入文本  | String|'' |--|
  
 
-  **方法**
-  暂无
+  **事件**
 
- 
- **事件**
-
-| 事件        | 说明           |参数   |
-| ------------- |:-------------:| -----:|
-| getCurrentNode| 选中节点时触发 | 为当前选中节点的data的值|
-| clear| 清除选中项时触发 | 为当前选中节点的data的值|
+  | 事件        | 说明           |参数   |
+  | ------------- |:-------------:| -----:|
+  | getCurrentValue| 点击节点时触发 | 当前节点名称|
+  
+---

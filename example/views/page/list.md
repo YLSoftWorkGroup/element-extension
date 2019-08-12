@@ -4,19 +4,19 @@
   > 标签： `<yl-list></yl-list>` 
 
 
-  **功能：**  提供上一页/下一页翻页方式的数据呈现组件
+  **功能：**  提供带分页控件的数据呈现组件
 
   **示例：**
+
 :::demo
   ```html
    <template> 
-
      <yl-list style="height:220px"
         :listloading="listloading"
         :input="listParams"
         :listData=listData
-        @reload="getlistData"
         :pagination="pagination"
+        @reload="getlistData"
     >
         <template v-slot:default="slotProps">
               <span>{{ slotProps.item.code }}</span>
@@ -26,6 +26,7 @@
     </yl-list>
 
    </template>
+
    <script>
    import Data from '../data/data.json'
    export default {
@@ -69,7 +70,6 @@
                 : DataSource.rows.slice(offset, offset + limit)
                 this.listData = data
             },1000)
-            
         },
      },
      mounted(){
@@ -78,27 +78,21 @@
    }
    </script>
    <style lang="css" >
-   .list_warpper{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    .item_warpper{
-      width:300px;
-      height:180px;
-      padding:10px;
-      margin:15px;
-      border: 1px solid #ddd;
-    }
     </style>
 
   ```
 :::
 
+::: warning
+*注意* `list`、`listn`、`table`、`tablen`等组件在过滤器控件或查询按钮查询时要注意重置分页参数,以防止重新查询后数据分页错乱问题。
+:::
+
 **属性**
 
 ```js
- listloading:true/false  // 数据加载遮罩层
+ wrapClass: "wrap-class" // 内容块外层类名称
+ itemWrapClass: "item-wrap-class" // 内容块内层类名称
+ listloading: true/false  // 数据加载遮罩层
  listData:[  // 数据
      {}  // data项结构
  ]    
@@ -118,6 +112,7 @@
     order: order,
     condtionItems: condtionItems
 }
+
 ```
 
  **事件**

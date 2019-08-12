@@ -323,7 +323,7 @@ config配置
 ```js
   // number类型输入控件
   {
-    type:'inputNum', //选用控件类型  （支持控件参考支持列表）
+    type:'inputNum', //选用控件类型  
     name: "t_quantity", //对应属性名
     elmentConfig: {  // 对应控件属性配置
       type: "text",  
@@ -341,7 +341,7 @@ config配置
   },
   // 文本类型输入控件
   {
-    type:'inputText', //选用控件类型  （支持控件参考支持列表）
+    type:'inputText', //选用控件类型  
     name: "t_quantity", //对应属性名
     elmentConfig: {  // 对应控件属性配置
       type: "text",  
@@ -356,6 +356,136 @@ config配置
       }
     }
   },
+  // 选择框控件
+  {
+    type:'checkbox', //选用控件类型 
+    name: "attrName", //对应属性名
+    elmentConfig: {  // 对应控件属性配置
+      label: "禁用",
+      disabled: false
+    },   
+    eventConf: {
+      isOn: true, //是否开启事件
+      init: function(option,row){  //初始化事件
+      },
+      change:function(node,option,row){ // 控件对应事件
+      }
+    }
+  },
+  // 日期控件
+  {
+    type:'datePicker', //选用控件类型  
+    name: "attrName", //对应属性名
+    elmentConfig: {  // 对应控件属性配置
+      type: "",
+      size: "",
+      placeholder: "",
+      format: "",
+      align: "",
+      default: "",
+      disabled: false,
+      editable: false,
+      clearable: false,
+    },   
+    eventConf: {
+      isOn: true, //是否开启事件
+      init: function(option,row){  //初始化事件
+      },
+      change:function(node,option,row){ // 控件对应事件
+      }
+    }
+  },
+  // 选择控件
+  {
+    type:'select', //选用控件类型  
+    name: "attrName", //对应属性名
+    elmentConfig: {  // 对应控件属性配置
+      type: "",
+      size: "",
+      placeholder: "",
+      disabled: false,
+      clearable: false,
+    },   
+    eventConf: {
+      isOn: true, //是否开启事件
+      init: function(option,row){  //初始化事件
+      },
+      change:function(node,option,row){ // 控件对应事件
+      }
+    }
+  },
+  // span控件
+  {
+    type:'span', //选用控件类型 
+    name: "attrName", //对应属性名
+    elmentConfig: {  // 对应控件属性配置
+      format: "", //html内容块
+    },   
+    eventConf: {
+      isOn: true, //是否开启事件
+      init: function(option,row){  //初始化事件
+      },
+    }
+  },
+  // 平行字典控件
+  {
+    type:'dataDictionaryForSel', //选用控件类型  
+    name: "attrName", //对应属性名
+    elmentConfig: {  // 对应控件属性配置
+      code: "",
+      size: "",
+      placeholder: "",
+      disabled: false,
+      clearable: false,
+    },   
+    eventConf: {
+      isOn: true, //是否开启事件
+      init: function(option,row){  //初始化事件
+      },
+      getCurrentValue:function(node,option,row){ // 控件对应事件
+      }
+    }
+   },
+   // 树结构字典树控件
+  {
+    type:'dataDictionaryForTree', //选用控件类型  
+    name: "attrName", //对应属性名
+    elmentConfig: {  // 对应控件属性配置
+      code: "",
+      size: "",
+      placeholder: "",
+      disabled: false,
+      clearable: false,
+    },   
+    eventConf: {
+      isOn: true, //是否开启事件
+      init: function(option,row){  //初始化事件
+      },
+      getCurrentValue:function(node,option,row){ // 控件对应事件
+      }
+    }
+   },
+   // 单位字典库控件
+  {
+    type:'comDataDictionary', //选用控件类型  
+    name: "attrName", //对应属性名
+    elmentConfig: {  // 对应控件属性配置
+      code: "",
+      size: "",
+      placeholder: "",
+      disabled: false,
+      width: "",
+      rootName: "",
+      orgId: "",
+    },   
+    eventConf: {
+      isOn: true, //是否开启事件
+      init: function(option,row){  //初始化事件
+      },
+      getCurrentNode:function(node,option,row){ // 控件对应事件
+      }
+    }
+   },
 ```
 
 映射数据配置

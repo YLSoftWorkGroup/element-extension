@@ -1,5 +1,11 @@
 #### 更新日志
 
+##### 2019.08.12
+v1.1.13
+1. 修复list组件报错问题
+2. 新增了`datadictionaryforsel`,`datadictionaryfortree`,`comdatadictionary`组件,并且`tableedit`组件行内组件可渲染这些组件。
+3. 不全目前提供的组件文档。
+
 ##### 2019.07.24
 v1.1.11
 1. 处理tabler、listr分页重置bug

@@ -60,24 +60,34 @@
                 "url":"/treeselect"
             },
             {
+                "label":"commontree",
+                "name":"commontree",
+                "url":"/commontree"
+            },
+            {
+                "label":"commontreewithpanel",
+                "name":"commontreewithpanel",
+                "url":"/commontreewithpanel"
+            },
+            {
+                "label":"datadictionaryforsel",
+                "name":"datadictionaryforsel",
+                "url":"/datadictionaryforsel"
+            },
+            {
+                "label":"datadictionaryfortree",
+                "name":"datadictionaryfortree",
+                "url":"/datadictionaryfortree"
+            },
+            {
+                "label":"comdatadictionary",
+                "name":"comdatadictionary",
+                "url":"/comdatadictionary"
+            },
+            {
                 "label":"tableedit",
                 "name":"tableedit",
                 "url":"/tableedit"
-            },
-            {
-                "label":"dataDictionaryForSel",
-                "name":"dataDictionaryForSel",
-                "url":"/dataDictionaryForSel"
-            },
-            {
-                "label":"dataDictionaryForTree",
-                "name":"dataDictionaryForTree",
-                "url":"/dataDictionaryForTree"
-            },
-            {
-                "label":"comDataDictionary",
-                "name":"comDataDictionary",
-                "url":"/comDataDictionary"
             }
         ]
     },

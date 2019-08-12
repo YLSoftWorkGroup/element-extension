@@ -4,7 +4,7 @@
   > 标签： `<yl-listr></yl-listr>` 
 
 
-  **功能：**  提供上一页/下一页翻页方式的数据呈现组件
+  **功能：**  获取全部数据后再分页控件
 
   **示例：**
 :::demo
@@ -80,6 +80,8 @@
 **属性**
 
 ```js
+ wrapClass: "wrap-class" // 内容块外层类名称
+ itemWrapClass: "item-wrap-class" // 内容块内层类名称
  listloading:true/false  // 数据加载遮罩层
  listData:[  // 数据
      {}  // data项结构

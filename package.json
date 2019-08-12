@@ -1,6 +1,6 @@
 {
   "name": "element-extension",
-  "version": "1.1.11",
+  "version": "1.1.13",
   "description": "基于elementUI组件扩展组件库",
   "main": "lib/element-extension.js",
   "scripts": {
@@ -14,7 +14,7 @@
   "repository": {
     "url": "https://github.com/YLSoftWorkGroup/element-extension"
   },
-  "homepage": "https://ylsoftworkgroup.github.io/element-extension/#/base",  
+  "homepage": "https://ylsoftworkgroup.github.io/element-extension/#/base",
   "keywords": [
     "vue",
     "component",
@@ -30,7 +30,7 @@
     "@babel/plugin-transform-runtime": "^7.3.4",
     "@babel/preset-env": "^7.3.4",
     "@babel/runtime": "^7.3.4",
-    "autoprefixer": "^9.5.1",
+    "autoprefixer": "^9.6.1",
     "babel-helper-vue-jsx-merge-props": "^2.0.3",
     "babel-loader": "^8.0.5",
     "babel-plugin-syntax-jsx": "^6.18.0",

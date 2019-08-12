@@ -11,7 +11,8 @@
       :placeholder="placeholder"
       :suffix-icon="suffixIcon"
       :value="currentValue"></el-input>
-    <el-popover ref="selectPanel" v-model="selectPanelVisible" placement="bottom-start" :width="popoverWidth" trigger="click">
+    <el-popover ref="selectPanel" v-model="selectPanelVisible" placement="bottom-start" :width="popoverWidth"
+      trigger="click">
       <el-scrollbar wrap-class="treepanel" view-class="treepanel_view">
         <div class="el-tree-toolbar" v-if="displaytoolBar">
           <el-button type="primary" size="mini" round plain @click="_clear">清除</el-button>
@@ -28,14 +29,13 @@
           ref="treeSelect"
           :lazy="stepByOne"
           :load="loadNode"
-          :empty-text="emptyText"
           :data="treeData"
           :expand-on-click-node="false"
           :props="defaultProps"
           :node-key="defaultProps.id"
           :default-expanded-keys="defaultExpandedKeys"
           :filter-node-method="filterNode"
-          :render-content="renderContent"
+          :render-content="renderC"
           @node-click.self="handleNodeClick"></el-tree>
       </el-scrollbar>
     </el-popover>
@@ -43,27 +43,27 @@
 </template>
 
 <script type="text/babel">
+  import treeMixn from '../../utils/tree.jsx'
   export default {
     name: "ylTreeselect",
-    componentName: "ylTreeselect",
+    mixins: [treeMixn],
     data () {
       return {
         selectNode: {},
         filterText: "",
         suffixIcon: "el-icon-caret-down",
-        emptyText: "暂无数据",
         selectPanelVisible: false
       };
     },
     props: {
       width: {
-        type: [String, Number],
+        type: [String],
         default: "240px"
       },
       treeData: {
         type: Array,
         default: function () {
-          return [];
+          return []
         }
       },
       defaultExpandedKeys: {
@@ -80,7 +80,12 @@
         required: false,
         type: Object,
         default: function () {
-          return {};
+          return {
+            label: "label",
+            children: "children",
+            disabled: "disabled",
+            isLeaf: "isLeaf"
+          }
         }
       },
       value: [String, Number], //显示名称
@@ -107,7 +112,7 @@
       },
       filterTextVisibe: {
         type: Boolean,
-        default: true
+        default: false
       },
       displaytoolBar: {
         type: Boolean,
@@ -115,6 +120,10 @@
       }
     },
     computed: {
+      renderC: function () {
+        if (this.renderContent) return this.renderContent
+        return this.renderContents
+      },
       popoverWidth: function () {
         return parseInt(this.width.substr(0, this.width.length - 2));
       },
@@ -135,7 +144,7 @@
             if (this.selectNode.id == undefined) {
               inputText = this.defaultText;
             } else {
-              inputText = this.selectNode.name;
+              inputText = this.selectNode[this.defaultProps.label];
             }
           } else if (this.treeData.length) {
             // 全部加载
@@ -147,7 +156,7 @@
                 inputText = "";
               }
             } else {
-              inputText = this.selectNode.name;
+              inputText = this.selectNode[this.defaultProps.label];
             }
           }
           return inputText
@@ -175,13 +184,13 @@
       },
       filterNode (value, data) {
         if (!value) return true;
-        return data.name.indexOf(value) !== -1;
+        return data[this.defaultProps.label].indexOf(value) !== -1;
       },
       getNodeName (data, id) {
         let temp;
         for (let i in data) {
           if (data[i].id == id) {
-            return data[i].name;
+            return data[i][this.defaultProps.label];
           } else {
             if (data[i].children != null) {
               temp = data[i].children;
@@ -190,8 +199,6 @@
           }
         }
       }
-    },
-    mounted () {
     },
     watch: {
       selectPanelVisible: function (n) {
@@ -205,7 +212,7 @@
         this.$refs.treeSelect.filter(val)
       }
     }
-  };
+  }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->

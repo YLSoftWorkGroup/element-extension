@@ -1,64 +1,65 @@
 #### dataDictionaryForSel
 
-> 标签： `<yl-DataDictionaryForSel></yl-DataDictionaryForSel>`
+> 标签： `<yl-datadictionaryforsel></yl-datadictionaryforsel>`
 
 
-  **功能：**  提供字典平行结构
+  **功能：**  提供平行结构字典
 
   **示例：**
-:::demo
-  ```html
+
+```html
+
 <template>
-    <yl-DataDictionaryForSel 
-                style="width:220px"
-                :code="'Unit'" 
-                v-model="value"  
-                :placeholder="'请选择'" 
-    >
-    </yl-DataDictionaryForSel>
+    <dataDictionaryForSel 
+      v-model="value"
+      code="Payment"
+      placeholder="选择字典"
+      clearable
+      @clear="_clear"
+      @getCurrentValue = "_getCurrentvalue"
+    />
 </template>
  <script>
-   import DataDiction from '../data/dataDiction.json'
    export default {
      data(){
        return {
-          value:'千克'
+          value:''
        }
      },
      methods:{
+      _clear(){
+        console.log (this.testvalue)
+      },
+      _getCurrentValue(node) {
+        console.log(node)
+      },
      },
      mounted(){
+       
     }
    }
    </script>
    <style lang="css" >
-    .list_warpper{
-      display: flex;
-      flex-direction: row;
-      flex-wrap: wrap;
-    }
-    .item_warpper{
-      width:300px;
-      height:180px;
-      padding:10px;
-      margin:15px;
-      border: 1px solid #ddd;
-    }
-    </style>
+   </style>
 
 ```
-:::
 
-  **属性**
+ **属性**
 
   | 参数        | 说明           |类型   |默认值|可选值|
   | ------------- |:-------------:| -----:|---:|---:|
-  | code| 编码code | Stirng|"" |--|
-  | placeholder| 提示文本 | String|"" |--|
-  | disabled| 是否禁用 | Boolean|false |false/true|
-  | size| 控件大小 | String|"" |--|
-  | clearable| 清除 | Boolean|false |false/true|
+  | code| 字典编码 | String|"" |--|
+  | size| 输入框大小  | String|'small' |参考el-input的size属性|
+  | disabled| 禁用状态  | Boolean|false |true/false|
+  | placeholder| 提示输入文本  | String|'' |--|
+  | clearable| 是否显示清楚按钮 | Boolean|false |true/false|
  
 
-  **方法**
-  暂无
+  **事件**
+
+  | 事件        | 说明           |参数   |
+  | ------------- |:-------------:| -----:|
+  | getCurrentValue| 点击节点时触发 | 当前节点名称|
+  | clear|  | 当前选中节点对象 |
+  
+---

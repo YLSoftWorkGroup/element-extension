@@ -3,7 +3,7 @@ import Panel from './components/panel/panel.vue'
 import Timebar from './components/timebar/timebar.vue'
 import Toolbar from './components/toolbar/toolbar.vue'
 import PageHeader from './components/pageheader/pageheader.vue'
-import Treeselect from './components/treeselect/treeselect.vue'
+import TreeSelect from './components/treeselect/treeselect.vue'
 import Commontree from './components/commontree/commontree.vue'
 import Commonpaneltree from './components/commontree/commonpaneltree.vue'
 import TableEdit from './components/tableedit/tableedit.vue'
@@ -33,7 +33,7 @@ const components = [
   List,
   Listr,
   Listn,
-  Treeselect,
+  TreeSelect,
   Commontree,
   Commonpaneltree,
   Map,
@@ -68,7 +68,7 @@ export default {
   List,
   Listr,
   Listn,
-  Treeselect,
+  TreeSelect,
   Commontree,
   Commonpaneltree,
   Map,

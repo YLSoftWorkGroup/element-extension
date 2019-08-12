@@ -1,174 +1,131 @@
 <template>
   <yl-treeselect
-    :value='value'
-    :treeData="treedata"
-    :textOnly="textOnly"
-    :defaultProps="defaultProps"
-    :isexpand="isexpand"
-    :stepByOne="true"
+    stepByOne
+    :value="value"
+    :width="width"
+    :treeData="treeData"
+    :default-props="defaultProps"
     :size="size"
-    :readonly="readonly"
-    :defaultText="defaultText"
-    :disabled="propsData.disabled"
-    :autofocus="autofocus"
+    :disabled="disabled"
     :placeholder="placeholder"
-    :nodeStateConf="nodeStateConf"
-    :displaytoolBar="displaytoolBar"
-    :filterTextVisibe="filterVisibe"
-    @loadNodeEvent="nodeExpand"
+    @loadNodeEvent="loadNode"
     @getCurrentNode="_getCurrentNode"
-    @reload="nodeExpand"
-    @clear="_clear">
-  </yl-treeselect>
+  />
 </template>
 
-
 <script type="text/babel">
-  import treeselect from '../treeselect/treeselect'
+  import treeselect from '../treeselect/treeselect.vue'
   export default {
     name: 'ylComDataDictionary',
-    componentName:  {
+    components: {
       'yl-treeselect': treeselect
     },
-     data () {
+    data () {
       return {
-        treedata: [],
+        treeData: [],
         defaultProps: {
           children: 'children',
           label: 'name',
           id: 'id'
         },
-        propsData: {
-          disabled: this.disabled,
-        },
-        currentValue: this.value
+        rootNode: {
+          id: -1,
+          name: '根节点',
+          children: []
+        }
+
       }
     },
     props: {
-      dictType: {
+      code: {
         required: true,
         type: String,
         default: ''
+      },
+      rootName: {
+        type: String,
+        default: "根节点",
+      },
+      orgId: {
+        required: true,
+        type: Number,
+        default: -1
+      },
+      width: {
+        type: [String],
+        default: "240px"
       },
       size: {
         type: String,
         default: "",
       },
-      readonly: {
-        type: Boolean,
-        default: false
-      },
-      textOnly: {
-        type: Boolean,
-        default: true
-      },
       disabled: {
         type: Boolean,
         default: false
       },
-      maxlength: {
-        type: Number,
-      },
-      minlength: {
-        type: Number,
-      },
       placeholder: {
         type: String,
-        default: '',
+        default: "",
       },
-      autofocus: {
-        type: Boolean,
-        default: false,
-      },
-      filterVisibe: {
-        type: Boolean,
-        default: false,
-      },
-      isexpand: { type: Boolean, default: false },
       value: [String, Number],
-      nodeStateConf: {
-        required: false,
-        type: Array,
-        default: function () {
-          return []
+    },
+    methods: {
+      _getCurrentNode (selectNode) {
+        this.$emit('input', selectNode.name)
+        this.$emit('getCurrentNode', selectNode)
+      },
+      loadNode (node, resolve) {
+        if (!node.level) {
+          // 根节点
+          this.rootNode.id = -1
+          this.rootNode.name = this.rootName
+          this._getTreeList()
+        } else {
+          this._getTreeList(node.data.id, resolve)
         }
       },
-      displaytoolBar: {
-        type: Boolean,
-        default: true
-      }, 
-      stepByOne: {
-        type: Boolean,
-        default: true
-      },
-      defaultText: {
-        type: String,
-        default: ''
-      }
-    },
-
-    methods: {
-      _clear () {
-        this.$emit('clear')
-      },
-      _getCurrentNode (val) {
-        // this.$emit('input', val)
-        this.$emit('getCurrentNode', val)
-      },
-      nodeExpand (node, resolve) {
-        let id = 0
-        if (node.data.id !== undefined) {
-          id = node.data.id
-          this.getData(id, resolve)
+      _getTreeList (node, resolve) {
+        let _this = this;
+        // 加载根节点
+        if (node === undefined) {
+          // 首次加载...
+          this.treeData = [this.rootNode]
         } else {
           const queryParams = {
-            condtionItems: []
+            condtionItems: [
+              {
+                fieldName: 'dictType',
+                op: 'eq',
+                fieldValue: this.code
+              },
+              {
+                fieldName: 'isRemoved',
+                op: 'eq',
+                fieldValue: false
+              },
+              {
+                fieldName: 'parentId',
+                op: 'eq',
+                fieldValue: node
+              },
+              {
+                fieldName: 'orgId',
+                op: 'eq',
+                fieldValue: this.orgId
+              }
+            ]
           }
-          queryParams.condtionItems = [
-            {
-              fieldName: 'dictType',
-              op: 'eq',
-              fieldValue: this.code
-            },
-            {
-              fieldName: 'isRemoved',
-              op: 'eq',
-              fieldValue: false
-            }
-          ]
-          this.$http.post('/cbaseinfo/g-common-data-dictionary-params', queryParams).then(data => {
-            id = data.rows[0].id
-            this.getData(id, resolve)
-          }).catch(err => {
-            this.$message.error('获取数据失败！' + err)
-          })
-        }
-      },
-      getData (id, resolve) {
-        this.$http.get('/cbaseinfo/get-nodelist-parentid?parentId=' + id + '&orgId=&serviceId=node-cbaseinfo-service&path=cbaseinfo/g-data-dictionary').then(data => {   
-          resolve(data)
-        })
-      },
-      _setCurrentValue (value) {
-        if (value === this.currentValue) return
-        this.currentValue = value
-        if (this.validateEvent) {
-          this.dispatch('ElFormItem', 'el.form.change', [value])
+          this.$http
+            .post("/cbaseinfo/g-common-data-dictionary-params", queryParams)
+            .then(data => {
+              if (data.rows) {
+                resolve(data.rows)
+              }
+            })
         }
       }
     },
     mounted () {
-      // this._getTreeList()
-    },
-    components: {
-    },
-    watch: {
-      value: function (val, oldVal) {
-        this._setCurrentValue(val)
-      }
     }
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="stylus" rel="stylesheet/stylus" scoped></style>

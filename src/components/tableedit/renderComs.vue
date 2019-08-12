@@ -32,7 +32,7 @@
     :placeholder="option.elmentConfig.placeholder"
     :format="option.elmentConfig.format"
     :align="option.elmentConfig.align"
-    :defaultValue="option.elmentConfig.defaultValue"
+    :default-value="option.elmentConfig.defaultValue"
     :disabled="option.elmentConfig.disabled"
     :editable="option.elmentConfig.editable"
     :clearable="option.elmentConfig.clearable"
@@ -53,11 +53,48 @@
       :value="item.value" />
   </el-select>
   <span
-    v-else-if="option.type==='format'"
+    v-else-if="option.type==='span'"
     v-html="this.format" />
+  <dataDictionaryForSel
+    v-else-if="option.type==='dataDictionaryForSel'"
+    v-model="model[option.name]"
+    :code="option.elmentConfig.code"
+    :size="option.elmentConfig.size"
+    :disabled="option.elmentConfig.disabled"
+    :placeholder="option.elmentConfig.placeholder"
+    style="width:100%"
+    @getCurrentValue="_change" />
+  <dataDictionaryForTree
+    v-else-if="option.type==='dataDictionaryForTree'"
+    v-model="model[option.name]"
+    :code="option.elmentConfig.code"
+    :size="option.elmentConfig.size"
+    :disabled="option.elmentConfig.disabled"
+    :placeholder="option.elmentConfig.placeholder"
+    :width="option.elmentConfig.width"
+    @getCurrentValue="_change" />
+  <comDataDictionary
+    v-else-if="option.type==='comDataDictionary'"
+    v-model="model[option.name]"
+    :code="option.elmentConfig.code"
+    :size="option.elmentConfig.size"
+    :disabled="option.elmentConfig.disabled"
+    :placeholder="option.elmentConfig.placeholder"
+    :width="option.elmentConfig.width"
+    :root-name="option.elmentConfig.rootName"
+    :org-id="option.elmentConfig.orgId"
+    @getCurrentNode="_change" />
 </template>
 <script>
+  import dataDictionaryForSel from '../datadictionary/dataDictionaryForSel.vue'
+  import dataDictionaryForTree from '../datadictionary/dataDictionaryForTree.vue'
+  import comDataDictionary from '../comdatadictionary/comDataDictionary.vue'
   export default {
+    components: {
+      dataDictionaryForSel,
+      dataDictionaryForTree,
+      comDataDictionary
+    },
     props: {
       option: {
         type: Object,

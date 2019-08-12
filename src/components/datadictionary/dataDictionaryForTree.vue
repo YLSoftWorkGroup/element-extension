@@ -1,47 +1,35 @@
 <template>
   <yl-treeselect
-    :value='value'
-    :treeData="treedata"
-    :textOnly="textOnly"
-    :defaultProps="defaultProps"
-    :isexpand="isexpand"
-    :stepByOne="true"
+    stepByOne
+    :value="value"
+    :width="width"
+    :treeData="treeData"
+    :default-props="defaultProps"
     :size="size"
-    :readonly="readonly"
-    :defaultText="defaultText"
-    :disabled="propsData.disabled"
-    :autofocus="autofocus"
+    :disabled="disabled"
     :placeholder="placeholder"
-    :nodeStateConf="nodeStateConf"
-    :displaytoolBar="displaytoolBar"
-    :filterTextVisibe="filterVisibe"
-    @loadNodeEvent="nodeExpand"
+    @loadNodeEvent="loadNode"
     @getCurrentNode="_getCurrentNode"
-    @reload="nodeExpand"
-    @clear="_clear">
-  </yl-treeselect>
+  />
 </template>
 
-
 <script type="text/babel">
-  import treeselect from '../treeselect/treeselect'
+  import treeselect from '../treeselect/treeselect.vue'
   export default {
-    name: 'YlDataDictionaryForTree',
-    componentName:  {
-      'yl-treeselect': treeselect
-    },
-     data () {
+    name: 'ylDataDictionaryForTree',
+    data () {
       return {
-        treedata: [],
+        treeData: [],
         defaultProps: {
           children: 'children',
           label: 'name',
           id: 'id'
         },
-        propsData: {
-          disabled: this.disabled,
-        },
-        currentValue: this.value
+        rootNode: {
+          id: -1,
+          name: '根节点',
+          children: []
+        }
       }
     },
     props: {
@@ -50,125 +38,92 @@
         type: String,
         default: ''
       },
+      width: {
+        type: [String],
+        default: "240px"
+      },
+      placeholder: {
+        required: false,
+        type: String,
+        default: ''
+      },
       size: {
         type: String,
-        default: "",
-      },
-      readonly: {
-        type: Boolean,
-        default: false
-      },
-      textOnly: {
-        type: Boolean,
-        default: true
+        default: ''
       },
       disabled: {
         type: Boolean,
         default: false
       },
-      maxlength: {
-        type: Number,
-      },
-      minlength: {
-        type: Number,
-      },
-      placeholder: {
-        type: String,
-        default: '',
-      },
-      autofocus: {
-        type: Boolean,
-        default: false,
-      },
-      filterVisibe: {
-        type: Boolean,
-        default: false,
-      },
-      isexpand: { type: Boolean, default: false },
       value: [String, Number],
-      nodeStateConf: {
-        required: false,
-        type: Array,
-        default: function () {
-          return []
-        }
-      },
-      displaytoolBar: {
-        type: Boolean,
-        default: true
-      }, 
-      stepByOne: {
-        type: Boolean,
-        default: true
-      },
-      defaultText: {
-        type: String,
-        default: ''
-      }
     },
-
     methods: {
-      _clear () {
-        this.$emit('clear')
+      // _clear () {
+      //   this.$emit('clear')
+      // },
+      _getCurrentNode (node) {
+        this.$emit('input', node.name)
+        this.$emit('getCurrentValue', node.name)
       },
-      _getCurrentNode (val) {
-        // this.$emit('input', val)
-        this.$emit('getCurrentNode', val)
-      },
-      nodeExpand (node, resolve) {
-        let id = 0
-        if (node.data.id !== undefined) {
-          id = node.data.id
-          this.getData(id, resolve)
-        } else {
+      loadNode (node, resolve) {
+        if (!node.level) {
+          // 根节点
           const queryParams = {
-            condtionItems: []
+            condtionItems: [
+              {
+                fieldName: 'code',
+                op: 'eq',
+                fieldValue: this.code
+              },
+              {
+                fieldName: 'isRemoved',
+                op: 'eq',
+                fieldValue: false
+              }
+            ]
           }
-          queryParams.condtionItems = [
-            {
-              fieldName: 'code',
-              op: 'eq',
-              fieldValue: this.code
-            },
-            {
-              fieldName: 'isRemoved',
-              op: 'eq',
-              fieldValue: false
-            }
-          ]
           this.$http.post('/cbaseinfo/g-data-dictionary-params', queryParams).then(data => {
-            id = data.rows[0].id
-            this.getData(id, resolve)
+            if (data.rows) {
+              this.rootNode.id = data.rows[0].id
+              this.rootNode.name = data.rows[0].name
+              this._getTreeList()
+            }
           }).catch(err => {
             this.$message.error('获取数据失败！' + err)
           })
+        } else {
+          this._getTreeList(node.data.id, resolve)
         }
       },
-      getData (id, resolve) {
-        this.$http.get('/cbaseinfo/get-nodelist-parentid?parentId=' + id + '&orgId=&serviceId=node-cbaseinfo-service&path=cbaseinfo/g-data-dictionary').then(data => {   
-          resolve(data)
-        })
-      },
-      _setCurrentValue (value) {
-        if (value === this.currentValue) return
-        this.currentValue = value
-        if (this.validateEvent) {
-          this.dispatch('ElFormItem', 'el.form.change', [value])
+      _getTreeList (node, resolve) {
+        let _this = this;
+        // 加载根节点
+        if (node === undefined) {
+          // 首次加载...
+          // this.defaultExpandedKeys = [node.id]
+          this.treeData = [this.rootNode]
+        } else {
+          this.$http
+            .get(
+              "/cbaseinfo/get-nodelist-parentid?parentId=" +
+              node +
+              "&serviceId=node-cbaseinfo-service&path=cbaseinfo/g-data-dictionary"
+            )
+            .then(data => {
+              resolve(data)
+            })
         }
       }
     },
     mounted () {
-      // this._getTreeList()
     },
     components: {
+      "yl-treeselect": treeselect
     },
     watch: {
-      value: function (val, oldVal) {
-        this._setCurrentValue(val)
-      }
     }
   }
 </script>
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="stylus" rel="stylesheet/stylus" scoped></style>
+<style lang="postcss"  scoped></style>

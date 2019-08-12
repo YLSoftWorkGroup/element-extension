@@ -1,8 +1,8 @@
 
 <template>
-  <yl-flexbox class="yl-list" vertical  isReverse>
+  <yl-flexbox class="yl-list" vertical is-reverse>
     <div slot="flex" v-loading="listloading" element-loading-text="加载中...">
-     <div v-if="pageData.length" class="list-warpper" :class="wrapClass">
+      <div v-if="pageData.length" class="list-warpper" :class="wrapClass">
         <div v-for="(item,index) in pageData" :key="index"
           :class="itemWrapClass"
           class="item-warpper">

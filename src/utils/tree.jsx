@@ -11,7 +11,7 @@ function nodeStyle (node) {
 }
 export default {
   methods: {
-    renderContent (h, { node, data, store }) {
+    renderContents (h, { node, data, store }) {
       return (
         <span class="yl-tree-style">
           <span class="yl-node-style">

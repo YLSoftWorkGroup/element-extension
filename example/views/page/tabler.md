@@ -4,7 +4,7 @@
   > 标签： `<yl-tabler></yl-tabler>` 
 
 
-  **功能：**  提供树形方式的数据表格呈现组件
+  **功能：**  提供获取全部数据后分页的数据展示控件
 
   **示例：**
 :::demo
@@ -12,11 +12,11 @@
 
    <template>
 
- <yl-tabler style=""
-        :tableloading="tableRloading"
-        :tableData=tableDataR
-        :configs="tableRConfig"
-        :pagination="pagination"
+ <yl-tabler
+    :tableloading="tableRloading"
+    :tableData=tableDataR
+    :configs="tableRConfig"
+    :pagination="pagination"
 >
     <template
         slot="createdAt"
@@ -27,7 +27,7 @@
    </template>
    
    <script>
-   import DataR from '../data/DataR.json'
+   import DataR from '../data/dataR.json'
    import dayjs from 'dayjs'
    export default {
      data(){
@@ -50,9 +50,6 @@
                     table: {
                         attr: {
                             highlightCurrent: true,
-                            lazy:true,
-                            load:this.trLoad,
-                            rowKey:"id"
                         }
                     },
                     columns: [
@@ -61,7 +58,7 @@
                         { attr: { prop: "model", label: "规格" } },
                         { attr: { prop: "unit", label: "单位", width: 70 } },
                         { attr: { prop: "quantity", label: "数量", width: 100 } },
-                        { attr: { prop: "created", label: "添加时间", width: 120,scopedSlot: "createdAt" }  }
+                        { attr: { prop: "created", label: "添加时间", width: 120,scopedSlot: "createdAt" }}
                     ]
                 }
             }
@@ -72,10 +69,7 @@
            return dayjs(value).format(format);
         },
         gettableDataR(){
-            this.tableDataR=DataR.map((i,index)=>{
-                return i
-            });
-            this.tableDataR[0].hasChildren=true;
+            this.tableDataR=DataR;
         },
      },
      mounted(){
