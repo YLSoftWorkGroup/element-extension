@@ -74,7 +74,6 @@
   | displaytoolBar| 启用树控件工具栏（包含清楚和刷新功能）| Boolean|false |true/false|
   | queryParams| 查询参数 | Object|{ path: '', serviceId: '', parentId: -1,orgId: ''} |--|
   | renderContent| 文本渲染 | Function | --|--|
- 
 
   **事件**
 

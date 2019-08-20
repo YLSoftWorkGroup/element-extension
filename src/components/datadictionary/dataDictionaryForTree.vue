@@ -4,6 +4,7 @@
     :value="value"
     :width="width"
     :treeData="treeData"
+    :defaultText="defaultText"
     :default-props="defaultProps"
     :size="size"
     :disabled="disabled"
@@ -47,6 +48,10 @@
         type: String,
         default: ''
       },
+      defaultText: { // 默认文本值
+        type: String,
+        default: ''
+      },
       size: {
         type: String,
         default: ''
@@ -63,7 +68,7 @@
       // },
       _getCurrentNode (node) {
         this.$emit('input', node.name)
-        this.$emit('getCurrentValue', node.name)
+        this.$emit('getCurrentNode', node)
       },
       loadNode (node, resolve) {
         if (!node.level) {

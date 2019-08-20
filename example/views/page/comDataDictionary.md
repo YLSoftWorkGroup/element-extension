@@ -55,7 +55,7 @@
   | size| 输入框大小  | String|'small' |参考el-input的size属性|
   | disabled| 禁用状态  | Boolean|false |true/false|
   | placeholder| 提示输入文本  | String|'' |--|
- 
+  | defaultText| 默认文本值 （只在逐步加载模式下使用） | String|"" ||
 
   **事件**
 

@@ -1,5 +1,13 @@
 #### 更新日志
 
+##### 2019.08.20
+
+v1.1.15
+1. `datadictionaryfortree` 更新属性`getCurrentValue`为`getCurrentNode`,返回对象为node对象。
+
+v1.1.14
+1. `comdatadictionary`,`datadictionaryfortree` 组件新增defaltText属性。
+
 ##### 2019.08.12
 v1.1.13
 1. 修复list组件报错问题

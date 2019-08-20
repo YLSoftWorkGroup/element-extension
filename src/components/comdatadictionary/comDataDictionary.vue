@@ -4,6 +4,7 @@
     :value="value"
     :width="width"
     :treeData="treeData"
+    :defaultText="defaultText"
     :default-props="defaultProps"
     :size="size"
     :disabled="disabled"
@@ -33,7 +34,6 @@
           name: '根节点',
           children: []
         }
-
       }
     },
     props: {
@@ -67,7 +67,11 @@
         type: String,
         default: "",
       },
-      value: [String, Number],
+      defaultText: { // 默认文本值
+        type: String,
+        default: ''
+      },
+      value: [String, Number]
     },
     methods: {
       _getCurrentNode (selectNode) {
@@ -85,7 +89,6 @@
         }
       },
       _getTreeList (node, resolve) {
-        let _this = this;
         // 加载根节点
         if (node === undefined) {
           // 首次加载...
@@ -116,7 +119,7 @@
             ]
           }
           this.$http
-            .post("/cbaseinfo/g-common-data-dictionary-params", queryParams)
+            .post('/cbaseinfo/g-common-data-dictionary-params', queryParams)
             .then(data => {
               if (data.rows) {
                 resolve(data.rows)
@@ -124,8 +127,6 @@
             })
         }
       }
-    },
-    mounted () {
     }
   }
 </script>

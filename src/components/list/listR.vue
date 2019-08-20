@@ -14,7 +14,7 @@
     <div slot="fixed">
       <yl-toolbar>
         <el-pagination
-          :current-page="this.currentPage"
+          :current-page="currentPage"
           :page-sizes="paginationAttr.pageSizes"
           :page-size="paginationAttr.pageSize"
           :total="listData.length"
@@ -23,7 +23,7 @@
           :small="paginationAttr.small"
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
-        ></el-pagination>
+        />
       </yl-toolbar>
     </div>
   </yl-flexbox>
@@ -35,8 +35,8 @@
     data () {
       return {
         pageData: [],
-        currentPage:1
-      };
+        currentPage: 1
+      }
     },
     props: {
       wrapClass: {
@@ -65,8 +65,6 @@
             background: true,
             pageSize: 10,
             pageSizes: [10, 20, 50],
-            // prevText:'上一页',
-            // nextText:'下一页',
             layout: "sizes,prev, pager, next,  total" // prev, pager, next, jumper, ->, total, slot
           };
         }
