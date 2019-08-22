@@ -1,10 +1,16 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:09
+ * @LastEditTime: 2019-08-22 11:42:05
+ -->
 <template>
   <yl-treeselect
     stepByOne
     :value="value"
     :treeData="treeData"
     :defaultProps="defaultProps"
-    :defaultText="parentName"
+    :defaultText="defaultText"
     :size="size"
     :width="width"
     :disabled="disabled"
