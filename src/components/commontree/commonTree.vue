@@ -16,7 +16,7 @@
     :disabled="disabled"
     :placeholder="placeholder"
     :defaultExpandedKeys="defaultExpandedKeys"
-    :renderContent="renderContent"
+    :renderContent="renderContent()"
     :displaytoolBar="displaytoolBar"
     @getCurrentNode="_getCurrentNode"
     @loadNodeEvent="loadNode"
