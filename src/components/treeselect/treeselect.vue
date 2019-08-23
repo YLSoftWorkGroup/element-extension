@@ -35,7 +35,7 @@
           :node-key="defaultProps.id"
           :default-expanded-keys="defaultExpandedKeys"
           :filter-node-method="filterNode"
-          :render-content="renderC"
+          :render-content="renderContent"
           @node-click.self="handleNodeClick"></el-tree>
       </el-scrollbar>
     </el-popover>
@@ -43,7 +43,6 @@
 </template>
 
 <script type="text/babel">
-  import treeMixn from '../../utils/tree.jsx'
   export default {
     name: "ylTreeselect",
     mixins: [treeMixn],
@@ -120,10 +119,6 @@
       }
     },
     computed: {
-      renderC: function () {
-        if (this.renderContent) return this.renderContent
-        return this.renderContents
-      },
       popoverWidth: function () {
         return parseInt(this.width.substr(0, this.width.length - 2));
       },

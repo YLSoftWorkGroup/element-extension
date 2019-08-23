@@ -16,7 +16,7 @@
     :disabled="disabled"
     :placeholder="placeholder"
     :defaultExpandedKeys="defaultExpandedKeys"
-    :renderContent="renderContent()"
+    :renderContent="renderC()"
     :displaytoolBar="displaytoolBar"
     @getCurrentNode="_getCurrentNode"
     @loadNodeEvent="loadNode"
@@ -26,8 +26,10 @@
 </template>
 
  <script type="text/babel">
+ import treeMixn from '../../utils/tree.jsx';
   export default {
     name: 'ylCommontree',
+    mixins: [treeMixn],
     data () {
       return {
         treeData: [],
@@ -102,6 +104,10 @@
       }
     },
     methods: {
+      renderC: function () {
+        if (this.renderContent) return this.renderContent
+        return this.renderContents
+      },
       _reload (node) {
         // 重新加载
         this._getTreeList();
