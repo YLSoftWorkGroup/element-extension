@@ -427,6 +427,26 @@ config配置
       },
     }
   },
+  // button控件
+  {
+    type:'button', //选用控件类型 
+    name: "attrName", //对应属性名
+    elmentConfig: {  // 对应控件属性配置
+      size: "", //html内容块
+      type: "", //html内容块
+      plain: "", //html内容块
+      round: "", //html内容块
+      disabled: "", //html内容块
+      icon: "", //html内容块
+    },   
+    eventConf: {
+      isOn: true, //是否开启事件
+      init: function(option,row){  //初始化事件
+      },
+      change:function(node,option,row){ // 控件对应事件
+      }
+    }
+  },
   // 平行字典控件
   {
     type:'dataDictionaryForSel', //选用控件类型  
@@ -442,7 +462,7 @@ config配置
       isOn: true, //是否开启事件
       init: function(option,row){  //初始化事件
       },
-      getCurrentValue:function(node,option,row){ // 控件对应事件
+      change:function(node,option,row){ // 控件对应事件
       }
     }
    },
@@ -461,7 +481,7 @@ config配置
       isOn: true, //是否开启事件
       init: function(option,row){  //初始化事件
       },
-      getCurrentValue:function(node,option,row){ // 控件对应事件
+      change:function(node,option,row){ // 控件对应事件
       }
     }
    },
@@ -482,7 +502,7 @@ config配置
       isOn: true, //是否开启事件
       init: function(option,row){  //初始化事件
       },
-      getCurrentNode:function(node,option,row){ // 控件对应事件
+      change:function(node,option,row){ // 控件对应事件
       }
     }
    },
