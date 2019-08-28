@@ -23,7 +23,8 @@
           placeholder="输入关键字进行过滤"
           v-model="filterText"
           size="small"
-          class="filter-style"></el-input>
+          class="filter-style" 
+        />
         <el-tree
           class="elTree"
           ref="treeSelect"
@@ -36,7 +37,7 @@
           :default-expanded-keys="defaultExpandedKeys"
           :filter-node-method="filterNode"
           :render-content="renderContent"
-          @node-click.self="handleNodeClick"></el-tree>
+          @node-click.self="handleNodeClick" />
       </el-scrollbar>
     </el-popover>
   </div>
@@ -45,7 +46,6 @@
 <script type="text/babel">
   export default {
     name: "ylTreeselect",
-    mixins: [treeMixn],
     data () {
       return {
         selectNode: {},
