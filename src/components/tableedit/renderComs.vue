@@ -1,14 +1,23 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:09
+ * @LastEditTime: 2019-10-12 10:49:18
+ -->
 <template>
-  <el-input
+  <el-input-number
+    style="width:100%"
     v-if="option.type==='inputNum'"
     v-model.number="model[option.name]"
-    type="number"
     :size="option.elmentConfig.size"
     :disabled="option.elmentConfig.disabled"
     :placeholder="option.elmentConfig.placeholder"
-    :readonly="option.elmentConfig.readonly"
-    @blur="_blur(model[option.name])"
-    @mousewheel.native="_preventmousewheel" />
+    :min="option.elmentConfig.min"
+    :max="option.elmentConfig.max"
+    :step="option.elmentConfig.step"
+    :precision="option.elmentConfig.precision"
+    :controls="false"
+    @blur="_blur(model[option.name])"/>
   <el-input
     v-else-if="option.type==='inputText'"
     v-model.trim="model[option.name]"

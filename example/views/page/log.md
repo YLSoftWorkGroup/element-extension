@@ -2,9 +2,14 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-08-22 11:46:41
+ * @LastEditTime: 2019-10-12 11:00:34
  -->
 #### 更新日志
+
+##### 2019.08.22
+
+v1.2.0
+1. `randerComs` 组件渲染器中更换了inputNum组件。
 
 ##### 2019.08.22
 
