@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-12 10:51:38
+ * @LastEditTime: 2019-10-12 11:12:41
  -->
 
   #### tableedit
@@ -305,7 +305,7 @@ config配置
                         {
                           type:'inputNum', //选用控件类型  （支持控件参考支持列表）
                           name: "t_quantity", //对应属性名
-                          elementConfig: {  // 对应控件属性配置
+                          elmentConfig: {  // 对应控件属性配置
                             type: "text",  
                             size: "small",
                             disabled: false
@@ -333,7 +333,7 @@ config配置
   {
     type:'inputNum', //选用控件类型  
     name: "t_quantity", //对应属性名
-    elementConfig: {  // 对应控件属性配置
+    elmentConfig: {  // 对应控件属性配置
       type: "text",  
       size: "small",
       disabled: false,
@@ -356,7 +356,7 @@ config配置
   {
     type:'inputText', //选用控件类型  
     name: "t_quantity", //对应属性名
-    elementConfig: {  // 对应控件属性配置
+    elmentConfig: {  // 对应控件属性配置
       type: "text",  
       size: "small",
       disabled: false
@@ -373,7 +373,7 @@ config配置
   {
     type:'checkbox', //选用控件类型 
     name: "attrName", //对应属性名
-    elementConfig: {  // 对应控件属性配置
+    elmentConfig: {  // 对应控件属性配置
       label: "禁用",
       disabled: false
     },   
@@ -389,7 +389,7 @@ config配置
   {
     type:'datePicker', //选用控件类型  
     name: "attrName", //对应属性名
-    elementConfig: {  // 对应控件属性配置
+    elmentConfig: {  // 对应控件属性配置
       type: "",
       size: "",
       placeholder: "",
@@ -412,7 +412,7 @@ config配置
   {
     type:'select', //选用控件类型  
     name: "attrName", //对应属性名
-    elementConfig: {  // 对应控件属性配置
+    elmentConfig: {  // 对应控件属性配置
       type: "",
       size: "",
       placeholder: "",
@@ -431,7 +431,7 @@ config配置
   {
     type:'span', //选用控件类型 
     name: "attrName", //对应属性名
-    elementConfig: {  // 对应控件属性配置
+    elmentConfig: {  // 对应控件属性配置
       format: "", //html内容块
     },   
     eventConf: {
@@ -464,7 +464,7 @@ config配置
   {
     type:'dataDictionaryForSel', //选用控件类型  
     name: "attrName", //对应属性名
-    elementConfig: {  // 对应控件属性配置
+    elmentConfig: {  // 对应控件属性配置
       code: "",
       size: "",
       placeholder: "",
@@ -483,7 +483,7 @@ config配置
   {
     type:'dataDictionaryForTree', //选用控件类型  
     name: "attrName", //对应属性名
-    elementConfig: {  // 对应控件属性配置
+    elmentConfig: {  // 对应控件属性配置
       code: "",
       size: "",
       placeholder: "",
@@ -502,7 +502,7 @@ config配置
   {
     type:'comDataDictionary', //选用控件类型  
     name: "attrName", //对应属性名
-    elementConfig: {  // 对应控件属性配置
+    elmentConfig: {  // 对应控件属性配置
       code: "",
       size: "",
       placeholder: "",
