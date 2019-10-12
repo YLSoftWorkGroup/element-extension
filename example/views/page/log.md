@@ -2,19 +2,31 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-12 11:00:34
+ * @LastEditTime: 2019-10-12 11:02:55
  -->
 #### 更新日志
 
-##### 2019.08.22
+
+##### 2019.10.12
 
 v1.2.0
 1. `randerComs` 组件渲染器中更换了inputNum组件。
 
+##### 2019.08.28
+
+v1.1.20
+1. `renderComs`组件中新增button渲染项。
+
+
 ##### 2019.08.22
+v1.1.17
+1. `commontree`、`commontreewithpanel` 组件解决文本渲染bug。
+
 
 v1.1.16
 1. `commontree` 组件defaultText属性不处理直接显示为文本值。
+
+
 
 ##### 2019.08.20
 

@@ -23,7 +23,8 @@
           placeholder="输入关键字进行过滤"
           v-model="filterText"
           size="small"
-          class="filter-style"></el-input>
+          class="filter-style" 
+        />
         <el-tree
           class="elTree"
           ref="treeSelect"
@@ -35,18 +36,16 @@
           :node-key="defaultProps.id"
           :default-expanded-keys="defaultExpandedKeys"
           :filter-node-method="filterNode"
-          :render-content="renderC"
-          @node-click.self="handleNodeClick"></el-tree>
+          :render-content="renderContent"
+          @node-click.self="handleNodeClick" />
       </el-scrollbar>
     </el-popover>
   </div>
 </template>
 
 <script type="text/babel">
-  import treeMixn from '../../utils/tree.jsx'
   export default {
     name: "ylTreeselect",
-    mixins: [treeMixn],
     data () {
       return {
         selectNode: {},
@@ -120,10 +119,6 @@
       }
     },
     computed: {
-      renderC: function () {
-        if (this.renderContent) return this.renderContent
-        return this.renderContents
-      },
       popoverWidth: function () {
         return parseInt(this.width.substr(0, this.width.length - 2));
       },

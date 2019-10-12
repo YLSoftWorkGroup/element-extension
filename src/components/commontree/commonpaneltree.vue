@@ -16,7 +16,7 @@
       lazy
       :node-key="defaultProps.id"
       :default-expanded-keys="defaultExpandedKeys"
-      :render-content="renderC"
+      :render-content="renderC()"
       @node-click.self="_handleNodeClick"></el-tree>
   </yl-panel>
 </template>
@@ -60,6 +60,9 @@
             orgId: ""
           };
         }
+      },
+      renderContent: {
+        type: Function
       },
       rootName: {
         required: true,
@@ -125,6 +128,7 @@
       }
     },
     mounted () {
+      
     },
     components: {},
     watch: {}

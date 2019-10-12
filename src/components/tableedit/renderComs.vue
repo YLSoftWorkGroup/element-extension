@@ -61,9 +61,20 @@
       :label="item.label"
       :value="item.value" />
   </el-select>
+  <el-button
+    v-else-if="option.type==='button'"
+    :size="option.elmentConfig.size"
+    :type="option.elmentConfig.type"
+    :plain="option.elmentConfig.plain"
+    :round="option.elmentConfig.round"
+    :disabled="option.elmentConfig.disabled"
+    :icon="option.elmentConfig.icon"
+    @click="_change"
+  />
   <span
     v-else-if="option.type==='span'"
-    v-html="this.format" />
+    v-html="this.format"
+  />
   <dataDictionaryForSel
     v-else-if="option.type==='dataDictionaryForSel'"
     v-model="model[option.name]"
