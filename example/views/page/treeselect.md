@@ -1,3 +1,9 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:09
+ * @LastEditTime: 2019-10-22 16:32:53
+ -->
  <script>
    export default {
      data(){
@@ -123,6 +129,7 @@
 
    <yl-treeselect
       v-model ="modelValue"
+      placeholder="请选择内容"
       width="350px"
       :treeData="treeData"
       :defaultProps="defaultProps"

@@ -2,10 +2,16 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-12 11:02:55
+ * @LastEditTime: 2019-10-23 00:45:11
  -->
 #### 更新日志
 
+##### 2019.10.22
+
+v1.2.3
+1. `treeselect` 修复了清除功能bug，清除功能会在组件内部清除文本值和选中对象
+
+2. 新增组件`commonSelect`
 
 ##### 2019.10.12
 

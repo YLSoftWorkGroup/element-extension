@@ -1,12 +1,22 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:08
+ * @LastEditTime: 2019-10-22 15:26:35
+ -->
 
 ### `element-extension`  
 
-> `element-extension` 是易龙软件提供的针对物资领域系统软件相关的业务组建库，其中大部分组建依赖`element-mini-ui` 
+> `element-extension` 是基于`element-mini-ui` 扩展的常用组件库
 
 
-文档地址：
 
-[element-mini-ui](https://ylsoftworkgroup.github.io/element-extension/#/base)
+
+[文档地址](https://ylsoftworkgroup.github.io/element-extension/#/base)
+
+
+
+[仓库地址](https://github.com/YLSoftWorkGroup/element-extension)
 
 ```bash
 
@@ -28,13 +38,12 @@ npm run build:doc
 
 ```bash
 
- yarn add  element-extension 
  npm  i  element-extension --save
 
 ```
 
 
-vue全局引入：
+vue全部引入：
 
 ```js
 

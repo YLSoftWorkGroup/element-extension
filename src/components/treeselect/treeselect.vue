@@ -1,3 +1,9 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-10-12 12:20:18
+ * @LastEditTime: 2019-10-22 22:20:51
+ -->
 <template>
   <div class="yl-treeSelect">
     <el-input
@@ -13,31 +19,34 @@
       :value="currentValue"></el-input>
     <el-popover ref="selectPanel" v-model="selectPanelVisible" placement="bottom-start" :width="popoverWidth"
       trigger="click">
-      <el-scrollbar wrap-class="treepanel" view-class="treepanel_view">
-        <div class="el-tree-toolbar" v-if="displaytoolBar">
-          <el-button type="primary" size="mini" round plain @click="_clear">清除</el-button>
-          <el-button type="primary" size="mini" round plain @click="_reset">刷新</el-button>
+        <div class="el-select-panel-toolbar" v-if="displaytoolBar">
+          <el-button  size="mini" icon="el-icon-refresh" circle @click="_reset"></el-button>
+          <el-button  size="mini" icon="el-icon-close" circle @click="_clear"></el-button>
         </div>
         <el-input
           v-if="filterVisibe"
           placeholder="输入关键字进行过滤"
           v-model="filterText"
           size="small"
+          clearable
           class="filter-style" 
         />
-        <el-tree
-          class="elTree"
-          ref="treeSelect"
-          :lazy="stepByOne"
-          :load="loadNode"
-          :data="treeData"
-          :expand-on-click-node="false"
-          :props="defaultProps"
-          :node-key="defaultProps.id"
-          :default-expanded-keys="defaultExpandedKeys"
-          :filter-node-method="filterNode"
-          :render-content="renderContent"
-          @node-click.self="handleNodeClick" />
+        <el-scrollbar wrap-class="selectpanel" view-class="selectPanel_view">
+          <div class="select-list-panel">
+            <el-tree
+              class="elTree"
+              ref="treeSelect"
+              :lazy="stepByOne"
+              :load="loadNode"
+              :data="treeData"
+              :expand-on-click-node="false"
+              :props="defaultProps"
+              :node-key="defaultProps.id"
+              :default-expanded-keys="defaultExpandedKeys"
+              :filter-node-method="filterNode"
+              :render-content="renderContent"
+              @node-click.self="handleNodeClick" />
+          </div>    
       </el-scrollbar>
     </el-popover>
   </div>
@@ -51,7 +60,8 @@
         selectNode: {},
         filterText: "",
         suffixIcon: "el-icon-caret-down",
-        selectPanelVisible: false
+        selectPanelVisible: false,
+        inputText:'',
       };
     },
     props: {
@@ -133,28 +143,33 @@
       },
       currentValue: {
         get () {
-          let inputText = ''
-          if (this.stepByOne) {
-            // 异步赋值时，显示名称为传进来的值
-            if (this.selectNode.id == undefined) {
-              inputText = this.defaultText;
-            } else {
-              inputText = this.selectNode[this.defaultProps.label];
+            if (this.stepByOne) {
+              // 异步赋值时，显示名称为传进来的值
+                if (this.selectNode.id == undefined) {
+                  this.inputText = this.defaultText;
+                } else {
+                  this.inputText = this.selectNode[this.defaultProps.label];
+                }
+              } else if (this.treeData.length) {
+                // 全部加载
+                if (this.selectNode.id == undefined) {
+                  let text = this.getNodeName(this.treeData, this.value);
+                  if (this.value != "") {
+                    this.inputText = text;
+                  } else {
+                    this.inputText = "";
+                  }
+                } else {
+                  this.inputText = this.selectNode[this.defaultProps.label];
+                }
             }
-          } else if (this.treeData.length) {
-            // 全部加载
-            if (this.selectNode.id == undefined) {
-              let text = this.getNodeName(this.treeData, this.value);
-              if (this.value != "") {
-                inputText = text;
-              } else {
-                inputText = "";
-              }
-            } else {
-              inputText = this.selectNode[this.defaultProps.label];
-            }
+          return this.inputText
+        },
+        set(value){
+          if(!value){
+            this.selectNode = {}
+            this.$emit("input", '');
           }
-          return inputText
         }
       }
     },
@@ -172,6 +187,7 @@
         }
       },
       _clear () {
+        this.currentValue=''
         this.$emit("clear", this.selectNode);
       },
       _reset () {
@@ -198,7 +214,7 @@
     watch: {
       selectPanelVisible: function (n) {
         if (n) {
-          this.suffixIcon = 'el-icon-caret-top'
+          this.suffixIcon = 'el-icon-caret-up'
         } else {
           this.suffixIcon = 'el-icon-caret-down'
         }
@@ -218,27 +234,5 @@
     min-width: 100%;
     overflow: hidden;
   }
-  .treepanel {
-    max-height: 274px;
-  }
-  .treepanel_view {
-    padding: 6px 0;
-    margin: 0;
-    box-sizing: border-box;
-  }
-  .filter-style.el-input__inner {
-    border: 1px solid rgb(191, 203, 217);
-  }
-  .el-tree-toolbar {
-    height: 25px;
-    font-size: 12px;
-    text-align: right;
-    padding-right: 10px;
-    line-height: 25px;
-    border: 1px solid #fff;
-    background-color: $background-color-base;
-  }
-  .el-popover {
-    padding: 5px;
-  }
+  
 </style>

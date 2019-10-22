@@ -1,11 +1,15 @@
+/*
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:09
+ * @LastEditTime: 2019-10-22 15:36:26
+ */
 import Flexbox from './components/flexbox/flexbox.vue'
 import Panel from './components/panel/panel.vue'
 import Timebar from './components/timebar/timebar.vue'
 import Toolbar from './components/toolbar/toolbar.vue'
 import PageHeader from './components/pageheader/pageheader.vue'
 import TreeSelect from './components/treeselect/treeselect.vue'
-import Commontree from './components/commontree/commontree.vue'
-import Commonpaneltree from './components/commontree/commonpaneltree.vue'
 import TableEdit from './components/tableedit/tableedit.vue'
 import List from './components/list/list.vue'
 import Listr from './components/list/listr.vue'
@@ -14,7 +18,13 @@ import Table from './components/table/table.jsx'
 import Tablen from './components/table/tablen.jsx'
 import Tabler from './components/table/tabler.jsx'
 import OnlyTable from './components/table/onlytable.jsx'
+import CommonSelect from './components/commonselect/commonSelect.vue'
+
 import Map from './components/map/Map.vue'
+
+// 业务组件
+import Commontree from './components/commontree/commontree.vue'
+import Commonpaneltree from './components/commontree/commonpaneltree.vue'
 import DataDictionaryForSel from './components/datadictionary/dataDictionaryForSel.vue'
 import DataDictionaryForTree from './components/datadictionary/dataDictionaryForTree.vue'
 import ComDataDictionary from './components/comdatadictionary/comDataDictionary.vue'
@@ -39,7 +49,8 @@ const components = [
   Map,
   DataDictionaryForSel,
   DataDictionaryForTree,
-  ComDataDictionary
+  ComDataDictionary,
+  CommonSelect
 ]
 
 const install = function (Vue) {
@@ -74,5 +85,6 @@ export default {
   Map,
   DataDictionaryForSel,
   DataDictionaryForTree,
-  ComDataDictionary
+  ComDataDictionary,
+  CommonSelect
 }

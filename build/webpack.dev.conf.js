@@ -1,3 +1,9 @@
+/*
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:08
+ * @LastEditTime: 2019-10-22 09:33:47
+ */
 /* eslint-disable no-undef */
 /**
  * 样例的开发预览
@@ -15,16 +21,26 @@ module.exports = {
     entry: path.join(root, 'example/main.js'),
     devtool: 'cheap-module-source-map',
     devServer: {
-        historyApiFallback: true,
-        progress: true,
-        quiet: true,
-        overlay: {
-            errors: true
-        },
         host: 'localhost',
         port: 8090,
+        compress: true,
+        open: false,
         inline: true,
-        open: true
+        quiet: false, // 开启会关闭控制台日志
+    },
+    stats:{
+        all:false,
+        colors: true,
+        assets: true,
+        assetsSort: '!size',
+        children: false,
+        builtAt: false,
+        chunks: false,
+        entrypoints: false,
+        modules:false,
+        errors: true,
+        warnings: true,
+  
     },
     optimization: {
         runtimeChunk: {

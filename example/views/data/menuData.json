@@ -1,10 +1,5 @@
 [
-    {
-        "label":"开发规范",
-        "name":"exploitdocument",
-        "url":"/exploitdocument",
-        "icon":"el-icon-filesearch"
-    },
+   
     {
         "label":"基础",
         "name":"base",
@@ -53,6 +48,11 @@
                 "label":"timebar",
                 "name":"timebar",
                 "url":"/timebar"
+            },
+            {
+                "label":"commonselect",
+                "name":"commonselect",
+                "url":"/commonselect"
             },
             {
                 "label":"treeselect",

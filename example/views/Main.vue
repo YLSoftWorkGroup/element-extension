@@ -1,3 +1,9 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:09
+ * @LastEditTime: 2019-08-22 11:35:09
+ -->
 <template>
   <div class="main">
     <div class="header">
@@ -6,7 +12,7 @@
           alt="logo">
       </div>
       <div class="title">
-        易龙业务组件库文档
+        element-extension
       </div>
     </div>
     <div class="content">

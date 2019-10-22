@@ -1,3 +1,9 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-10-12 12:20:18
+ * @LastEditTime: 2019-12-16 22:52:32
+ -->
 
 <template>
   <yl-toolbar class="yl-timebar">
@@ -176,15 +182,15 @@
           this.selectiton = 'month';
           this.beginDate = dayjs().format('YYYY-MM') + '-01'
         } else if (type === 'quarter') {
-          const quarter = parseInt((dayjs().month() + 1) / 4)
+          const quarter = (dayjs().month() + 1)
           this.selectiton = 'quarter';
-          if (quarter == 0) {
+          if (quarter <= 4) {
             this.beginDate = dayjs().format('YYYY') + '-01-01'
-          } else if (quarter == 1) {
+          } else if (quarter <= 7) {
             this.beginDate = dayjs().format('YYYY') + '-04-01'
-          } else if (quarter == 2) {
+          } else if (quarter <= 10) {
             this.beginDate = dayjs().format('YYYY') + '-07-01'
-          } else if (quarter == 3) {
+          } else if (quarter <= 13) {
             this.beginDate = dayjs().format('YYYY') + '-10-01'
           }
         } else if (type === 'year') {

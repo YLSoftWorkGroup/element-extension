@@ -1,3 +1,9 @@
+/*
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:08
+ * @LastEditTime: 2019-10-16 22:28:26
+ */
 /* eslint-disable no-undef */
 
 'use strict';
@@ -25,14 +31,14 @@ module.exports =  {
         modules: ['node_modules']
     },
     externals: baseConfig.vue,
-    performance: {
-        hints: false
+    performance: { 
+        hints: false   //打包资源过大是否提示
     },
-    stats: {
-        children: false
+    stats: { 
+        children: false  // 添加 children 信息
     },
-    optimization: {
-        minimize: false
+    optimization: { // 是否压缩
+        minimize: true
     },
     module: {
         rules: [
