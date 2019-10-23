@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-08-22 11:42:05
+ * @LastEditTime: 2019-10-23 18:48:29
  -->
 <template>
   <yl-treeselect
@@ -112,9 +112,9 @@
         // 重新加载
         this._getTreeList();
       },
-      _clear () {
-        // 清除值
-        this.$emit('clear');
+      _clear(){
+        this.$emit("input", '');
+        this.$emit("clear");
       },
       _getCurrentNode (selectNode) {
         if (this.textOnly) {

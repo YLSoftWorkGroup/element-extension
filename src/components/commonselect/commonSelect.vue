@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2019-10-23 00:27:54
+ * @LastEditTime: 2019-10-23 19:03:19
  -->
 <template>
   <div class="yl-commonSelect">
@@ -128,6 +128,10 @@
         type: Boolean,
         default: true
       },
+      defaultText: {
+        type: String,
+        default: ''
+      },
       infiniteScroll:{
         type: Object,
         default: function(){
@@ -149,14 +153,13 @@
           if(this.selectNode.id){
             this.inputText = this.selectNode[this.defaultProps.label];
           }else{
-            this.inputText = ''
+            this.inputText = this.defaultText
           }
           return this.inputText
         },
         set(value){
            if(!value){
             this.selectNode = {}
-            this.$emit("input", '');
           }
         }
       },
@@ -175,11 +178,12 @@
       loadData() {
         let _this = this
         _this.listLoading = true
-        _this.$emit('load',this.filterText)
+        _this.$emit('load', this.filterText)
       },
       _clear(){
          this.currentValue=''
-         this.$emit("clear", this.selectNode);
+         this.$emit("input", '');
+         this.$emit("clear");
       },
       _reload(event,keyWord){
         let _this = this

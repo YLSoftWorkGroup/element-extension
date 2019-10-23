@@ -1,3 +1,9 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-10-12 12:20:18
+ * @LastEditTime: 2019-10-23 09:39:04
+ -->
 <template>
   <yl-panel
     :loading="treeLoading"
@@ -128,7 +134,6 @@
       }
     },
     mounted () {
-      
     },
     components: {},
     watch: {}

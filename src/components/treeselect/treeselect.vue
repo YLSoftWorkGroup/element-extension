@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2019-10-22 22:20:51
+ * @LastEditTime: 2019-10-23 18:44:12
  -->
 <template>
   <div class="yl-treeSelect">
@@ -168,7 +168,7 @@
         set(value){
           if(!value){
             this.selectNode = {}
-            this.$emit("input", '');
+            
           }
         }
       }
@@ -188,7 +188,8 @@
       },
       _clear () {
         this.currentValue=''
-        this.$emit("clear", this.selectNode);
+        this.$emit("input", '');
+        this.$emit("clear");
       },
       _reset () {
         this.$emit("reload", this.selectNode);

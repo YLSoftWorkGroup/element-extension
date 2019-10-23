@@ -2,9 +2,14 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-23 00:45:11
+ * @LastEditTime: 2019-10-23 18:51:29
  -->
 #### 更新日志
+
+##### 2019.10.23
+
+v1.2.4
+1.  修复了`treeselect`以及基于treeselect组件的清除功能bug
 
 ##### 2019.10.22
 

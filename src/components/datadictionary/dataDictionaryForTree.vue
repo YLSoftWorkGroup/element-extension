@@ -1,3 +1,9 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-10-12 12:20:18
+ * @LastEditTime: 2019-10-23 18:49:44
+ -->
 <template>
   <yl-treeselect
     stepByOne
@@ -11,6 +17,7 @@
     :placeholder="placeholder"
     @loadNodeEvent="loadNode"
     @getCurrentNode="_getCurrentNode"
+    @clear="_clear"
   />
 </template>
 
@@ -63,9 +70,10 @@
       value: [String, Number],
     },
     methods: {
-      // _clear () {
-      //   this.$emit('clear')
-      // },
+      _clear(){
+        this.$emit("input", '');
+        this.$emit("clear");
+      },
       _getCurrentNode (node) {
         this.$emit('input', node.name)
         this.$emit('getCurrentNode', node)

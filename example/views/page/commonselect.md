@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-23 00:43:07
+ * @LastEditTime: 2019-10-23 19:04:35
  -->
 
 #### commonselect
@@ -21,8 +21,9 @@
 
    <template>
    <yl-commonselect
-      v-model ="modelValue"
+      v-model ="model.id"
       width="550px"
+      :defaultText="model.name"
       :defaultProps="defaultProps"
       :pageData="pageData"
       placeholder="选择材料信息"
@@ -43,7 +44,10 @@
    export default {
      data(){
        return {
-         modelValue:'',
+         model:{
+           id:123,
+           name:'默认值'
+         },
          defaultProps:{
            label:'name',
            subLabel:'model',
@@ -74,7 +78,8 @@
           this.listParams.draw = 0
           this._loadData(filterKey)
        },
-       _clear(){
+       _clear(node){
+         console.log(this.modelValue)
           // 重刷
        },
        _getCurrentNode(node){
@@ -126,6 +131,7 @@
   | size| 输入框大小  | String|'small' |参考el-input的size属性|
   | disabled| 是否禁用  | Boolean|false |true/false|
   | placeholder| 提示输入文本  | String|'' |--|
+  | defaultText| 默认值  | String|'' |--|
   | filterVisibe| 过滤器 （在全部加载模式下启用）| Boolean|true |true/false|
   | filterPlaceholder| 输入关键字过滤提示  | String|'输入关键字过滤' |--||
   | displaytoolBar| 启用树控件工具栏（包含清楚和刷新功能）| Boolean|true |true/false|
