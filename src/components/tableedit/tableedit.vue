@@ -1,3 +1,9 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:09
+ * @LastEditTime: 2019-10-24 16:24:15
+ -->
 <template>
   <div class="table-edit">
     <yl-onlytable class="table-zone"
@@ -158,9 +164,10 @@
               const maxRow = this.addRowCount
               if (maxRow > this.tableData.length) {
                 this.tableData.push(row)
-              } else {
-                this.$message({ message: `选材数目不能大于${maxRow}条!`, type: 'warning' })
-              }
+              } 
+              // else {
+              //   this.$message({ message: `选材数目不能大于${maxRow}条!`, type: 'warning' })
+              // }
             }
           })
           this._sumCount()

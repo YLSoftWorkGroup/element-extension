@@ -1,67 +1,97 @@
+/*
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:09
+ * @LastEditTime: 2019-10-24 16:23:39
+ */
 export default {
   // eslint-disable-next-line complexity
-  turnDX: function (n) {
-    var fraction = ['角', '分']
-    var digit = ['零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖']
-    var unit = [['元', '万', '亿'], ['', '拾', '佰', '仟']
-    ]
-    var head = n < 0 ? '-' : ''
-    n = Math.abs(n)
-    var s = ''
-    for (var i = 0; i < fraction.length; i++) {
-      s += (digit[Math.floor(n * 10 * Math.pow(10, i)) % 10] + fraction[i]).replace(/零./, '')
-    }
-    s = s || '整'
-    n = Math.floor(n)
-    for (var i = 0; i < unit[0].length && n > 0; i++) {
-      var p = ''
-      for (var j = 0; j < unit[1].length && n > 0; j++) {
-        p = digit[n % 10] + unit[1][j] + p
-        n = Math.floor(n / 10)
-      }
-      s = p.replace(/(零.)*零$/, '').replace(/^$/, '零') + unit[0][i] + s
-    }
-    return head + s.replace(/(零.)*零元/, '元').replace(/(零.)+/g, '零').replace(/^整$/, '零元整')
-  },
-  // eslint-disable-next-line complexity
-  NoToChinese: function (num) {
-    if (!/^\d*(\.\d*)?$/.test(num)) {
-      return '非法数据!'
-    }
-    // eslint-disable-next-line no-array-constructor
-    var AA = new Array('零', '壹', '贰', '叁', '肆', '伍', '陆', '柒', '捌', '玖')
-    // eslint-disable-next-line no-array-constructor
-    var BB = new Array('', '拾', '佰', '仟', '萬', '億', '点', '')
-    var a = ('' + num).replace(/(^0*)/g, '').split('.')
-    var k = 0
-    var re = ''
-    if (a[0] == '') {
-      re = '零'
-    }
-    for (var i = a[0].length - 1; i >= 0; i--) {
-      switch (k) {
-        case 0:
-          re = BB[7] + re
-          break
-        case 4:
-          if (!new RegExp('0{4}\\d{' + (a[0].length - i - 1) + '}$').test(a[0])) { re = BB[4] + re }
-          break
-        case 8:
-          re = BB[5] + re
-          BB[7] = BB[5]
-          k = 0
-          break
-      }
-      if (k % 4 == 2 && a[0].charAt(i + 2) != 0 && a[0].charAt(i + 1) == 0) re = AA[0] + re
-      if (a[0].charAt(i) != 0) re = AA[a[0].charAt(i)] + BB[k % 4] + re
-      k++
-    }
+  turnDX: function (money) {
+    var cnNums = new Array(
+      "零",
+      "壹",
+      "贰",
+      "叁",
+      "肆",
+      "伍",
+      "陆",
+      "柒",
+      "捌",
+      "玖"
+    ); //汉字的数字
+    var cnIntRadice = new Array("", "拾", "佰", "仟"); //基本单位
+    var cnIntUnits = new Array("", "万", "亿", "兆"); //对应整数部分扩展单位
+    var cnDecUnits = new Array("角", "分", "毫", "厘"); //对应小数部分单位
+    //var cnInteger = "整"; //整数金额时后面跟的字符
+    var cnIntLast = "元"; //整型完以后的单位
+    var maxNum = 999999999999999.9999; //最大处理的数字
 
-    if (a.length > 1) // 加上小数部分(如果有小数部分)
-    {
-      re += BB[6]
-      for (var i = 0; i < a[1].length; i++) re += AA[a[1].charAt(i)]
+    var IntegerNum; //金额整数部分
+    var DecimalNum; //金额小数部分
+    var ChineseStr = ""; //输出的中文金额字符串
+    var parts; //分离金额后用的数组，预定义
+    if (money == "") {
+      return "";
     }
-    return re
+    money = parseFloat(money);
+    if (money >= maxNum) {
+      $.alert("超出最大处理数字");
+      return "";
+    }
+    if (money == 0) {
+      //ChineseStr = cnNums[0]+cnIntLast+cnInteger;
+      ChineseStr = cnNums[0] + cnIntLast;
+      //document.getElementById("show").value=ChineseStr;
+      return ChineseStr;
+    }
+    money = money.toString(); //转换为字符串
+    if (money.indexOf(".") == -1) {
+      IntegerNum = money;
+      DecimalNum = "";
+    } else {
+      parts = money.split(".");
+      IntegerNum = parts[0];
+      DecimalNum = parts[1].substr(0, 4);
+    }
+    if (parseInt(IntegerNum, 10) > 0) {
+      //获取整型部分转换
+      zeroCount = 0;
+      IntLen = IntegerNum.length;
+      for (i = 0; i < IntLen; i++) {
+        n = IntegerNum.substr(i, 1);
+        p = IntLen - i - 1;
+        q = p / 4;
+        m = p % 4;
+        if (n == "0") {
+          zeroCount++;
+        } else {
+          if (zeroCount > 0) {
+            ChineseStr += cnNums[0];
+          }
+          zeroCount = 0; //归零
+          ChineseStr += cnNums[parseInt(n)] + cnIntRadice[m];
+        }
+        if (m == 0 && zeroCount < 4) {
+          ChineseStr += cnIntUnits[q];
+        }
+      }
+      ChineseStr += cnIntLast;
+      //整型部分处理完毕
+    }
+    if (DecimalNum != "") {
+      //小数部分
+      decLen = DecimalNum.length;
+      for (i = 0; i < decLen; i++) {
+        n = DecimalNum.substr(i, 1);
+        if (n != "0") {
+          ChineseStr += cnNums[Number(n)] + cnDecUnits[i];
+        }
+      }
+    }
+    if (ChineseStr == "") {
+      //ChineseStr += cnNums[0]+cnIntLast+cnInteger;
+      ChineseStr += cnNums[0] + cnIntLast;
+    }
+    return ChineseStr;
   }
-}
+};
