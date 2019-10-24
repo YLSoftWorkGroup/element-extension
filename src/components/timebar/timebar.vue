@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2019-12-16 22:52:32
+ * @LastEditTime: 2019-10-24 19:08:23
  -->
 
 <template>
@@ -182,15 +182,16 @@
           this.selectiton = 'month';
           this.beginDate = dayjs().format('YYYY-MM') + '-01'
         } else if (type === 'quarter') {
+          debugger
           const quarter = (dayjs().month() + 1)
           this.selectiton = 'quarter';
-          if (quarter <= 4) {
+          if (quarter < 4) {
             this.beginDate = dayjs().format('YYYY') + '-01-01'
-          } else if (quarter <= 7) {
+          } else if (quarter < 7) {
             this.beginDate = dayjs().format('YYYY') + '-04-01'
-          } else if (quarter <= 10) {
+          } else if (quarter < 10) {
             this.beginDate = dayjs().format('YYYY') + '-07-01'
-          } else if (quarter <= 13) {
+          } else if (quarter < 13) {
             this.beginDate = dayjs().format('YYYY') + '-10-01'
           }
         } else if (type === 'year') {
