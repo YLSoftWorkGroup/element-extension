@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-24 16:23:39
+ * @LastEditTime: 2019-10-24 18:54:59
  */
 export default {
   // eslint-disable-next-line complexity
@@ -54,14 +54,14 @@ export default {
       DecimalNum = parts[1].substr(0, 4);
     }
     if (parseInt(IntegerNum, 10) > 0) {
-      //获取整型部分转换
-      zeroCount = 0;
-      IntLen = IntegerNum.length;
-      for (i = 0; i < IntLen; i++) {
-        n = IntegerNum.substr(i, 1);
-        p = IntLen - i - 1;
-        q = p / 4;
-        m = p % 4;
+      // 获取整型部分转换
+      let zeroCount = 0;
+      let IntLen = IntegerNum.length;
+      for (let i = 0; i < IntLen; i++) {
+        let n = IntegerNum.substr(i, 1);
+        let p = IntLen - i - 1;
+        let q = p / 4;
+        let m = p % 4;
         if (n == "0") {
           zeroCount++;
         } else {
@@ -71,18 +71,18 @@ export default {
           zeroCount = 0; //归零
           ChineseStr += cnNums[parseInt(n)] + cnIntRadice[m];
         }
-        if (m == 0 && zeroCount < 4) {
+        if (m === 0 && zeroCount < 4) {
           ChineseStr += cnIntUnits[q];
         }
       }
       ChineseStr += cnIntLast;
-      //整型部分处理完毕
+      // 整型部分处理完毕
     }
     if (DecimalNum != "") {
       //小数部分
       decLen = DecimalNum.length;
-      for (i = 0; i < decLen; i++) {
-        n = DecimalNum.substr(i, 1);
+      for (let i = 0; i < decLen; i++) {
+        let n = DecimalNum.substr(i, 1);
         if (n != "0") {
           ChineseStr += cnNums[Number(n)] + cnDecUnits[i];
         }

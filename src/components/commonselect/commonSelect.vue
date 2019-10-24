@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2019-10-23 19:03:19
+ * @LastEditTime: 2019-10-24 17:30:07
  -->
 <template>
   <div class="yl-commonSelect">
@@ -77,7 +77,7 @@
         listLoading:false,
         listData:[],
         inputAutofocus:false,
-        lastPageLength:0
+        is0:true
       };
     },
     props: {
@@ -165,12 +165,12 @@
       },
       noData:{
         get(){
-          return this.pageData.length < this.lastPageLength
+          return this.pageData.length === 0 && !this.is0
         }
       },
       infiniteDisabled:{
         get(){
-          return this.listLoading || this.noData
+          return this.listLoading || this.noData 
         }
       }
     },
@@ -188,7 +188,7 @@
       _reload(event,keyWord){
         let _this = this
         _this.listLoading = true
-        _this.lastPageLength = 0
+        _this.is0 = true
         _this.listData = []
         _this.$emit('reload',keyWord || this.filterText)
       },
@@ -196,7 +196,7 @@
        if (searchTimer) clearTimeout(searchTimer)
         searchTimer = setTimeout(() => {
           this._reload(null,val)
-        }, 200)
+        }, 500)
       },
       _nodeClick(node){
         this.selectNode = node;
@@ -220,7 +220,7 @@
       },
       pageData:function(n,o){
         this.listLoading = false
-        this.lastPageLength = o.length
+        this.is0 = false
         this.listData.push(...n)
       }
     },
