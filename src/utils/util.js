@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-24 18:54:59
+ * @LastEditTime: 2019-10-25 09:21:16
  */
 export default {
   // eslint-disable-next-line complexity
@@ -80,7 +80,7 @@ export default {
     }
     if (DecimalNum != "") {
       //小数部分
-      decLen = DecimalNum.length;
+      let decLen = DecimalNum.length;
       for (let i = 0; i < decLen; i++) {
         let n = DecimalNum.substr(i, 1);
         if (n != "0") {

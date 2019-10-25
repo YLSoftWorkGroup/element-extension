@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2019-10-24 19:08:23
+ * @LastEditTime: 2019-10-25 12:09:02
  -->
 
 <template>
@@ -94,6 +94,13 @@
         default: false
       }
     },
+    computed:{
+      isDate: {
+        get() {
+          return this.format.length > 7
+        }
+      }
+    },
     methods: {
       _format () {
         this.beginDate = dayjs(this.beginDate).format(this.format)
@@ -120,45 +127,58 @@
           this._format()
         }
       },
+      _abs(type, num) {
+        return type ? 0 + num : 0 - num
+      },
+      _dealDate (isForward) {
+        if(this.isDate){
+          switch(this.selectiton) {
+                case 'day':
+                    this.beginDate = dayjs(this.beginDate).add(this._abs(isForward,1), 'd')
+                    this.endDate = dayjs(this.beginDate).add(1, 'd')
+                    break;
+                case 'week':
+                    this.beginDate = dayjs(this.beginDate).add(this._abs(isForward,1), 'w')
+                    this.endDate = dayjs(this.beginDate).add(1, 'w')
+                    break;
+                case 'month':
+                    this.beginDate = dayjs(this.beginDate).add(this._abs(isForward,1), 'M')
+                    this.endDate = dayjs(this.beginDate).add(1, 'M')
+                    break;
+                case 'quarter':
+                    this.beginDate = dayjs(this.beginDate).add(this._abs(isForward,3), 'M')
+                    this.endDate = dayjs(this.beginDate).add(3, 'M')
+                    break;
+                case 'year':
+                    this.beginDate = dayjs(this.beginDate).add(this._abs(isForward,1), 'y')
+                    this.endDate = dayjs(this.beginDate).add(1, 'y')
+                    break;
+            }  
+          }else {
+             switch(this.selectiton) {
+                case 'month':
+                    this.beginDate = dayjs(this.beginDate).add(this._abs(isForward,1), 'M')
+                    this.endDate = dayjs(this.beginDate).add(0, 'M')
+                    break;
+                case 'quarter':
+                    this.beginDate = dayjs(this.beginDate).add(this._abs(isForward,3), 'M')
+                    this.endDate = dayjs(this.beginDate).add(2, 'M')
+                    break;
+                case 'year':
+                    this.beginDate = dayjs(this.beginDate).add(this._abs(isForward,1), 'y')
+                    this.endDate = dayjs(this.beginDate).add(1, 'y').add(-1, 'M')
+                    break;
+            }  
+          }
+      },
       _forward () {
         // 前进
-        if (this.selectiton === 'day') {
-          this.endDate = dayjs(this.beginDate).add(2, 'd')
-          this.beginDate = dayjs(this.beginDate).add(1, 'd')
-        } else if (this.selectiton === 'week') {
-          this.endDate = dayjs(this.beginDate).add(2, 'w')
-          this.beginDate = dayjs(this.beginDate).add(1, 'w')
-        } else if (this.selectiton === 'month') {
-          this.endDate = dayjs(this.beginDate).add(2, 'M')
-          this.beginDate = dayjs(this.beginDate).add(1, 'M')
-        } else if (this.selectiton === 'quarter') {
-          this.endDate = dayjs(this.beginDate).add(6, 'M')
-          this.beginDate = dayjs(this.beginDate).add(3, 'M')
-        } else if (this.selectiton === 'year') {
-          this.endDate = dayjs(this.beginDate).add(2, 'y')
-          this.beginDate = dayjs(this.beginDate).add(1, 'y')
-        }
+        this._dealDate(true)
         this._format();
       },
       _back () {
         //后退
-        if (this.selectiton === 'day') {
-          this.beginDate = dayjs(this.beginDate).add(-1, 'd')
-          this.endDate = dayjs(this.beginDate).add(1, 'd')
-        }
-        else if (this.selectiton === 'week') {
-          this.beginDate = dayjs(this.beginDate).add(-1, 'w')
-          this.endDate = dayjs(this.beginDate).add(1, 'w')
-        } else if (this.selectiton === 'month') {
-          this.beginDate = dayjs(this.beginDate).add(-1, 'M')
-          this.endDate = dayjs(this.beginDate).add(1, 'M')
-        } else if (this.selectiton === 'quarter') {
-          this.endDate = dayjs(this.beginDate).add(0, 'M')
-          this.beginDate = dayjs(this.beginDate).add(-3, 'M')
-        } else if (this.selectiton === 'year') {
-          this.beginDate = dayjs(this.beginDate).add(-1, 'y')
-          this.endDate = dayjs(this.beginDate).add(1, 'y')
-        }
+        this._dealDate(false)
         this._format()
       },
       _getDate (type, oldVal) {
@@ -171,36 +191,41 @@
         }
       },
       _initDate (type) {
-        if (type === 'day') {
-          this.selectiton = 'day'
-          this.beginDate = dayjs().format('YYYY-MM-DD')
-        } else if (type === 'week') {
-          this.selectiton = 'week'
-          let weekOfday = 1 - dayjs().day()
-          this.beginDate = dayjs().add(weekOfday, 'd').format('YYYY-MM-DD')
-        } else if (type === 'month') {
-          this.selectiton = 'month';
-          this.beginDate = dayjs().format('YYYY-MM') + '-01'
-        } else if (type === 'quarter') {
-          debugger
-          const quarter = (dayjs().month() + 1)
-          this.selectiton = 'quarter';
-          if (quarter < 4) {
-            this.beginDate = dayjs().format('YYYY') + '-01-01'
-          } else if (quarter < 7) {
-            this.beginDate = dayjs().format('YYYY') + '-04-01'
-          } else if (quarter < 10) {
-            this.beginDate = dayjs().format('YYYY') + '-07-01'
-          } else if (quarter < 13) {
-            this.beginDate = dayjs().format('YYYY') + '-10-01'
-          }
-        } else if (type === 'year') {
-          this.selectiton = 'year';
-          this.beginDate = dayjs().format('YYYY') + '-01-01'
-        }
-        else if (type === 'all') {
-          this.selectiton = 'all'
-          this.beginDate = '1900-01-01'
+          switch(type) {
+            case 'day':
+                this.selectiton = 'day'
+                this.beginDate = dayjs().format('YYYY-MM-DD')
+                  break;
+            case 'week':
+                  this.selectiton = 'week'
+            let weekOfday = 1 - dayjs().day()
+                  this.beginDate = dayjs().add(weekOfday, 'd').format('YYYY-MM-DD')
+                  break;
+            case 'month':
+                  this.selectiton = 'month';
+                  this.beginDate = dayjs().format('YYYY-MM') + '-01'
+                  break;
+            case 'quarter':
+                  const quarter = (dayjs().month() + 1)
+                  this.selectiton = 'quarter';
+                  if (quarter < 4) {
+                    this.beginDate = dayjs().format('YYYY') + '-01-01'
+                  } else if (quarter < 7) {
+                    this.beginDate = dayjs().format('YYYY') + '-04-01'
+                  } else if (quarter < 10) {
+                    this.beginDate = dayjs().format('YYYY') + '-07-01'
+                  } else if (quarter < 13) {
+                    this.beginDate = dayjs().format('YYYY') + '-10-01'
+                  }
+                  break;
+            case 'year':
+                  this.selectiton = 'year';
+                  this.beginDate = dayjs().format('YYYY') + '-01-01'
+                  break;
+            case 'all':
+                  this.selectiton = 'all'
+                  this.beginDate = '1900-01-01'
+                  break;
         }
         this.beginDate = dayjs(this.beginDate).format(this.format);
         this.endDate = dayjs().format(this.format);
@@ -214,7 +239,6 @@
       setDate (beginDate, endDate) {
         this.beginDate = dayjs(beginDate).format(this.format)
         this.endDate = dayjs(endDate).format(this.format)
-        // this.$emit('change',{beginDate:this.beginDate,endDate:this.endDate})
       },
     },
     mounted () {

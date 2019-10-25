@@ -2,9 +2,17 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-23 18:51:29
+ * @LastEditTime: 2019-10-25 12:11:38
  -->
 #### 更新日志
+
+##### 2019.10.25
+
+v1.2.12
+1.  修复了` timebar`设置为月份时日期选择范围问题
+2.  修改了`tableedit`组件的合计大写转化bug
+3.  修复commonSelect组件的死循环问题
+
 
 ##### 2019.10.23
 

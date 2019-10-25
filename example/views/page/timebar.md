@@ -1,3 +1,9 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:09
+ * @LastEditTime: 2019-10-25 11:51:39
+ -->
 
   #### timebar
 
@@ -17,6 +23,7 @@
         :dataPickOptions="dataPickOptions"
         :currentValue="currentValue"
         :btnItems="btnItems"
+        :format = "format"
         @change="change"
      >
     </yl-timebar>
@@ -26,11 +33,12 @@
      data(){
        return {
            dataPickOptions:{
-               format:"yyyy-MM-dd HH:mm:ss",
+               format:"yyyy-MM",
                size:'small',
                clearable:false,
-               type:'datetime'
+               type:'month'
            },
+           format:"YYYY-MM",
            btnItems:{
               day:true,
               week:true,
@@ -48,7 +56,6 @@
          
      },
      mounted(){
-       console.log(this.$refs.timebar.getDate())
        // this.$refs.timebar.setDate('2019-01-01','2019-12-01')
      }
    }
