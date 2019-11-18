@@ -17,7 +17,7 @@
       :placeholder="placeholder"
       :suffix-icon="suffixIcon"
       :value="currentValue"></el-input>
-    <el-popover ref="selectPanel" v-model="selectPanelVisible"  placement="bottom-start" :width="popoverWidth"
+    <el-popover ref="selectPanel" :disabled="panelDisabled" v-model="selectPanelVisible"  placement="bottom-start" :width="popoverWidth"
       trigger="click">
       <div class="el-select-panel-toolbar" v-if="displaytoolBar">
         <el-button  size="mini" icon="el-icon-refresh" circle @click="_reload"></el-button>
@@ -109,6 +109,10 @@
         default: "small"
       },
       disabled: {
+        type: Boolean,
+        default: false
+      },
+      panelDisabled: {
         type: Boolean,
         default: false
       },
