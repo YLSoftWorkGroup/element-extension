@@ -13,5 +13,5 @@ jobs:
       run: echo hello world!
     - name: Run a multi-line script
       run: |
-        npm i,
+        npm install,
         npm run pub.
