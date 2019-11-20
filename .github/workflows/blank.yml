@@ -1,15 +1,26 @@
 name:  部署组件库
 
-on: [push]
+on: 
+  push:
+    branches:    
+      - master
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     steps:
-    - uses: actions/checkout@v1
-    - name: 下载包
-      run: npm install
-    - name: 打包并部署
-      run: npm run pub.
+    - name: Checkout
+      uses: actions/checkout@master
+
+    - name: Build and Deploy
+      uses: JamesIves/github-pages-deploy-action@master
+      run: |
+        npm install
+        npm run pub --if-present
+      env:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BRANCH: master
+        FOLDER: docs
+        BUILD_SCRIPT: npm install && npm run build
+
+      
