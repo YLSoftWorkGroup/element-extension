@@ -1,4 +1,4 @@
-name: CI
+name:  部署组件库
 
 on: [push]
 
@@ -9,9 +9,7 @@ jobs:
 
     steps:
     - uses: actions/checkout@v1
-    - name: Run a one-line script
-      run: echo hello world!
-    - name: Run a multi-line script
-      run: |
-        npm install,
-        npm run pub.
+    - name: 下载包
+      run: npm install
+    - name: 打包并部署
+      run: npm run pub.
