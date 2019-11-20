@@ -14,13 +14,13 @@ jobs:
 
     - name: Build and Deploy
       uses: JamesIves/github-pages-deploy-action@master
-      run: |
-        npm install
-        npm run pub --if-present
+      # run: |
+      #   npm install
+      #   npm run pub --if-present
       env:
         ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
         BRANCH: master
         FOLDER: docs
-        BUILD_SCRIPT: npm install && npm run build
+        BUILD_SCRIPT: npm install && npm run pub
 
       
