@@ -2,27 +2,27 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2019-10-24 17:30:07
+ * @LastEditTime : 2019-12-28 17:20:42
  -->
 <template>
   <div class="yl-commonSelect">
     <el-input
       ref="inputText"
-      :style="{width:width}"
       v-popover:selectPanel
+      :style="{width:width}"
       type="text"
       :size="size"
       readonly
       :disabled="disabled"
       :placeholder="placeholder"
       :suffix-icon="suffixIcon"
-      :value="currentValue"></el-input>
-    <el-popover ref="selectPanel" :disabled="panelDisabled" v-model="selectPanelVisible"  placement="bottom-start" :width="popoverWidth"
+      :value="currentValue" />
+    <el-popover ref="selectPanel" v-model="selectPanelVisible" :disabled="panelDisabled" placement="bottom-start" :width="popoverWidth"
       trigger="click">
-      <div class="el-select-panel-toolbar" v-if="displaytoolBar">
-        <el-button  size="mini" icon="el-icon-refresh" circle @click="_reload"></el-button>
-        <el-button  size="mini" icon="el-icon-close" circle @click="_clear"></el-button>
-        <slot name="extendComs"></slot>
+      <div v-if="displaytoolBar" class="el-select-panel-toolbar">
+        <el-button size="mini" icon="el-icon-refresh" circle @click="_reload" />
+        <el-button size="mini" icon="el-icon-close" circle @click="_clear" />
+        <slot name="extendComs" />
       </div>
       <el-input
         v-if="filterVisibe"
@@ -33,29 +33,39 @@
         :autofocus="inputAutofocus"
         class="filter-style"
       />
-      <el-scrollbar wrap-class="selectpanel" view-class="selectpanel_view" v-if="selectPanelVisible">
-        <div class="select-list-panel"
-         v-infinite-scroll="loadData"
-              :infinite-scroll-disabled="infiniteDisabled">
-          <ul class="infinite-list-wrapper" 
-              style="overflow:auto"
-              :infinite-scroll-delay="infiniteScroll.delay"
-              :infinite-scroll-distance="infiniteScroll.distance"
-              :infinite-scroll-immediate="infiniteScroll.immediate"
-              >
-            <template v-for="(node,index) in listData">  
-              <li 
-                  :key="index"
-                  class="infinite-list-item"
-                  @click = "_nodeClick(node)">
-                  <p class="label"> {{ node[defaultProps.label] }} </p>
-                  <p class="sub-label" v-if="defaultProps.subLabel"> {{ node[defaultProps.subLabel] }} </p>
-                  <p class="sub-label" v-if="defaultProps.nextLabel"> {{ node[defaultProps.nextLabel] }} </p>
+      <el-scrollbar v-if="selectPanelVisible" wrap-class="selectpanel" view-class="selectpanel_view">
+        <div v-infinite-scroll="loadData"
+          class="select-list-panel"
+          :infinite-scroll-disabled="infiniteDisabled">
+          <ul class="infinite-list-wrapper"
+            style="overflow:auto"
+            :infinite-scroll-delay="infiniteScroll.delay"
+            :infinite-scroll-distance="infiniteScroll.distance"
+            :infinite-scroll-immediate="infiniteScroll.immediate"
+          >
+            <template v-for="(node,index) in listData">
+              <li
+                :key="index"
+                class="infinite-list-item"
+                @click="_nodeClick(node)">
+                <p class="label">
+                  <span :title="node[defaultProps.label]">{{ node[defaultProps.label] }}</span>
+                </p>
+                <p v-if="defaultProps.subLabel" class="sub-label">
+                  <span :title="node[defaultProps.subLabel]"> {{ node[defaultProps.subLabel] }} </span>
+                </p>
+                <p v-if="defaultProps.nextLabel" class="sub-label">
+                  <span :title="node[defaultProps.nextLabel]"> {{ node[defaultProps.nextLabel] }} </span>
+                </p>
               </li>
             </template>
           </ul>
-          <p class="infinite-list-tip" v-if="listLoading">加载中...</p>
-          <p class="infinite-list-tip" v-if="noData">没有更多了</p>
+          <p v-if="listLoading" class="infinite-list-tip">
+            加载中...
+          </p>
+          <p v-if="noData" class="infinite-list-tip">
+            没有更多了
+          </p>
           <!-- <p class="infinite-list-tip" v-if="!listData.length">暂无数据</p> -->
         </div>
       </el-scrollbar>
@@ -66,47 +76,35 @@
 <script type="text/babel">
   let searchTimer
   export default {
-    name: "ylCommonselect",
-    data () {
-      return {
-        selectNode: {},
-        filterText: "",
-        suffixIcon: "el-icon-caret-down",
-        selectPanelVisible: false,
-        inputText:'',
-        listLoading:false,
-        listData:[],
-        inputAutofocus:false,
-        is0:true
-      };
-    },
+    name: 'YlCommonselect',
     props: {
       pageData: {
         type: Array,
-        default: function(){
+        default: function () {
           return []
         }
       },
       width: {
         type: [String],
-        default: "240px"
+        default: '240px'
       },
       defaultProps: {
         required: true,
         type: Object,
         default: function () {
           return {
-            label: "label",
-            subLabel: "subLabel",
-            nextLabel: "nextLabel",
-            id: "id"
+            label: 'label',
+            subLabel: 'subLabel',
+            nextLabel: 'nextLabel',
+            id: 'id'
           }
         }
       },
-      value: [String, Number], //显示名称
+      // eslint-disable-next-line vue/require-default-prop
+      value: [String, Number], // 显示名称
       size: {
         type: String,
-        default: "small"
+        default: 'small'
       },
       disabled: {
         type: Boolean,
@@ -118,13 +116,13 @@
       },
       placeholder: {
         type: String,
-        default: ""
+        default: ''
       },
       filterVisibe: {
         type: Boolean,
         default: true
       },
-      filterPlaceholder:{
+      filterPlaceholder: {
         type: String,
         default: '输入关键字过滤'
       },
@@ -136,77 +134,61 @@
         type: String,
         default: ''
       },
-      infiniteScroll:{
+      infiniteScroll: {
         type: Object,
-        default: function(){
+        default: function () {
           return {
-            disabled:false,
-            delay:200,
-            distance:5,
-            immediate:false
+            disabled: false,
+            delay: 200,
+            distance: 5,
+            immediate: false
           }
         }
+      }
+    },
+    data () {
+      return {
+        selectNode: {},
+        filterText: '',
+        suffixIcon: 'el-icon-caret-down',
+        selectPanelVisible: false,
+        inputText: '',
+        listLoading: false,
+        listData: [],
+        inputAutofocus: false,
+        is0: true
       }
     },
     computed: {
       popoverWidth: function () {
-        return parseInt(this.width.substr(0, this.width.length - 2));
+        return parseInt(this.width.substr(0, this.width.length - 2))
       },
       currentValue: {
         get () {
-          if(this.selectNode.id){
-            this.inputText = this.selectNode[this.defaultProps.label];
-          }else{
+          if (this.selectNode.id) {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
+            this.inputText = this.selectNode[this.defaultProps.label]
+          } else {
+            // eslint-disable-next-line vue/no-side-effects-in-computed-properties
             this.inputText = this.defaultText
           }
           return this.inputText
         },
-        set(value){
-           if(!value){
+        set (value) {
+          if (!value) {
             this.selectNode = {}
           }
         }
       },
-      noData:{
-        get(){
+      noData: {
+        get () {
           return this.pageData.length === 0 && !this.is0
         }
       },
-      infiniteDisabled:{
-        get(){
-          return this.listLoading || this.noData 
+      infiniteDisabled: {
+        get () {
+          return this.listLoading || this.noData
         }
-      }
-    },
-    methods: {
-      loadData() {
-        let _this = this
-        _this.listLoading = true
-        _this.$emit('load', this.filterText)
-      },
-      _clear(){
-         this.currentValue=''
-         this.$emit("input", '');
-         this.$emit("clear");
-      },
-      _reload(event,keyWord){
-        let _this = this
-        _this.listLoading = true
-        _this.is0 = true
-        _this.listData = []
-        _this.$emit('reload',keyWord || this.filterText)
-      },
-      _filterText(val){
-       if (searchTimer) clearTimeout(searchTimer)
-        searchTimer = setTimeout(() => {
-          this._reload(null,val)
-        }, 500)
-      },
-      _nodeClick(node){
-        this.selectNode = node;
-        this.$emit("input", this.selectNode.id);
-        this.$emit("getCurrentNode", this.selectNode);
-        this.selectPanelVisible = false;
       }
     },
     watch: {
@@ -214,21 +196,51 @@
         this.inputAutofocus = n
         if (n) {
           this.suffixIcon = 'el-icon-caret-up'
-         
         } else {
           this.suffixIcon = 'el-icon-caret-down'
         }
       },
       filterText (val) {
-          this._filterText(val)
+        this._filterText(val)
       },
-      pageData:function(n,o){
+      pageData: function (n, o) {
         this.listLoading = false
         this.is0 = false
         this.listData.push(...n)
       }
     },
-    mounted(){
+    mounted () {
+    },
+    methods: {
+      loadData () {
+        const _this = this
+        _this.listLoading = true
+        _this.$emit('load', this.filterText)
+      },
+      _clear () {
+        this.currentValue = ''
+        this.$emit('input', '')
+        this.$emit('clear')
+      },
+      _reload (event, keyWord) {
+        const _this = this
+        _this.listLoading = true
+        _this.is0 = true
+        _this.listData = []
+        _this.$emit('reload', keyWord || this.filterText)
+      },
+      _filterText (val) {
+        if (searchTimer) clearTimeout(searchTimer)
+        searchTimer = setTimeout(() => {
+          this._reload(null, val)
+        }, 500)
+      },
+      _nodeClick (node) {
+        this.selectNode = node
+        this.$emit('input', this.selectNode.id)
+        this.$emit('getCurrentNode', this.selectNode)
+        this.selectPanelVisible = false
+      }
     }
   }
 </script>

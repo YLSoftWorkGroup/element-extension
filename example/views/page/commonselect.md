@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-23 19:04:35
+ * @LastEditTime: 2019-11-22 22:04:18
  -->
 
 #### commonselect
@@ -22,7 +22,7 @@
    <template>
    <yl-commonselect
       v-model ="model.id"
-      width="550px"
+      width="350px"
       :defaultText="model.name"
       :defaultProps="defaultProps"
       :pageData="pageData"

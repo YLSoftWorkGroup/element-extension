@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-12 10:49:18
+ * @LastEditTime : 2019-12-28 17:29:15
  -->
 <template>
   <el-input-number
@@ -104,16 +104,29 @@
     :root-name="option.elmentConfig.rootName"
     :org-id="option.elmentConfig.orgId"
     @getCurrentNode="_change" />
+  <businessCommonSel
+    v-else-if="option.type==='businessCommonSel'"
+    v-model="model[option.name]"
+    :code="option.elmentConfig.code"
+    :size="option.elmentConfig.size"
+    :disabled="option.elmentConfig.disabled"
+    :placeholder="option.elmentConfig.placeholder"
+    :width="option.elmentConfig.width"
+    :root-name="option.elmentConfig.rootName"
+    :org-id="option.elmentConfig.orgId"
+    @getCurrentNode="_change" />
 </template>
 <script>
   import dataDictionaryForSel from '../datadictionary/dataDictionaryForSel.vue'
   import dataDictionaryForTree from '../datadictionary/dataDictionaryForTree.vue'
   import comDataDictionary from '../comdatadictionary/comDataDictionary.vue'
+  import businessCommonSel from '../commonselect/businessCommonSel'
   export default {
     components: {
       dataDictionaryForSel,
       dataDictionaryForTree,
-      comDataDictionary
+      comDataDictionary,
+      businessCommonSel
     },
     props: {
       option: {

@@ -1,6 +1,6 @@
 {
   "name": "element-extension",
-  "version": "1.2.13",
+  "version": "1.2.14",
   "description": "基于elementUI组件扩展组件库",
   "main": "lib/element-extension.js",
   "scripts": {
@@ -61,7 +61,6 @@
     "style-loader": "^0.23.1",
     "url-loader": "^1.1.2",
     "vue": "^2.6.9",
-    "vue-amap": "^0.5.9",
     "vue-loader": "^15.7.0",
     "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.0.2",

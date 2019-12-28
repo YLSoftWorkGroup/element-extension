@@ -138,11 +138,6 @@
         "name":"other",
         "icon":"el-icon-more",
         "children":[
-            {
-                "label":"map",
-                "name":"map",
-                "url":"/map"
-            }
         ]
     },
     {
