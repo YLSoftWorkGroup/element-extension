@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime : 2019-12-30 18:41:23
+ * @LastEditTime : 2019-12-30 19:02:16
  -->
 <template>
   <el-input-number
@@ -116,6 +116,7 @@
     :placeholder="option.elmentConfig.placeholder"
     :filter-visibe="option.elmentConfig.filterVisibe"
     :filter-placeholder="option.elmentConfig.filterPlaceholder"
+    :parameter="option.elmentConfig.parameter"
     :default-text="option.elmentConfig.defaultText"
     @getCurrentNode="_change" />
 </template>

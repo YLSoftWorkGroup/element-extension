@@ -47,7 +47,7 @@
         type: String,
         default: ''
       },
-      panelDisabled: {
+      displaytoolBar: {
         type: Boolean,
         default: false
       },

@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime : 2019-12-30 18:40:57
+ * @LastEditTime : 2019-12-30 19:00:29
  -->
 
   #### tableedit
@@ -526,7 +526,6 @@ config配置
     elmentConfig: {  // 对应控件属性配置
       width:'',
       defaultProps: "",
-      panelDisabled: "",
       placeholder: "",
       filterVisibe: "",
       filterPlaceholder: "",
