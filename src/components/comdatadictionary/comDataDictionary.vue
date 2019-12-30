@@ -2,20 +2,20 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime : 2019-12-30 12:30:41
+ * @LastEditTime : 2019-12-30 18:42:10
  -->
 <template>
   <yl-treeselect
-    stepByOne
+    step-by-one
     :value="value"
     :width="width"
-    :treeData="treeData"
-    :defaultText="defaultText"
+    :tree-data="treeData"
+    :default-text="defaultText"
     :default-props="defaultProps"
     :size="size"
     :disabled="disabled"
     :placeholder="placeholder"
-    @clear = "_clear"
+    @clear="_clear"
     @loadNodeEvent="loadNode"
     @getCurrentNode="_getCurrentNode"
   />
@@ -24,9 +24,46 @@
 <script type="text/babel">
   import treeselect from '../treeselect/treeselect.vue'
   export default {
-    name: 'ylComDataDictionary',
+    name: 'YlComDataDictionary',
     components: {
       'yl-treeselect': treeselect
+    },
+    props: {
+      code: {
+        required: true,
+        type: String,
+        default: ''
+      },
+      rootName: {
+        type: String,
+        default: '根节点'
+      },
+      orgId: {
+        required: true,
+        type: Number,
+        default: -1
+      },
+      width: {
+        type: [String],
+        default: '240px'
+      },
+      size: {
+        type: String,
+        default: ''
+      },
+      disabled: {
+        type: Boolean,
+        default: false
+      },
+      placeholder: {
+        type: String,
+        default: ''
+      },
+      defaultText: { // 默认文本值
+        type: String,
+        default: ''
+      },
+      value: [String, Number]
     },
     data () {
       return {
@@ -43,47 +80,10 @@
         }
       }
     },
-    props: {
-      code: {
-        required: true,
-        type: String,
-        default: ''
-      },
-      rootName: {
-        type: String,
-        default: "根节点",
-      },
-      orgId: {
-        required: true,
-        type: Number,
-        default: -1
-      },
-      width: {
-        type: [String],
-        default: "240px"
-      },
-      size: {
-        type: String,
-        default: "",
-      },
-      disabled: {
-        type: Boolean,
-        default: false
-      },
-      placeholder: {
-        type: String,
-        default: "",
-      },
-      defaultText: { // 默认文本值
-        type: String,
-        default: ''
-      },
-      value: [String, Number]
-    },
     methods: {
-      _clear(){
-        this.$emit("input", '')
-        this.$emit("clear")
+      _clear () {
+        this.$emit('input', '')
+        this.$emit('clear')
       },
       _getCurrentNode (selectNode) {
         this.$emit('input', selectNode.name)

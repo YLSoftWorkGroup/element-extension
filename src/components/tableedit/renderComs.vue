@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime : 2019-12-30 12:39:40
+ * @LastEditTime : 2019-12-30 18:41:23
  -->
 <template>
   <el-input-number
@@ -92,6 +92,7 @@
     :disabled="option.elmentConfig.disabled"
     :placeholder="option.elmentConfig.placeholder"
     :width="option.elmentConfig.width"
+    :default-text="option.elmentConfig.defaultText"
     @getCurrentValue="_change" />
   <comDataDictionary
     v-else-if="option.type==='comDataDictionary'"
@@ -103,35 +104,32 @@
     :width="option.elmentConfig.width"
     :root-name="option.elmentConfig.rootName"
     :org-id="option.elmentConfig.orgId"
+    :default-text="option.elmentConfig.defaultText"
     @getCurrentNode="_change" />
-  <commonSelect
-    v-else-if="option.type==='commonSelect'"
+  <commonSelectWithApi
+    v-else-if="option.type==='commonSelectWithApi'"
     v-model="model[option.name]"
     :disabled="option.elmentConfig.disabled"
-    :page-data="option.elmentConfig.pageData"
     :width="option.elmentConfig.width"
     :default-props="option.elmentConfig.defaultProps"
-    :size="option.elmentConfig.size"
-    :panel-disabled="option.elmentConfig.panelDisabled"
+    :displaytool-bar="option.elmentConfig.displaytoolBar"
     :placeholder="option.elmentConfig.placeholder"
     :filter-visibe="option.elmentConfig.filterVisibe"
     :filter-placeholder="option.elmentConfig.filterPlaceholder"
-    :displaytool-bar="option.elmentConfig.displaytoolBar"
     :default-text="option.elmentConfig.defaultText"
-    :infinite-scroll="option.elmentConfig.infiniteScroll"
     @getCurrentNode="_change" />
 </template>
 <script>
   import dataDictionaryForSel from '../datadictionary/dataDictionaryForSel.vue'
   import dataDictionaryForTree from '../datadictionary/dataDictionaryForTree.vue'
   import comDataDictionary from '../comdatadictionary/comDataDictionary.vue'
-  import commonSelect from '../commonselect/commonSelect.vue'
+  import commonSelectWithApi from '../commonselect/commonSelectWithApi.vue'
   export default {
     components: {
       dataDictionaryForSel,
       dataDictionaryForTree,
       comDataDictionary,
-      commonSelect
+      commonSelectWithApi
     },
     props: {
       option: {

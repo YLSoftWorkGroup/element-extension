@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime : 2019-12-30 12:59:32
+ * @LastEditTime : 2019-12-30 18:40:57
  -->
 
   #### tableedit
@@ -521,20 +521,18 @@ config配置
    },
    // 数据选择框
   {
-    type:'commonSelect', //选用控件类型  
+    type:'commonSelectWithApi', //选用控件类型  
     name: "attrName", //对应属性名
     elmentConfig: {  // 对应控件属性配置
-      pageData: [],
       width:'',
       defaultProps: "",
-      size: "",
       panelDisabled: "",
       placeholder: "",
       filterVisibe: "",
       filterPlaceholder: "",
       displaytoolBar: "",
       defaultText: "",
-      infiniteScroll: "",
+      disabled:false
     },   
     eventConf: {
       isOn: true, //是否开启事件
