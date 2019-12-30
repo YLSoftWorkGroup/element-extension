@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime : 2019-12-28 17:29:49
+ * @LastEditTime : 2019-12-30 12:28:27
  */
 import Flexbox from './components/flexbox/flexbox.vue'
 import Panel from './components/panel/panel.vue'
@@ -20,7 +20,6 @@ import Tabler from './components/table/tabler.jsx'
 import OnlyTable from './components/table/onlytable.jsx'
 import CommonSelect from './components/commonselect/commonSelect.vue'
 // 业务组件
-import YlBusinessCommonSel from './components/commonselect/ylBusinessCommonSel.vue'
 import Commontree from './components/commontree/commontree.vue'
 import Commonpaneltree from './components/commontree/commonpaneltree.vue'
 import DataDictionaryForSel from './components/datadictionary/dataDictionaryForSel.vue'
@@ -47,8 +46,7 @@ const components = [
   DataDictionaryForSel,
   DataDictionaryForTree,
   ComDataDictionary,
-  CommonSelect,
-  YlBusinessCommonSel
+  CommonSelect
 ]
 
 const install = function (Vue) {
@@ -83,6 +81,5 @@ export default {
   DataDictionaryForSel,
   DataDictionaryForTree,
   ComDataDictionary,
-  CommonSelect,
-  YlBusinessCommonSel
+  CommonSelect
 }

@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-24 16:24:15
+ * @LastEditTime : 2019-12-30 12:29:23
  -->
 <template>
   <div class="table-edit">
@@ -136,10 +136,10 @@
         this.$emit('delItem', row)
       },
       _getTableData (addObj) {
-        let { rows, dataType } = addObj
+        const { rows, dataType } = addObj
         if (rows.length) {
           rows.map((item, index) => {
-            let row = {}
+            const row = {}
             this.mapConfig[dataType].map((model, index) => {
               if (model.isReplace) {
                 if (model.eventConf && model.eventConf.isOn) {
@@ -164,7 +164,7 @@
               const maxRow = this.addRowCount
               if (maxRow > this.tableData.length) {
                 this.tableData.push(row)
-              } 
+              }
               // else {
               //   this.$message({ message: `选材数目不能大于${maxRow}条!`, type: 'warning' })
               // }

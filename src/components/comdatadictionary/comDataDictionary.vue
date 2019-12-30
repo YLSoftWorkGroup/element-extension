@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2019-10-23 18:48:02
+ * @LastEditTime : 2019-12-30 12:30:41
  -->
 <template>
   <yl-treeselect
@@ -82,8 +82,8 @@
     },
     methods: {
       _clear(){
-        this.$emit("input", '');
-        this.$emit("clear");
+        this.$emit("input", '')
+        this.$emit("clear")
       },
       _getCurrentNode (selectNode) {
         this.$emit('input', selectNode.name)
