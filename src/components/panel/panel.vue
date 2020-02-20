@@ -1,42 +1,46 @@
+
 <template>
-  <div class="yl-panel" :style="{'width':width}">
-    <div class="header" v-if="showHeader">
-      <div class="title" v-if="title">
-        <i v-if="icon" :class="icon"></i>
-        {{title}}
+  <div class="yl-panel g-border-b-solid" :style="{'width':width}">
+    <div v-if="showHeader" class="header">
+      <div class="header-content">
+        <div v-if="title" class="title">
+          <i v-if="icon" :class="icon" />
+          {{ title }}
+        </div>
+        <div class="tool">
+          <slot name="tool" />
+        </div>
       </div>
-      <slot class="tool"  name="tool">
-      </slot> 
     </div>
     <div class="content">
-        <slot></slot>
+      <slot />
     </div>
   </div>
 </template>
 <script>
   export default {
-    name: "ylPanel",
+    name: 'YlPanel',
     props: {
       icon: {
         type: String,
-        default: ""
+        default: ''
       },
       title: {
         type: String,
-        default: ""
+        default: ''
       },
       width: {
         type: String,
-        default: "100%"
+        default: '100%'
       },
-      showHeader:{
-        type:Boolean,
-        default:true
+      showHeader: {
+        type: Boolean,
+        default: true
       }
     },
+    mounted () {},
     methods: {
-    },
-    mounted(){}
+    }
   }
 </script>
 <style lang="postcss">
@@ -47,29 +51,32 @@
   box-sizing: border-box;
   display: flex;
   flex-direction: column;
-  background: #fff;
-  border: 1px solid rgb(221, 230, 238);
-  & > .header {
-    height: 32px;
-    display: flex;
-    align-items: center;
-    border-bottom: 1px solid rgb(221, 230, 238);
-    padding: 0px 5px;
-    color:$color-text-regular;
-    & > .title {
-      font-size: 14px;
-      flex: 1;
-    }
-    .tool > i {
-      min-width: 60px;
+  background: $background-color-l;
+  font-size: $font-size-14;
+    & > .header{
+      padding: 0px $layout-gap-l;
+      & > .header-content {
+        display: flex;
+        align-items: center;
+        box-sizing: border-box;
+        border-bottom: 1px solid #E4E7ED;
+        padding: $layout-gap-l 0px;
+        color:$text-primary;
+        font-weight: 600;
+        & > .title {
+          font-size: 14px;
+          border-left: $layout-gap-b solid $primary;
+          padding-left: $layout-gap-b;
+          flex: 1;
+        }
+        .tool > i {
+        }
     }
   }
   &> .content{
       flex:1;
       overflow: auto;
   }
-  
+
 }
 </style>
-
-

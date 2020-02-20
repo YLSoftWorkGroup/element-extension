@@ -1,5 +1,5 @@
 export default {
-  name: 'YlTable',
+  name: 'YlTableReport',
   data () {
     return {
       defaultAttr: {
@@ -9,7 +9,7 @@ export default {
           border: true,
           stripe: true,
           size: 'small',
-          highlightCurrent: true,
+          highlightCurrent: true, // 默认配置为单选
           style: { width: '100%', height: '100%' }
         },
         column: {
@@ -19,7 +19,9 @@ export default {
           resizable: true,
           sortable: true
         }
-      }
+      },
+      currentPage: 1,
+      pageData: []
     }
   },
   props: {
@@ -28,13 +30,16 @@ export default {
       type: Object,
       required: true
     },
-    input: {
-      type: Object,
-      required: true
-    },
     tableloading: {
       type: Boolean,
       default: false
+    },
+    tableData: {
+      required: false,
+      type: Array,
+      default: function () {
+        return []
+      }
     },
     pagination: {
       type: Object,
@@ -58,15 +63,12 @@ export default {
       }
     }
   },
-  created () {
-    this.input.limit = this.paginationAttr.pageSize
-  },
   methods: {
     clearSelection (selection) {
-      this.$refs.table.clearSelection(selection)
+      this.$refs.tableR.clearSelection(selection)
     },
     toggleRowSelection (row, selected) {
-      this.$refs.table.toggleRowSelection(row, selected)
+      this.$refs.tableR.toggleRowSelection(row, selected)
     },
     handleEvent (action) {
       const _self = this
@@ -75,20 +77,29 @@ export default {
       }
     },
     handleSizeChange (val) {
-      this.input.limit = val
-      this.input.offset = val * (this.input.draw - 1)
-      this.$emit('reload')
+      this.paginationAttr.pageSize = val
+      this.getpagination()
     },
     handleCurrentChange (val) {
-      this.input.draw = val
-      this.input.offset = this.input.limit * (val - 1)
-      this.$emit('reload')
+      this.currentPage = val
+      this.getpagination()
+    },
+    loading () {
+      this.$emit('loading', this.tableloading)
+    },
+    getpagination () {
+      let array = this.tableData
+      let pageSize = this.paginationAttr.pageSize
+      let offset = this.paginationAttr.pageSize * (this.currentPage - 1)
+      this.pageData =
+        offset + pageSize >= array.length
+          ? array.slice(offset, array.length)
+          : array.slice(offset, offset + pageSize)
     },
     renderItem (h, columns, columnDefaultAttr) {
-      return columns.map((column, index) => {
+      return columns.map(column => {
         const columnAttr = Object.assign({}, columnDefaultAttr, column.attr)
         if (column.isParent) {
-          // 父节点
           return (
             <el-table-column
               label={columnAttr.label}
@@ -103,7 +114,6 @@ export default {
             </el-table-column>
           )
         } else {
-          // 子节点
           return (
             <el-table-column
               type={columnAttr.type}
@@ -134,28 +144,37 @@ export default {
               filter-method={columnAttr.filterMethod}
               filtered-value={columnAttr.filterValue}
             >
-              {columnAttr.scopedSlot
-                ? this.$scopedSlots[columnAttr.scopedSlot]
-                : ''}
+              {columnAttr.scopedSlot ? this.$scopedSlots[columnAttr.scopedSlot] : ''}
             </el-table-column>
           )
         }
       })
     }
   },
+  mounted () {},
+  watch: {
+    tableData: function (n, o) {
+      if (n.length > 0) {
+        this.currentPage = 1
+        this.getpagination()
+      } else {
+        this.pageData = []
+      }
+    }
+  },
   render (h) {
     const tableAttr = Object.assign({}, this.defaultAttr.table, this.configs.table.attr || {}) // 表格属性
     const columns = this.configs.columns // 列配置
-    const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {}) // 列默认配置
+    const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {})// 列默认配置
     return (
       <yl-flex-box vertical isReverse>
         <div slot='flex' style="padding:3px 10px; box-sizing: border-box;">
           <el-table
-            ref="table"
+            ref="tableR"
             v-loading={this.tableloading}
             element-loading-text="加载中..."
             style={tableAttr.style}
-            data={tableAttr.data.rows}
+            data={this.pageData}
             height={tableAttr.height}
             max-height={tableAttr.maxHeight}
             stripe={tableAttr.stripe}
@@ -213,17 +232,18 @@ export default {
             <el-pagination
               on-size-change={this.handleSizeChange}
               on-current-change={this.handleCurrentChange}
-              current-page={this.input.draw}
+              current-page={this.currentPage}
               page-sizes={this.paginationAttr.pageSizes}
               page-size={this.paginationAttr.pageSize}
               prev-text={this.paginationAttr.prevText}
               next-text={this.paginationAttr.nextText}
               disabled={this.paginationAttr.disabled}
-              total={tableAttr.data.count}
+              total={this.tableData.length}
               background={this.paginationAttr.background}
               layout={this.paginationAttr.layout}
               small={this.paginationAttr.small}
-            />
+            >
+            </el-pagination>
           </yl-tool-bar>
         </div>
       </yl-flex-box>

@@ -1,14 +1,60 @@
 
-$color-primary: #2571a3;
-$color-white: #FFFFFF;
-$color-black: #000000;
-$color-success: #44b29d;
-$color-warning: #f5b041;
-$color-danger: #ec7062;
-$color-info: #99a3a4;
-$color-text-primary: #303133;
-$color-text-regular: #606266;
-$background-color-base: #f5f7fa;
+$white: #FFFFFF;
+$black: #000000;
+$primary: #2980B9;
+$success: #2FCB71;
+$info: #95A5A6;
+$warning: #F1C40F;
+$danger: #E74C3C;
+
+/* 
+$primary-l1: mixc($white,$primary, 0.9);
+$primary-l1: mixc($white,$primary, 0.9);
+$primary-l2: mixc($white,$primary, 0.8);
+$primary-l3: mixc($white,$primary, 0.7);
+$primary-l4: mixc($white,$primary, 0.6);
+$primary-l5: mixc($white,$primary, 0.5);
+$primary-l6: mixc($white,$primary, 0.4);
+$primary-l7: mixc($white,$primary, 0.3);
+$primary-l8: mixc($white,$primary, 0.2);
+$primary-l9: mixc($white,$primary, 0.1);
+
+$success-l: mixc($white,$success, 0.6);
+$success-lr: mixc($white,$success, 0.8);
+$info-l: mixc($white,$info, 0.6);
+$info-lr: mixc($white,$info, 0.8);
+$warning-l: mixc($white,$warning, 0.6);
+$warning-lr: mixc($white,$warning, 0.8);
+$danger-l: mixc($white,$danger, 0.6);
+$danger-lr: mixc($white,$danger, 0.8); */
+
+$text-primary: #303133;
+$text-regular: #606266;
+$text-secondary: #909399;
+$text-placeholder: #C0C4CC;
+
+$line-height-b: 1.5;
+$line-height-e: 1.8;
+
+$layout-gap-s: 3px;
+$layout-gap-b: 5px;
+$layout-gap-l: 10px;
+
+$border-color-b: #E4E7ED;
+$border-color-l: #F2F6FC;
+
+$border-radius-b: 4px;
+$border-radius-s: 2px;
+
+$font-size-12: 12px;
+$font-size-13: 13px;
+$font-size-14: 14px;
+$font-size-16: 16px;
+$font-size-18: 18px;
+$font-size-22: 22px;
+
+$background-color-b: #F5F7FA;
+$background-color-l: #FFFFFF;
 
 .el-popover {
     padding: 8px;
@@ -30,7 +76,7 @@ $background-color-base: #f5f7fa;
     margin-bottom: 3px;
     line-height: 28px;
     border: 1px solid #fff;
-    background-color: $background-color-base;
+    background-color: $background-color-b;
 }
 .filter-style.el-input__inner {
     border: 1px solid rgb(191, 203, 217);
@@ -39,3 +85,36 @@ $background-color-base: #f5f7fa;
     margin-top:3px;
 }
 
+.g-border-b-solid{
+    border:1px $border-color-b solid;
+}
+.g-border-l-solid{
+    border:1px $border-color-l solid;
+}
+.g-border-b-dotted{
+    border:2px $border-color-b dotted;
+}
+.g-border-l-dotted{
+    border:2px $border-color-l dotted;
+}
+
+.g-box-shadow-base{
+   box-shadow:0 2px 4px rgba(0, 0, 0, .12), 0 0 6px rgba(0, 0, 0, .04);
+}
+.g-box-shadow-light{
+   box-shadow:0 2px 12px 0 rgba(0, 0, 0, 0.1);
+}
+/* 危险按钮偏移类 */
+.g-button-margin-left {
+    margin-left: 50px !important;
+}
+
+ /* 工具条按钮有浮动 */
+.g-button-float-right {
+    float: right;
+}
+
+/* 容器的内边距 */
+.g-container-padding {
+    padding: $layout-gap-l;
+}

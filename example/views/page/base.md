@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:08
- * @LastEditTime: 2019-10-22 15:26:51
+ * @LastEditTime: 2020-02-17 15:24:00
  -->
 
 ### `element-extension`  
@@ -53,4 +53,5 @@ vue全部引入：
  Vue.use(element-extension)
 
 ```
+
 

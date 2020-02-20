@@ -36,6 +36,7 @@ export default {
 </script>
 <style>
 .demo-block {
+  background: #F5F7FA;
   border: 1px solid #ebedf0;
   border-radius: 2px;
   display: inline-block;

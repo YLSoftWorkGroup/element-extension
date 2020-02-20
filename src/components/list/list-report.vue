@@ -14,15 +14,16 @@
     <div slot="fixed">
       <yl-tool-bar>
         <el-pagination
-          :current-page="input.draw"
+          :current-page="currentPage"
           :page-sizes="paginationAttr.pageSizes"
           :page-size="paginationAttr.pageSize"
-          :total="listData.count"
+          :total="listData.length"
           :layout="paginationAttr.layout"
           :background="paginationAttr.background"
           :small="paginationAttr.small"
           @size-change="handleSizeChange"
-          @current-change="handleCurrentChange" />
+          @current-change="handleCurrentChange"
+        />
       </yl-tool-bar>
     </div>
   </yl-flex-box>
@@ -30,17 +31,18 @@
 
 <script type="text/babel">
   export default {
-    name: 'YlList',
+    name: 'YlListReport',
     data () {
       return {
-        pageData: []
+        pageData: [],
+        currentPage: 1
       }
     },
     props: {
       wrapClass: {
-        type: String,
-        default: ''
-      },
+          type: String,
+          default: ''
+        },
       itemWrapClass: {
         type: String,
         default: ''
@@ -50,27 +52,20 @@
         default: false
       },
       listData: {
-        type: Object,
+        type: Array,
         default: function () {
-          return {}
-        }
-      },
-      input: {
-        type: Object,
-        required: true,
-        default: function () {
-          return {};
+          return []
         }
       },
       pagination: {
         type: Object,
-        default: function () {
+        default: function() {
           return {
             small: false,
             background: true,
             pageSize: 10,
             pageSizes: [10, 20, 50],
-            layout: "sizes, prev, pager, next,  total" // prev, pager, next, jumper, ->, total, slot
+            layout: "sizes,prev, pager, next,  total" // prev, pager, next, jumper, ->, total, slot
           };
         }
       }
@@ -78,33 +73,38 @@
     computed: {
       paginationAttr: {
         get () {
-          return this.pagination;
+          return this.pagination
         }
       }
     },
     methods: {
       handleSizeChange (val) {
-        this.input.limit = val;
-        this.input.offset = val * (this.input.draw - 1);
-        this.$emit("reload");
+        this.paginationAttr.pageSize = val;
+        this.getpagination()
       },
       handleCurrentChange (val) {
-        this.input.draw = val;
-        this.input.offset = this.input.limit * (val - 1);
-        this.$emit("reload");
+        this.currentPage = val
+        this.getpagination()
+      },
+      getpagination (val) {
+        let array = this.listData
+        let pageSize = this.paginationAttr.pageSize
+        let offset = this.paginationAttr.pageSize*(this.currentPage-1)
+        this.pageData =
+          offset + pageSize >= array.length
+            ? array.slice(offset, array.length)
+            : array.slice(offset, offset + pageSize);
       }
     },
-    created () {
-      this.input.limit = this.paginationAttr.pageSize;
-    },
+    created () {},
+    mounted () {},
     watch: {
       listData: function (n, o) {
-        let data = n.rows
-        if (data.length === this.input.limit) {
-          this.pageData = data.slice(0, data.length - 1)
+        if (n.length > 0) {
+          this.currentPage = 1
+          this.getpagination()
         } else {
-          // 处理下一页
-          this.pageData = data
+          this.pageData = []
         }
       }
     }
@@ -113,15 +113,15 @@
 
 <!-- Add "scoped" attribute to limit CSS to this component only -->
 <style lang="postcss"  scoped>
-  .list-warpper {
-    overflow: auto;
-    width: 100%;
-    height: 100%;
-  }
-  .nodata {
-    height: 100px;
-    text-align: center;
-    font-size: 14px;
-    padding-top: 80px;
-  }
+.list-warpper {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+}
+.nodata {
+  height: 100px;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 80px;
+}
 </style>

@@ -2,51 +2,58 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime : 2019-12-30 12:28:27
+ * @LastEditTime: 2020-02-20 22:03:52
  */
-import Flexbox from './components/flexbox/flexbox.vue'
+import PageHeader from './components/page-header/page-header.vue'
+import PageHeaderItem from './components/page-header/page-header-item.vue'
+import FlexBox from './components/flex-box/flex-box.vue'
 import Panel from './components/panel/panel.vue'
-import Timebar from './components/timebar/timebar.vue'
-import Toolbar from './components/toolbar/toolbar.vue'
-import PageHeader from './components/pageheader/pageheader.vue'
-import TreeSelect from './components/treeselect/treeselect.vue'
-import TableEdit from './components/tableedit/tableedit.vue'
+import ToolBar from './components/tool-bar/tool-bar.vue'
+import TimeBar from './components/time-bar/time-bar.vue'
+
+import CommonSelect from './components/common-select/common-select.vue'
+import CommonSelectApi from './components/common-select/common-select-api.vue'
+
+import TreeSelect from './components/tree-select/tree-select.vue'
+import TableEdit from './components/table-edit/table-edit.vue'
 import List from './components/list/list.vue'
-import Listr from './components/list/listr.vue'
-import Listn from './components/list/listn.vue'
+import ListReport from './components/list/list-report.vue'
+import ListNext from './components/list/list-next.vue'
 import Table from './components/table/table.jsx'
-import Tablen from './components/table/tablen.jsx'
-import Tabler from './components/table/tabler.jsx'
-import OnlyTable from './components/table/onlytable.jsx'
-import CommonSelect from './components/commonselect/commonSelect.vue'
-// 业务组件
-import Commontree from './components/commontree/commontree.vue'
-import Commonpaneltree from './components/commontree/commonpaneltree.vue'
-import DataDictionaryForSel from './components/datadictionary/dataDictionaryForSel.vue'
-import DataDictionaryForTree from './components/datadictionary/dataDictionaryForTree.vue'
-import ComDataDictionary from './components/comdatadictionary/comDataDictionary.vue'
+import TableNext from './components/table/table-next.jsx'
+import TableReport from './components/table/table-report.jsx'
+import OnlyTable from './components/table/only-table.jsx'
+
+// // 业务组件
+import Commontree from './components/common-tree/common-tree.vue'
+import Commonpaneltree from './components/common-tree/common-tree-panel.vue'
+import DictionarySelect from './components/dictionary/dictionary-select.vue'
+import DictionaryTree from './components/dictionary/dictionary-tree.vue'
+import UnitDictionaryTree from './components/dictionary/unit-dictionary-tree.vue'
 
 const components = [
-  Flexbox,
+  FlexBox,
   Panel,
-  Toolbar,
-  Timebar,
+  ToolBar,
+  TimeBar,
   PageHeader,
-  Table,
-  Tabler,
-  Tablen,
-  OnlyTable,
-  TableEdit,
-  List,
-  Listr,
-  Listn,
+  PageHeaderItem,
+  CommonSelect,
+  CommonSelectApi,
   TreeSelect,
   Commontree,
   Commonpaneltree,
-  DataDictionaryForSel,
-  DataDictionaryForTree,
-  ComDataDictionary,
-  CommonSelect
+  DictionarySelect,
+  DictionaryTree,
+  UnitDictionaryTree,
+  Table,
+  TableNext,
+  TableReport,
+  OnlyTable,
+  TableEdit,
+  List,
+  ListReport,
+  ListNext
 ]
 
 const install = function (Vue) {
@@ -62,24 +69,25 @@ if (typeof window !== 'undefined' && window.Vue) {
 
 export default {
   install,
-  Flexbox,
+  FlexBox,
   Panel,
-  Toolbar,
-  Timebar,
+  ToolBar,
+  TimeBar,
   PageHeader,
-  Table,
-  Tabler,
-  Tablen,
-  OnlyTable,
-  TableEdit,
-  List,
-  Listr,
-  Listn,
+  CommonSelect,
+  CommonSelectApi,
   TreeSelect,
   Commontree,
   Commonpaneltree,
-  DataDictionaryForSel,
-  DataDictionaryForTree,
-  ComDataDictionary,
-  CommonSelect
+  DictionarySelect,
+  DictionaryTree,
+  UnitDictionaryTree,
+  Table,
+  TableReport,
+  TableNext,
+  OnlyTable,
+  TableEdit,
+  List,
+  ListReport,
+  ListNext
 }

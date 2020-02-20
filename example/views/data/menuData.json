@@ -1,15 +1,13 @@
 [
    
     {
-        "label":"基础",
+        "label":"Base 基础",
         "name":"base",
-        "url":"/base",
         "icon":"el-icon-setting"
     },
     {
-        "label":"图标",
+        "label":"Icon 图标",
         "name":"icon",
-        "url":"/icon",
         "icon":"el-icon-icon"
     },
     {
@@ -18,24 +16,21 @@
         "icon":"el-icon-cluster",
         "children":[
             {
-                "label":"flexbox",
-                "name":"flexbox",
-                "url":"/flexbox"
+                "label":"PageHeader 页面导航",
+                "name":"page-header"
             },
             {
-                "label":"panel",
-                "name":"panel",
-                "url":"/panel"
+                "label":"FlexBox 弹性面板",
+                "name":"flex-box"
             },
             {
-                "label":"pageheader",
-                "name":"pageheader",
-                "url":"/pageheader"
+                "label":"Panel 面板",
+                "name":"panel"
             },
+            
             {
-                "label":"toolbar",
-                "name":"toolbar",
-                "url":"/toolbar"
+                "label":"ToolBar 工具面板",
+                "name":"tool-bar"
             }
         ]
     },
@@ -45,49 +40,44 @@
         "icon":"el-icon-edit-outline",
         "children":[
             {
-                "label":"timebar",
-                "name":"timebar",
-                "url":"/timebar"
+                "label":"TimeBar 时间过滤器",
+                "name":"time-bar"
             },
             {
-                "label":"commonselect",
-                "name":"commonselect",
-                "url":"/commonselect"
+                "label":"CommonSelect 通用选择器",
+                "name":"common-select"
             },
             {
-                "label":"treeselect",
-                "name":"treeselect",
-                "url":"/treeselect"
+                "label":"CommonSelectApi 选择器包含接口",
+                "name":"common-select-api"
             },
             {
-                "label":"commontree",
-                "name":"commontree",
-                "url":"/commontree"
+                "label":"TreeSelect 树选择器",
+                "name":"tree-select"
             },
             {
-                "label":"commontreewithpanel",
-                "name":"commontreewithpanel",
-                "url":"/commontreewithpanel"
+                "label":"CommonTree 通用树选择器",
+                "name":"common-tree"
             },
             {
-                "label":"datadictionaryforsel",
-                "name":"datadictionaryforsel",
-                "url":"/datadictionaryforsel"
+                "label":"CommonTreePanel 通用树面板选择器",
+                "name":"common-tree-panel"
             },
             {
-                "label":"datadictionaryfortree",
-                "name":"datadictionaryfortree",
-                "url":"/datadictionaryfortree"
+                "label":"DictionarySelect 字典选择器",
+                "name":"dictionary-select"
             },
             {
-                "label":"comdatadictionary",
-                "name":"comdatadictionary",
-                "url":"/comdatadictionary"
+                "label":"DictionaryTree 字典选择树",
+                "name":"dictionary-tree"
             },
             {
-                "label":"tableedit",
-                "name":"tableedit",
-                "url":"/tableedit"
+                "label":"UnitDictionaryTree 单位字典选择器",
+                "name":"unit-dictionary-tree"
+            },
+            {
+                "label":"TableEdit 表格编辑器",
+                "name":"table-edit"
             }
         ]
     },
@@ -97,53 +87,45 @@
         "icon":"el-icon-tickets",
         "children":[
             {
-                "label":"list",
-                "name":"list",
-                "url":"/list"
+                "label":"List 翻页列表",
+                "name":"list"
             },
             {
-                "label":"listr",
-                "name":"listr",
-                "url":"/listr"
+                "label":"ListReport 后翻页列表",
+                "name":"list-report"
             },
             {
-                "label":"listn",
-                "name":"listn",
-                "url":"/listn"
+                "label":"ListNext 上下翻页列表",
+                "name":"list-next"
             },
             {
-                "label":"onlytable",
-                "name":"onlytable",
-                "url":"/onlytable"
+                "label":"OnlyTable 表格",
+                "name":"only-table"
             },
             {
-                "label":"table",
-                "name":"table",
-                "url":"/table"
+                "label":"Table 翻页表格",
+                "name":"table"
             },
             {
-                "label":"tabler",
-                "name":"tabler",
-                "url":"/tabler"
+                "label":"TableReport 后翻页表格",
+                "name":"table-report"
             },
             {
-                "label":"tablen",
-                "name":"tablen",
-                "url":"/tablen"
+                "label":"TableNext 上下翻页表格",
+                "name":"table-next"
             }
         ]
     },
     {
-        "label":"其他",
+        "label":"其它",
         "name":"other",
         "icon":"el-icon-more",
         "children":[
         ]
     },
     {
-        "label":"日志",
+        "label":"Log 日志",
         "name":"log",
-        "url":"/log",
         "icon":"el-icon-filesearch"
     }
 

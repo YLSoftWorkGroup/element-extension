@@ -1,6 +1,6 @@
 export default {
-  name: 'YlTable',
-  data () {
+  name: 'YlTableNext',
+  data() {
     return {
       defaultAttr: {
         table: {
@@ -19,11 +19,19 @@ export default {
           resizable: true,
           sortable: true
         }
-      }
+      },
+      pageData: []
     }
   },
   props: {
     // table的配置,具体见README.md
+    tableData: {
+      type: Array,
+      required: true,
+      function () {
+        return []
+      }
+    },
     configs: {
       type: Object,
       required: true
@@ -38,53 +46,70 @@ export default {
     },
     pagination: {
       type: Object,
-      default: function () {
+      default: function() {
         return {
           small: false,
           background: true,
-          pageSize: 10,
-          pageSizes: [10, 20, 50],
-          // prevText:'上一页',
-          // nextText:'下一页',
-          layout: 'sizes,prev, pager, next,  total' // prev, pager, next, jumper, ->, total, slot
-        }
+          pageSize: 11,
+          prevText:'上一页',
+          nextText:'下一页',
+          layout: 'prev, next'
+        };
       }
     }
   },
   computed: {
     paginationAttr: {
-      get () {
-        return this.pagination
+      get() {
+        return this.pagination;
       }
     }
   },
-  created () {
-    this.input.limit = this.paginationAttr.pageSize
+  watch: {
+      tableData: function (n, o) {
+        if (n.length === this.input.limit) {
+          this.pageData=n.slice(0,n.length-1)
+          this.$el.getElementsByClassName('btn-next')[0].disabled=false
+        }else{
+          //处理下一页
+          this.pageData=this.tableData
+          this.$el.getElementsByClassName('btn-next')[0].disabled=true
+        }
+
+        if(this.input.draw==1){
+          this.$el.getElementsByClassName('btn-prev')[0].disabled=true;
+        }else{
+          this.$el.getElementsByClassName('btn-prev')[0].disabled=false;
+        }
+
+      }
   },
   methods: {
     clearSelection (selection) {
-      this.$refs.table.clearSelection(selection)
+      this.$refs.tableN.clearSelection(selection);
     },
     toggleRowSelection (row, selected) {
-      this.$refs.table.toggleRowSelection(row, selected)
+      this.$refs.tableN.toggleRowSelection(row, selected);
     },
     handleEvent (action) {
-      const _self = this
+      const _self = this;
       return function () {
-        _self.$emit(action, ...arguments)
-      }
+        _self.$emit(action, ...arguments);
+      };
     },
-    handleSizeChange (val) {
-      this.input.limit = val
-      this.input.offset = val * (this.input.draw - 1)
-      this.$emit('reload')
+    prevClick (val) {
+      this.$el.getElementsByClassName('btn-prev')[0].disabled=true;
+      this.input.draw = val;
+      this.input.offset = (this.input.limit-1) * (val - 1);
+      this.$emit('reload');
     },
-    handleCurrentChange (val) {
-      this.input.draw = val
-      this.input.offset = this.input.limit * (val - 1)
-      this.$emit('reload')
+    nextClick (val) {
+      this.$el.getElementsByClassName('btn-next')[0].disabled=true;
+      this.input.draw = val;
+      this.input.offset = (this.input.limit-1) * (val - 1);
+      this.$emit('reload');
     },
-    renderItem (h, columns, columnDefaultAttr) {
+    renderItem(h, columns, columnDefaultAttr) {
       return columns.map((column, index) => {
         const columnAttr = Object.assign({}, columnDefaultAttr, column.attr)
         if (column.isParent) {
@@ -138,24 +163,28 @@ export default {
                 ? this.$scopedSlots[columnAttr.scopedSlot]
                 : ''}
             </el-table-column>
-          )
+          );
         }
-      })
+      });
     }
   },
-  render (h) {
+  created() {
+    this.input.limit = this.paginationAttr.pageSize;
+  },
+  mounted() {},
+  render(h) {
     const tableAttr = Object.assign({}, this.defaultAttr.table, this.configs.table.attr || {}) // 表格属性
     const columns = this.configs.columns // 列配置
-    const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {}) // 列默认配置
+    const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {}) // 列默认配置  
     return (
       <yl-flex-box vertical isReverse>
-        <div slot='flex' style="padding:3px 10px; box-sizing: border-box;">
+        <div slot="flex" style="padding:3px 10px; box-sizing: border-box;">
           <el-table
-            ref="table"
+            ref="tableN"
             v-loading={this.tableloading}
             element-loading-text="加载中..."
             style={tableAttr.style}
-            data={tableAttr.data.rows}
+            data={this.pageData}
             height={tableAttr.height}
             max-height={tableAttr.maxHeight}
             stripe={tableAttr.stripe}
@@ -206,24 +235,26 @@ export default {
             on-expand-change={this.handleEvent('expand-change')}
           >
             {this.renderItem(h, columns, columnDefaultAttr)}
+
           </el-table>
         </div>
         <div slot="fixed">
           <yl-tool-bar style="text-align:center">
             <el-pagination
-              on-size-change={this.handleSizeChange}
-              on-current-change={this.handleCurrentChange}
+              on-prev-click={this.prevClick}
+              on-next-click={this.nextClick}
               current-page={this.input.draw}
-              page-sizes={this.paginationAttr.pageSizes}
               page-size={this.paginationAttr.pageSize}
               prev-text={this.paginationAttr.prevText}
               next-text={this.paginationAttr.nextText}
               disabled={this.paginationAttr.disabled}
-              total={tableAttr.data.count}
               background={this.paginationAttr.background}
               layout={this.paginationAttr.layout}
               small={this.paginationAttr.small}
             />
+            <span style="color: #606266;display: inline-block;font-size: 13px;line-height:28px;padding-bottom:4px;">
+              第{this.input.draw}页
+            </span>
           </yl-tool-bar>
         </div>
       </yl-flex-box>

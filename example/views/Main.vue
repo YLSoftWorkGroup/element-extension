@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-08-22 11:35:09
+ * @LastEditTime: 2020-02-17 17:28:28
  -->
 <template>
   <div class="main">
@@ -19,12 +19,12 @@
       <div class="menu">
         <el-scrollbar style="height:100%" wrap-class="pagepanel" view-class="menupanel_view">
           <template v-for="(i,index) in menuData">
-            <div v-if="i.url" :key="index" class="item" @click="goUrl(i.url)">
+            <div v-if="!i.children" :key="index" class="item" @click="goUrl('/' + i.name)">
               {{ i.label }}
             </div>
             <div v-else :key="index">
               <span class="subtitle"> {{ i.label }} </span>
-              <div v-for="(ii, iindex) in i.children" :key="iindex" class="item" @click="goUrl(ii.url)">
+              <div v-for="(ii, iindex) in i.children" :key="iindex" class="item" @click="goUrl('/' + ii.name)">
                 {{ ii.label }}
               </div>
             </div>
@@ -83,7 +83,7 @@
     & > .header {
       height: 55px;
       line-height:55px;
-      background:$color-primary;
+      background:$primary;
       display: flex;
       padding-left:10px;
       padding-top:5px;
@@ -102,19 +102,19 @@
       overflow: hidden;
       & > .menu{
         height: 100%;
-        width: 220px;
-        color: $color-text-regular;
-        font-size: 16px;
+        width: 280px;
+        color: $text-regular;
+        font-size: 14px;
         & .subtitle {
           color: #aaa;
-          font-size: 14px;
+          font-size: 16px;
         }
         & .item {
           line-height: 45px;
           height: 45px;
           cursor: pointer;
           &:hover {
-            color: $color-primary;
+            color: $primary;
           }
         }
       }
