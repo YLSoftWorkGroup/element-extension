@@ -75,13 +75,11 @@ export default {
           this.pageData=this.tableData
           this.$el.getElementsByClassName('btn-next')[0].disabled=true
         }
-
         if(this.input.draw==1){
           this.$el.getElementsByClassName('btn-prev')[0].disabled=true;
         }else{
           this.$el.getElementsByClassName('btn-prev')[0].disabled=false;
         }
-
       }
   },
   methods: {
@@ -178,7 +176,7 @@ export default {
     const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {}) // 列默认配置  
     return (
       <yl-flex-box vertical isReverse>
-        <div slot="flex" style="padding:3px 10px; box-sizing: border-box;">
+        <div slot="flex" style="box-sizing: border-box;">
           <el-table
             ref="tableN"
             v-loading={this.tableloading}
@@ -239,7 +237,7 @@ export default {
           </el-table>
         </div>
         <div slot="fixed">
-          <yl-tool-bar style="text-align:center">
+          <div style="text-align:right; background:#fff;padding:5px 10px;display:flex;justify-content:flex-end;">
             <el-pagination
               on-prev-click={this.prevClick}
               on-next-click={this.nextClick}
@@ -252,10 +250,10 @@ export default {
               layout={this.paginationAttr.layout}
               small={this.paginationAttr.small}
             />
-            <span style="color: #606266;display: inline-block;font-size: 13px;line-height:28px;padding-bottom:4px;">
+            <div style="color: #606266;font-size: 13px;line-height:32px;">
               第{this.input.draw}页
-            </span>
-          </yl-tool-bar>
+            </div>
+          </div>
         </div>
       </yl-flex-box>
     )

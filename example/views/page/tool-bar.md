@@ -180,7 +180,7 @@
         <el-button type="info" size="small" plain class="el-icon-setting"> 打印设置</el-button>
         <el-button type="success" size="small" plain class="el-icon-file-excel-fill"> 导出</el-button>
         <el-button type="danger" size="small" plain class="el-icon-delete g-button-margin-left" > 删除</el-button>
-        <el-button type="text" size="small" style="margin-left:auto;"> 关闭</el-button>
+        <el-button type="text" size="small" class="g-button-float-right"> 关闭</el-button>
     </yl-tool-bar>
 
    </template>

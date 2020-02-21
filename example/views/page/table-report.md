@@ -13,6 +13,7 @@
    <template>
 
  <yl-table-report
+    style="height:400px"
     :tableloading="tableRloading"
     :tableData=tableDataR
     :configs="tableRConfig"

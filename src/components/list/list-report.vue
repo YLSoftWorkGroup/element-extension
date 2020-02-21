@@ -12,7 +12,7 @@
       <div v-else class="nodata">暂无数据</div>
     </div>
     <div slot="fixed">
-      <yl-tool-bar>
+      <div style="text-align:right; background:#fff;padding:5px;">
         <el-pagination
           :current-page="currentPage"
           :page-sizes="paginationAttr.pageSizes"
@@ -24,7 +24,7 @@
           @size-change="handleSizeChange"
           @current-change="handleCurrentChange"
         />
-      </yl-tool-bar>
+      </div>
     </div>
   </yl-flex-box>
 </template>

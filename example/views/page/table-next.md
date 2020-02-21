@@ -12,7 +12,8 @@
 
    <template>
 
- <yl-table-next style="height:200px"
+ <yl-table-next 
+      style="height:400px"
       :tableloading="tableNloading"
       :tableData=tableNData
       :configs="tableNConfig"

@@ -14,7 +14,7 @@
       <div v-else class="nodata">暂无数据</div>
     </div>
     <div slot="fixed">
-      <yl-tool-bar>
+      <div style="text-align:right; background:#fff;padding:5px 10px;display:flex;justify-content:flex-end;">
         <el-pagination
           :current-page="input.draw"
           :page-size="paginationAttr.pageSize"
@@ -26,10 +26,10 @@
           @prev-click="prevClick"
           @next-click="nextClick"
         />
-        <span class="page-draw">
+        <div style="color: #606266;font-size: 13px;line-height:32px;">
           第{{ input.draw }}页
-        </span>
-      </yl-tool-bar>
+        </div>
+      </div>
     </div>
   </yl-flex-box>
 </template>

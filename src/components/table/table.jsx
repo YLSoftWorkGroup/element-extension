@@ -149,7 +149,7 @@ export default {
     const columnDefaultAttr = Object.assign({}, this.defaultAttr.column, this.configs.columnDefault || {}) // 列默认配置
     return (
       <yl-flex-box vertical isReverse>
-        <div slot='flex' style="padding:3px 10px; box-sizing: border-box;">
+        <div slot='flex' style="box-sizing: border-box;">
           <el-table
             ref="table"
             v-loading={this.tableloading}
@@ -209,7 +209,7 @@ export default {
           </el-table>
         </div>
         <div slot="fixed">
-          <yl-tool-bar style="text-align:center">
+          <div style="text-align:right; background:#fff;padding:5px;">
             <el-pagination
               on-size-change={this.handleSizeChange}
               on-current-change={this.handleCurrentChange}
@@ -224,7 +224,7 @@ export default {
               layout={this.paginationAttr.layout}
               small={this.paginationAttr.small}
             />
-          </yl-tool-bar>
+          </div>
         </div>
       </yl-flex-box>
     )

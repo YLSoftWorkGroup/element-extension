@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-02-20 15:23:31
+ * @LastEditTime: 2020-02-20 22:27:11
  -->
 <template>
   <div class="yl-common-select">
@@ -17,7 +17,12 @@
       :placeholder="placeholder"
       :suffix-icon="suffixIcon"
       :value="currentValue" />
-    <el-popover ref="selectPanel" v-model="selectPanelVisible" :disabled="disabled" placement="bottom-start" :width="popoverWidth"
+    <el-popover
+      ref="selectPanel"
+      v-model="selectPanelVisible"
+      placement="bottom-start"
+      :disabled="disabled"
+      :width="popoverWidth"
       trigger="click">
       <div v-if="displaytoolBar" class="el-select-panel-toolbar">
         <el-button size="mini" icon="el-icon-refresh" circle @click="_reload" />
@@ -88,6 +93,10 @@
         type: [String],
         default: '240px'
       },
+      panelWidth: {
+        type: [String],
+        default: ''
+      },
       defaultProps: {
         required: true,
         type: Object,
@@ -157,6 +166,9 @@
     },
     computed: {
       popoverWidth: function () {
+        if (this.panelWidth) {
+          return parseInt(this.panelWidth.substr(0, this.panelWidth.length - 2))
+        }
         return parseInt(this.width.substr(0, this.width.length - 2))
       },
       currentValue: {

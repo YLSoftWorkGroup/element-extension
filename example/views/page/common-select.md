@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-02-20 15:21:23
+ * @LastEditTime: 2020-02-20 22:28:53
  -->
 
 #### CommonSelect 通用选择器
@@ -23,6 +23,7 @@
    <yl-common-select
       v-model ="model.id"
       width="350px"
+      panelWidth = "500px"
       :defaultText="model.name"
       :defaultProps="defaultProps"
       :pageData="pageData"
@@ -125,6 +126,7 @@
   | 参数        | 说明           |类型   |默认值|可选值|
   | ------------- |:-------------:| -----:|---:|---:|
   | width| 宽度 | String| 240px |--|
+  | panelWidth| 宽度 | String| 不传值时和input宽度相同 | |
   | pageData| 每页数据 | Array|[] |--|
   | defaultProps| 配置选项  | object |具体看props配置表 |--|
   | size| 输入框大小  | String|'small' |参考el-input的size属性|
