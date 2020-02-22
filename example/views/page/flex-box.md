@@ -19,10 +19,10 @@
         style="height:300px" 
         needFlod 
         fixedWidth="180px">
-        <div slot="fixed">
+        <div slot="fixed" style="padding:10px;">
             我是固定区域
         </div>
-        <div slot="flex">
+        <div slot="flex" style="padding:10px;box-sizing: border-box;">
             我是弹性区域
         </div>
     </yl-flex-box>

@@ -18,32 +18,32 @@
     <yl-tool-bar>
       <template v-slot:filter>
         <el-form  label-position="right" label-width="80px" size="small" >
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
@@ -85,22 +85,22 @@
     <yl-tool-bar more>
       <template v-slot:more>
         <el-form  label-position="right" label-width="80px" size="small" >
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="扩展过滤器">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="扩展过滤器">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="扩展过滤器">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="扩展过滤器">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
@@ -109,32 +109,32 @@
       </template>
       <template v-slot:filter>
         <el-form  label-position="right" label-width="80px" size="small" >
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
@@ -213,12 +213,12 @@
 
 <template v-slot:filter>
         <el-form  label-position="right" label-width="80px" size="small" >
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
@@ -268,12 +268,12 @@
 
       <template v-slot:filter>
         <el-form  label-position="right" label-width="80px" size="small" >
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>
           </el-col>
-          <el-col :xs="12" :sm="8" :md="6" :lg="4">
+          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
             <el-form-item label="过滤名称">
               <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
             </el-form-item>

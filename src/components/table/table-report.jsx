@@ -17,7 +17,7 @@ export default {
           showOverflowTooltip: true,
           headerAlign: 'left',
           resizable: true,
-          sortable: true
+          sortable: false
         }
       },
       currentPage: 1,
@@ -151,7 +151,6 @@ export default {
       })
     }
   },
-  mounted () {},
   watch: {
     tableData: function (n, o) {
       if (n.length > 0) {

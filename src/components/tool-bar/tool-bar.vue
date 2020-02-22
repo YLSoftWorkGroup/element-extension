@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2020-02-16 23:59:04
- * @LastEditTime: 2020-02-19 14:29:38
+ * @LastEditTime: 2020-02-21 23:43:02
  -->
 <template>
   <div class="yl-tool-bar g-border-b-solid">
@@ -10,14 +10,15 @@
       <div v-if="more" class="more-lable" @click="_display">
         <i class="el-icon-filesearch" /> {{ display }}
       </div>
-      <div class="more-content">
-        <slot v-if="display == '隐藏'" name="more" />
+      <div v-if="display == '隐藏'" class="more-content">
+        <slot name="more" />
       </div>
     </div>
+    <div v-if="display == '隐藏'" class="divider" />
     <div class="filter">
       <slot name="filter" />
     </div>
-    <el-divider v-if="divider" />
+    <div v-if="divider" class="divider" />
     <div class="tool">
       <slot />
     </div>
@@ -69,10 +70,15 @@
   display: flex;
   flex-direction: column;
   & >>> .el-form-item {
-    margin-bottom: $layout-gap-l;
+    margin-bottom: $layout-gap-b;
   }
   & > .filter {
     height:auto;
+    padding: $layout-gap-b 0px;
+  }
+  & > .divider {
+    border-bottom: 1px solid $border-color-b;
+    margin:  $layout-gap-b 0px;
   }
   & > .more {
     height: auto;

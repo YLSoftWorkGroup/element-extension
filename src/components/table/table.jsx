@@ -17,7 +17,7 @@ export default {
           showOverflowTooltip: true,
           headerAlign: 'left',
           resizable: true,
-          sortable: true
+          sortable: false
         }
       }
     }

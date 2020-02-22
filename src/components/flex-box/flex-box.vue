@@ -1,6 +1,6 @@
 <template>
   <div class="yl-flex-box" :style="boxStyle">
-    <div v-if="!isReverse" v-show="!o_isFlod" class="fixed-wrapper" :style="fixedStyle">
+    <div v-if="!isReverse" v-show="!o_isFlod" class="fixed-wrapper" :style="fixedStyleComp">
       <slot name="fixed" />
     </div>
     <div
@@ -20,7 +20,7 @@
       :class="vertical?'flodx':'flody'"
       @click="hiddenFixed"
     />
-    <div v-if="isReverse" v-show="!o_isFlod" class="fixed-wrapper" :style="fixedStyle">
+    <div v-if="isReverse" v-show="!o_isFlod" class="fixed-wrapper" :style="fixedStyleComp">
       <slot name="fixed" />
     </div>
   </div>
@@ -67,7 +67,7 @@
       }
     },
     computed: {
-      fixedStyle () {
+      fixedStyleComp () {
         if (this.vertical) {
           return 'height:' + this.fixedWidth
         } else {
@@ -107,8 +107,6 @@
   & > .fixed-wrapper {
     display: block;
     & > div {
-      width: 100%;
-      height: 100%;
     }
   }
   & > .flex-wrapper {
