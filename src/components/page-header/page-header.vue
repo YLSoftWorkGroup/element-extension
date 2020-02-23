@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2020-02-16 23:59:04
- * @LastEditTime: 2020-02-20 18:16:07
+ * @LastEditTime: 2020-02-23 02:05:11
  -->
 <template>
   <div class="yl-page-header g-border-b-solid">
@@ -35,7 +35,7 @@
 @import  '../../styl/var.pcss';
 .yl-page-header {
   padding: $layout-gap-b $layout-gap-l;
-  height: 40px;
+  height: 40px !important;
   box-sizing: border-box;
   display: flex;
   align-items: center;

@@ -1,5 +1,5 @@
 <template>
-  <div>
+  <div class="common-select-api">
     <yl-common-select
       ref="commonSelect"
       :value="value"
@@ -121,7 +121,7 @@
         if (this.parameter.orgId > 0) {
           this.listParams.condtionItems.push({
             fieldName: 'orgId',
-            op: 'like',
+            op: 'eq',
             fieldValue: this.parameter.orgId
           })
         }

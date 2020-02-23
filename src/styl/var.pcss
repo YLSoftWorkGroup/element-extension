@@ -108,14 +108,27 @@ $background-color-l: #FFFFFF;
 .g-button-margin-left {
     margin-left: 50px !important;
 }
-
  /* 工具条按钮有浮动 */
 .g-button-float-right {
     float: right;
     margin-left:auto;
 }
-
 /* 容器的内边距 */
 .g-container-padding {
     padding: $layout-gap-l;
+    box-sizing: border-box;
+}
+
+
+/*容器内边距头部免除*/
+.g-container-padding-nontop {
+    padding: $layout-gap-l;
+    padding-top: 0px;
+    box-sizing: border-box;
+}
+
+/*填充容器样式*/
+.g-container-full-fill {
+    width:100%;
+    height:100%;
 }

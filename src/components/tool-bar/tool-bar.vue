@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2020-02-16 23:59:04
- * @LastEditTime: 2020-02-21 23:43:02
+ * @LastEditTime: 2020-02-22 23:56:03
  -->
 <template>
   <div class="yl-tool-bar g-border-b-solid">
@@ -74,7 +74,7 @@
   }
   & > .filter {
     height:auto;
-    padding: $layout-gap-b 0px;
+    /* padding: $layout-gap-b 0px; */
   }
   & > .divider {
     border-bottom: 1px solid $border-color-b;
