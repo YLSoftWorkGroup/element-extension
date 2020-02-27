@@ -1,7 +1,7 @@
 <template>
   <div class="common-select-api">
     <yl-common-select
-      ref="commonSelect"
+      ref="commonSel"
       :value="value"
       :page-data="pageData"
       :default-text="defaultText"
@@ -11,8 +11,8 @@
       :displaytool-bar="displaytoolBar"
       :filter-visibe="filterVisibe"
       :width="width"
+      :panelWidth="panelWidth"
       :disabled="disabled"
-      :panel-disabled="disabled"
       @getCurrentNode="_getCurrentNode"
       @clear="_clear"
       @reload="_reload"
@@ -24,8 +24,12 @@
   export default {
     name: 'YlCommonSelectApi',
     props: {
-      defaultProps: {},
-      // 参数传递对象方式传递必穿参数url,fieldName  -- 额外参数parameter穿condtionItems[]
+      defaultProps: {
+        type: Object,
+        default: function () {
+          return {}
+        }
+      },
       parameter: {
         type: Object,
         default: function () {
@@ -48,10 +52,6 @@
         type: String,
         default: ''
       },
-      popoverDisabled: {
-        type: Boolean,
-        default: false
-      },
       disabled: {
         type: Boolean,
         default: false
@@ -70,6 +70,10 @@
       width: {
         type: [String, Number],
         default: '240px'
+      },
+      panelWidth: {
+        type: [String],
+        default: ''
       }
     },
     data () {
@@ -80,7 +84,6 @@
           draw: 0
         },
         pageData: [],
-        labourVisible: false,
         selectNode: []
       }
     },
@@ -92,15 +95,6 @@
       }
     },
     methods: {
-      _add () {
-        this.labourVisible = true
-        this.$children[0].selectPanelVisible = false
-      },
-      _close (bool) {
-        if (bool) {
-          this.labourVisible = false
-        }
-      },
       _reload (filterKey) {
         // 重刷
         this.listParams.draw = 0

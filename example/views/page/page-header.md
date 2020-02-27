@@ -15,7 +15,7 @@
       <yl-page-header-item to="/base">点收单</yl-page-header-item>
       <yl-page-header-item>编辑</yl-page-header-item>
      <template v-slot:tool>
-        <el-button class="el-icon-i-back" size="mini" @click="_back">
+        <el-button size="mini"  type="text" @click="_back">
           返回
         </el-button>
      </template>

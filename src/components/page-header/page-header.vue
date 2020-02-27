@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2020-02-16 23:59:04
- * @LastEditTime: 2020-02-23 02:05:11
+ * @LastEditTime: 2020-02-23 22:12:20
  -->
 <template>
   <div class="yl-page-header g-border-b-solid">
@@ -35,12 +35,12 @@
 @import  '../../styl/var.pcss';
 .yl-page-header {
   padding: $layout-gap-b $layout-gap-l;
-  height: 40px !important;
+  height: 33px !important;
   box-sizing: border-box;
   display: flex;
   align-items: center;
   background: $background-color-l;
-  font-size: $font-size-14;
+  font-size: $font-size-13;
   color: $text-regular;
   & > .title {
     font-weight: 500;

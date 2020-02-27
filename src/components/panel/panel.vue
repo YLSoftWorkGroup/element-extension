@@ -1,3 +1,9 @@
+<!--
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2020-02-16 23:59:04
+ * @LastEditTime: 2020-02-27 14:35:49
+ -->
 
 <template>
   <div class="yl-panel g-border-b-solid" :style="{'width':width}">
@@ -52,7 +58,7 @@
   display: flex;
   flex-direction: column;
   background: $background-color-l;
-  font-size: $font-size-14;
+  font-size: $font-size-13;
     & > .header{
       padding: 0px $layout-gap-l;
       & > .header-content {
@@ -60,11 +66,13 @@
         align-items: center;
         box-sizing: border-box;
         border-bottom: 1px solid #E4E7ED;
-        padding: $layout-gap-l 0px;
+        padding: $layout-gap-b 0px;
         color:$text-primary;
         font-weight: 600;
         & > .title {
           font-size: 14px;
+          height: 25px;
+          line-height: 25px;
           border-left: $layout-gap-b solid $primary;
           padding-left: $layout-gap-b;
           flex: 1;

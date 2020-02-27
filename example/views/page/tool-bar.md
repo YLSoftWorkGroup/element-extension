@@ -50,10 +50,61 @@
           </el-col>
           <el-col :span="3" >
             <el-form-item label-width="15px">
-              <el-button type="info" size="small"  class="el-icon-search" > 查 询</el-button>
+              <el-button type="info" size="small"  class="el-icon-search" > 查询</el-button>
             </el-form-item >
           </el-col>
         </el-form>
+      </template>
+    </yl-tool-bar>
+
+   </template>
+   <script>
+   export default {
+     data(){
+       return {
+         input:'',
+       }
+     },
+     methods:{
+     }
+   }
+   </script>
+   <style lang="css" >
+   </style>
+
+  ```
+:::
+
+过滤器紧凑布局用法:
+
+
+:::demo
+  ```html
+
+   <template>
+
+    <yl-tool-bar>
+      <template v-slot:filter>
+        <el-row :gutter="10">
+         <el-col :span="6">
+           <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
+          </el-col>
+          <el-col :span="3">
+           <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
+          </el-col>
+           <el-col :span="4">
+           <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
+          </el-col>
+          <el-col :span="4">
+           <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
+          </el-col>
+          <el-col :span="4">
+           <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
+          </el-col>
+          <el-col :span="3">
+            <el-button type="info" size="small" class="el-icon-search" > 查询</el-button>
+          </el-col>
+         </el-row>
       </template>
     </yl-tool-bar>
 
@@ -141,7 +192,7 @@
           </el-col>
           <el-col :span="3">
             <el-form-item label-width="15px">
-              <el-button type="info" size="small" class="el-icon-search" > 查 询</el-button>
+              <el-button type="info" size="small" class="el-icon-search" > 查询</el-button>
             </el-form-item >
           </el-col>
         </el-form>
@@ -175,11 +226,11 @@
     <yl-tool-bar>
         <el-button type="primary" size="small" class="el-icon-add" > 添加</el-button>
         <el-button type="primary" size="small" plain class="el-icon-edit"> 编辑</el-button>
-        <el-button type="primary" size="small" plain class="el-icon-fileprotect"> 提交</el-button>
-        <el-button type="warning" size="small" plain class="el-icon-select"> 撤销提交</el-button>
+        <el-button type="primary" size="small" plain class="el-icon-submit"> 提交</el-button>
         <el-button type="info" size="small" plain class="el-icon-setting"> 打印设置</el-button>
-        <el-button type="success" size="small" plain class="el-icon-file-excel-fill"> 导出</el-button>
-        <el-button type="danger" size="small" plain class="el-icon-delete g-button-margin-left" > 删除</el-button>
+        <el-button type="success" size="small" plain class="el-icon-excel"> 导出</el-button>
+        <el-button type="warning" size="small" plain class="el-icon-undo g-button-margin-left"> 撤销提交</el-button>
+        <el-button type="danger" size="small" plain class="el-icon-delete" > 删除</el-button>
         <el-button type="text" size="small" class="g-button-float-right"> 关闭</el-button>
     </yl-tool-bar>
 
@@ -210,31 +261,23 @@
    <template>
 
     <yl-tool-bar>
-
-<template v-slot:filter>
-        <el-form  label-position="right" label-width="80px" size="small" >
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
-            <el-form-item label="过滤名称">
-              <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
-            <el-form-item label="过滤名称">
-              <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
-            </el-form-item>
-          </el-col>
-          <el-col :span="3">
-            <el-form-item label-width="15px">
-              <el-button type="info" size="small" plain class="el-icon-search" > 查 询</ el-button>
-            </el-form-item >
-          </el-col>
-          <div class="g-button-float-right">
-            <el-button type="primary" size="small"  class="el-icon-fileprotect"> 提交</el-button>
-          <el-button type="success" size="small" plain class="el-icon-file-excel-fill"> 导出</el-button>
-          </div>
-        </el-form>
+      <template v-slot:filter>
+      <el-row :gutter="10">
+        <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
+          <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
+        </el-col>
+        <el-col :xs="24" :sm="12" :md="8" :lg="6" :xl="4">
+          <el-input v-model="input" size="small" placeholder="请输入内容"></el-input>
+        </el-col>
+        <el-col :span="3">
+          <el-button type="info" size="small" plain class="el-icon-search" > 查 询</ el-button>
+        </el-col>
+        <div class="g-button-float-right">
+          <el-button type="primary" size="small"  class="el-icon-submit"> 提交</el-button>
+          <el-button type="success" size="small" plain class="el-icon-excel"> 导出</el-button>
+        </div>
+      </el-row>
       </template>
-
     </yl-tool-bar>
 
    </template>
@@ -289,10 +332,11 @@
       
       <el-button type="primary" size="small" class="el-icon-add" > 添加</el-button>
         <el-button type="primary" size="small" plain class="el-icon-edit"> 编辑</el-button>
-        <el-button type="primary" size="small" plain class="el-icon-fileprotect"> 提交</el-button>
-        <el-button type="warning" size="small" plain class="el-icon-select"> 撤销提交</el-button>
-        <el-button type="success" size="small" plain class="el-icon-file-excel-fill"> 导出</el-button>
-        <el-button type="danger" size="small" plain class="el-icon-delete g-button-margin-left" > 删除</el-button>
+        <el-button type="primary" size="small" plain class="el-icon-submit"> 提交</el-button>
+        <el-button type="success" size="small" plain class="el-icon-excel"> 导出</el-button>
+        
+        <el-button type="warning" size="small" plain class="el-icon-undo g-button-margin-left"> 撤销提交</el-button>
+        <el-button type="danger" size="small" plain class="el-icon-delete" > 删除</el-button>
         
     </yl-tool-bar>
 

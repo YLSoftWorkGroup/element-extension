@@ -17,7 +17,7 @@
      <yl-panel 
       title="面板标题" 
       width="800px" 
-      style="height:300px">
+      style="height:350px">
        <template v-slot:tool>
           <el-button size="mini" class="el-icon-delete" @click="_reload"> </el-button>
            <el-button size="mini" class="el-icon-add" @click="_reload"> </el-button>
@@ -28,7 +28,7 @@
             :data="tableData"
             border
             size="small"
-            style="width: 100%;">
+            style="width: 100%;height:100%">
             <el-table-column
               prop="date"
               label="日期"
@@ -118,7 +118,7 @@
           border
           size="small"
           height="250"
-          style="width: 100%;">
+          style="width: 100%;height:100%">
           <el-table-column
             prop="date"
             label="日期"

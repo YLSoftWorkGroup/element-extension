@@ -3,7 +3,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-02-20 14:53:16
+ * @LastEditTime: 2020-02-27 14:37:50
  -->
 
 <template>
@@ -267,7 +267,7 @@
   .yl-time-bar {
     box-sizing: border-box;
     display: flex;
-    padding: $layout-gap-l $layout-gap-l;
+    padding: 0px $layout-gap-b;
     & > .btn {
       line-height: 2;
     }

@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2020-02-16 23:59:04
- * @LastEditTime: 2020-02-22 23:56:03
+ * @LastEditTime: 2020-02-27 14:43:13
  -->
 <template>
   <div class="yl-tool-bar g-border-b-solid">
@@ -14,7 +14,7 @@
         <slot name="more" />
       </div>
     </div>
-    <div v-if="display == '隐藏'" class="divider" />
+    <!-- <div v-if="display == '隐藏'" class="divider" /> -->
     <div class="filter">
       <slot name="filter" />
     </div>
@@ -62,9 +62,9 @@
 @import  '../../styl/var.pcss';
 .yl-tool-bar {
   box-sizing:border-box;
-  padding: $layout-gap-l $layout-gap-l;
+  padding: $layout-gap-b $layout-gap-l;
   background: $background-color-l;
-  font-size: $font-size-14;
+  font-size: $font-size-13;
   color: $text-primary;
   height:auto;
   display: flex;
@@ -77,7 +77,7 @@
     /* padding: $layout-gap-b 0px; */
   }
   & > .divider {
-    border-bottom: 1px solid $border-color-b;
+    border-bottom: 1px solid $border-color-l;
     margin:  $layout-gap-b 0px;
   }
   & > .more {

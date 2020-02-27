@@ -1,10 +1,10 @@
 ###  图标
 
 
-> 图标库是基于`element-ui`原有的图标库上扩充的。 使用方式和element-ui官网相同
+> 图标库是基于`element-mini-ui`原有的图标库上扩充的。 使用方式和element-mini-ui官网相同
 
 <style>
-.dib-box{
+.dib-box {
     width:100%;
     height:auto;
     padding:10px;
@@ -13,7 +13,7 @@
     flex-direction: row;
     flex-wrap: wrap;
 }
-.dib{
+.dib {
     border:1px #ccc solid;
     width:200px;
     margin:3px;
@@ -29,7 +29,72 @@
 </style>
 
 <ul class="dib-box">
-          
+
+
+<li class="dib">
+<span class="icon elment el-icon-cancel"></span>
+<div class="name">
+    cancel
+</div>
+<div class="code-name">.el-icon-cancel
+</div>
+</li>
+<li class="dib">
+<span class="icon elment el-icon-excel"></span>
+<div class="name">
+    excel
+</div>
+<div class="code-name">.el-icon-excel
+</div>
+</li>
+<li class="dib">
+<span class="icon elment el-icon-save"></span>
+<div class="name">
+    save
+</div>
+<div class="code-name">.el-icon-save
+</div>
+</li>
+<li class="dib">
+<span class="icon elment el-icon-check-file"></span>
+<div class="name">
+    check-file
+</div>
+<div class="code-name">.el-icon-check-file
+</div>
+</li>
+<li class="dib">
+<span class="icon elment el-icon-word"></span>
+<div class="name">
+    word
+</div>
+<div class="code-name">.el-icon-word
+</div>
+</li>
+<li class="dib">
+<span class="icon elment el-icon-undo"></span>
+<div class="name">
+    undo
+</div>
+<div class="code-name">.el-icon-undo
+</div>
+</li>
+<li class="dib">
+<span class="icon elment el-icon-submit"></span>
+<div class="name">
+    submit
+</div>
+<div class="code-name">.el-icon-submit
+</div>
+</li>
+<li class="dib">
+<span class="icon elment el-icon-approve"></span>
+<div class="name">
+    approve
+</div>
+<div class="code-name">.el-icon-approve
+</div>
+</li>
 <li class="dib">
 <span class="icon elment el-icon-check"></span>
 <div class="name">
@@ -1093,5 +1158,6 @@
 辅助类：
 
 可以使用 `el-icon-left`或者`el-icon-right`给图标增加边距
+
 
 
