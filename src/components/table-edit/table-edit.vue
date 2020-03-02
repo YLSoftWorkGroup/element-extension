@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-02-20 21:41:37
+ * @LastEditTime: 2020-03-02 23:42:05
  -->
 <template>
   <div class="table-edit">
@@ -93,6 +93,13 @@
         type: String,
         require: false,
         default: ''
+      },
+      usedVueComponent: {
+        type: Object,
+        require: false,
+        default: function () {
+          return {}
+        }
       }
     },
     data () {
@@ -103,7 +110,10 @@
         capitalColItem: {}
       }
     },
-    computed: {
+    provide () {
+      return {
+        usedVueComponent: this.usedVueComponent
+      }
     },
     watch: {
       addRows: function (val, oldVal) {

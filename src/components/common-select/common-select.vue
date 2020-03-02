@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-02-20 22:27:11
+ * @LastEditTime: 2020-03-02 15:27:28
  -->
 <template>
   <div class="yl-common-select">
@@ -91,7 +91,7 @@
       },
       width: {
         type: [String],
-        default: '240px'
+        default: '100%'
       },
       panelWidth: {
         type: [String],

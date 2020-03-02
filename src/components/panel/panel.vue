@@ -2,11 +2,11 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2020-02-16 23:59:04
- * @LastEditTime: 2020-02-27 14:35:49
+ * @LastEditTime: 2020-03-02 21:34:00
  -->
 
 <template>
-  <div class="yl-panel g-border-b-solid" :style="{'width':width}">
+  <div class="yl-panel" :style="{'width':width}">
     <div v-if="showHeader" class="header">
       <div class="header-content">
         <div v-if="title" class="title">
@@ -52,8 +52,6 @@
 <style lang="postcss">
 @import  '../../styl/var.pcss';
 .yl-panel {
-  height: 100%;
-  width: 100%;
   box-sizing: border-box;
   display: flex;
   flex-direction: column;

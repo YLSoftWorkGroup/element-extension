@@ -69,7 +69,7 @@
       // 宽度
       width: {
         type: [String, Number],
-        default: '240px'
+        default: '100%'
       },
       panelWidth: {
         type: [String],

@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-02-20 15:38:11
+ * @LastEditTime: 2020-03-02 15:28:28
  -->
 <template>
   <yl-tree-select
@@ -39,7 +39,7 @@
       },
       width: {
         type: [String, Number],
-        default: '240px'
+        default: '100%'
       },
       size: {
         type: String,

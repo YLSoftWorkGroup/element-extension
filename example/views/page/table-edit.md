@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-02-20 21:52:15
+ * @LastEditTime: 2020-03-02 23:48:56
  -->
 
   #### TableEdit 表格编辑器
@@ -23,6 +23,7 @@
       :mapConfig="mapConfig"
       :sumRowConf="sumRowConf"
       :addRows="addRows"
+      :usedVueComponent="{name,tableConfig}"
       style="height:300px"
       @delItem="_delItem"
       @sumCount="_sumCount">
@@ -39,7 +40,10 @@
      data(){
        return {
          addRows:{},
+         name:'你在找我吗?'
        }
+     },
+     mounted(){
      },
      computed:{
        tableConfig:{
@@ -87,8 +91,9 @@
                             isSum:true, 
                             init: function(option,row){
                             },
-                            blur:function(node,option,row){
-                              row.t_sumJE=row.t_price*row.t_quantity
+                            blur:function(node,option,row,coms,vue){
+                              row.t_sumJE=row.t_price*row.t_quantity,
+                              console.log(vue)
                             }
                           }
                         },
@@ -630,6 +635,7 @@ sumRowConf:{
   | sumRowConf| 合计行配置 | Object|参照本组件合计行配置 |--|
   | addRowCount| 编辑条目总数 | Number|20 |--|
   | notRepeatFiled| 去重属性名 | String|'' |--|
+  | usedVueComponent| 使用tableEdit当前实例需要传递的对象值 | Object|{} |--|
 
 
  **方法**

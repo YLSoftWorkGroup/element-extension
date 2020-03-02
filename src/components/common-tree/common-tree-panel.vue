@@ -2,13 +2,14 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-02-20 15:37:34
+ * @LastEditTime: 2020-03-03 00:13:13
  -->
 <template>
   <yl-panel
     :loading="treeLoading"
     :title="title"
     icon="el-icon-cluster"
+    style="height:100%"
     :width="width">
     <div slot="tool">
       <i class="el-icon-refresh" @click="_treeReload" />

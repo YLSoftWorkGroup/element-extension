@@ -2,13 +2,13 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-02-20 21:43:52
+ * @LastEditTime: 2020-03-02 23:42:27
  -->
 <template>
   <el-input-number
-    style="width:100%"
     v-if="option.type==='inputNum'"
     v-model.number="model[option.name]"
+    style="width:100%"
     :size="option.elmentConfig.size"
     :disabled="option.elmentConfig.disabled"
     :placeholder="option.elmentConfig.placeholder"
@@ -17,7 +17,7 @@
     :step="option.elmentConfig.step"
     :precision="option.elmentConfig.precision"
     :controls="false"
-    @blur="_blur(model[option.name])"/>
+    @blur="_blur(model[option.name])" />
   <el-input
     v-else-if="option.type==='inputText'"
     v-model.trim="model[option.name]"
@@ -82,7 +82,6 @@
     :size="option.elmentConfig.size"
     :disabled="option.elmentConfig.disabled"
     :placeholder="option.elmentConfig.placeholder"
-    style="width:100%"
     @getCurrentValue="_change" />
   <yl-dictionary-tree
     v-else-if="option.type==='ylDictionaryTree'"
@@ -164,6 +163,7 @@
     beforeMount () {
       this._initComs()
     },
+    inject: ['usedVueComponent'],
     methods: {
       _preventmousewheel (event) {
         event.preventDefault()
@@ -172,7 +172,7 @@
         const _this = this
         if (this.option.eventConf && this.option.eventConf.isOn) {
           if (this.option.eventConf.change) {
-            this.option.eventConf.change(node, this.option, this.model, _this)
+            this.option.eventConf.change(node, this.option, this.model, _this, this.usedVueComponent)
           }
         }
       },
@@ -180,7 +180,7 @@
         const _this = this
         if (this.option.eventConf && this.option.eventConf.isOn) {
           if (this.option.eventConf.blur !== undefined) {
-            this.option.eventConf.blur(node, this.option, this.model, _this)
+            this.option.eventConf.blur(node, this.option, this.model, _this, this.usedVueComponent)
             // 是否触发合计计算
             if (this.option.eventConf.isSum) {
               this.$emit('sumCount')
@@ -192,7 +192,7 @@
         const _this = this
         if (this.option.eventConf && this.option.eventConf.isOn) {
           if (this.option.eventConf.init !== undefined) {
-            this.option.eventConf.init(this.option, this.model, _this)
+            this.option.eventConf.init(this.option, this.model, _this, this.message)
           }
         }
       }

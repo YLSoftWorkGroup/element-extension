@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-02-20 15:28:51
+ * @LastEditTime: 2020-03-02 15:28:07
  -->
 <template>
   <div class="yl-tree-select">
@@ -63,7 +63,7 @@
     props: {
       width: {
         type: [String],
-        default: '240px'
+        default: '100%'
       },
       treeData: {
         type: Array,

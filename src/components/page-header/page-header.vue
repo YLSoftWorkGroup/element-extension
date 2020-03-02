@@ -2,10 +2,10 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2020-02-16 23:59:04
- * @LastEditTime: 2020-02-23 22:12:20
+ * @LastEditTime: 2020-03-02 21:31:57
  -->
 <template>
-  <div class="yl-page-header g-border-b-solid">
+  <div class="yl-page-header">
     <div class="title">
       <slot />
     </div>
