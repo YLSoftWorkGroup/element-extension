@@ -2,9 +2,16 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2019-10-25 12:11:38
+ * @LastEditTime: 2020-03-03 10:00:49
  -->
 #### 更新日志
+
+##### 2020.03.03
+
+v2.0.9
+1.  移除了tool-bar、panel、page-header的外边框
+2.  移除了panel的100%高度，需要自己给高度
+3.  tableedit增加了usedVueComponent参数，内嵌控件可以拿到这个参数
 
 ##### 2019.10.25
 
