@@ -2,13 +2,14 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-02-20 18:58:21
+ * @LastEditTime: 2020-03-03 18:06:28
  -->
 <template>
   <yl-tree-select
     step-by-one
     :value="value"
     :width="width"
+    :panel-width="panelWidth"
     :tree-data="treeData"
     :default-text="defaultText"
     :default-props="defaultProps"
@@ -52,6 +53,10 @@
       width: {
         type: [String],
         default: '240px'
+      },
+      panelWidth: {
+        type: [String],
+        default: ''
       },
       placeholder: {
         required: false,

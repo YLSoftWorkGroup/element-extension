@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-03-02 23:42:27
+ * @LastEditTime: 2020-03-03 18:10:45
  -->
 <template>
   <el-input-number
@@ -91,6 +91,7 @@
     :disabled="option.elmentConfig.disabled"
     :placeholder="option.elmentConfig.placeholder"
     :width="option.elmentConfig.width"
+    :panel-width="option.elmentConfig.panelWidth"
     :default-text="option.elmentConfig.defaultText"
     @getCurrentValue="_change" />
   <yl-unit-dictionary-tree
@@ -101,6 +102,7 @@
     :disabled="option.elmentConfig.disabled"
     :placeholder="option.elmentConfig.placeholder"
     :width="option.elmentConfig.width"
+    :panel-width="option.elmentConfig.panelWidth"
     :root-name="option.elmentConfig.rootName"
     :org-id="option.elmentConfig.orgId"
     :default-text="option.elmentConfig.defaultText"
@@ -110,6 +112,7 @@
     v-model="model[option.name]"
     :disabled="option.elmentConfig.disabled"
     :width="option.elmentConfig.width"
+    :panel-width="option.elmentConfig.panelWidth"
     :default-props="option.elmentConfig.defaultProps"
     :displaytool-bar="option.elmentConfig.displaytoolBar"
     :placeholder="option.elmentConfig.placeholder"
