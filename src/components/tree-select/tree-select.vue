@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-03-02 15:28:07
+ * @LastEditTime: 2020-03-03 18:03:37
  -->
 <template>
   <div class="yl-tree-select">
@@ -64,6 +64,10 @@
       width: {
         type: [String],
         default: '100%'
+      },
+      panelWidth: {
+        type: [String],
+        default: ''
       },
       treeData: {
         type: Array,
@@ -135,6 +139,9 @@
     },
     computed: {
       popoverWidth: function () {
+        if (this.panelWidth) {
+          return parseInt(this.panelWidth.substr(0, this.panelWidth.length - 2))
+        }
         return parseInt(this.width.substr(0, this.width.length - 2))
       },
       filterVisibe: {

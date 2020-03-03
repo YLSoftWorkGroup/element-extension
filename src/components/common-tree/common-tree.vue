@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-03-02 15:28:28
+ * @LastEditTime: 2020-03-03 18:03:54
  -->
 <template>
   <yl-tree-select
@@ -13,6 +13,7 @@
     :default-text="defaultText"
     :size="size"
     :width="width"
+    :panel-width="panelWidth"
     :disabled="disabled"
     :placeholder="placeholder"
     :default-expanded-keys="defaultExpandedKeys"
@@ -40,6 +41,10 @@
       width: {
         type: [String, Number],
         default: '100%'
+      },
+      panelWidth: {
+        type: [String],
+        default: ''
       },
       size: {
         type: String,
