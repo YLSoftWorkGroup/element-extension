@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-03-02 23:48:56
+ * @LastEditTime: 2020-03-06 15:36:35
  -->
 
   #### TableEdit 表格编辑器
@@ -60,21 +60,21 @@
                   attr: { label: "基本信息", headerAlign: "center" },
                   items:[
                     { attr: { prop: "t_code", label: "编码", width: 120 } },
-                    { attr: { prop: "t_name", label: "名称", width: 160 } },
-                    { attr: { prop: "t_model", label: "规格", width: 160  } },
+                    { attr: { prop: "t_name", label: "名称", width: 160} },
+                    { attr: { prop: "t_model", label: "规格", width: 160 } },
                     { attr: { prop: "t_unit", label: "单位", width: 70 } },
                   ]
                 },
                 { isParent:true, 
                   attr: { label: "金额", headerAlign: "center" },
                   items:[
-                    { attr: { prop: "t_quantity", label: "数量", width: 150 ,scopedSlot:'t_quantity'} },
-                    { attr: { prop: "t_price", label: "单价", width: 150 ,scopedSlot:'t_price'} },
-                    { attr: { prop: "t_sumJE", label: "金额", width: 120 ,scopedSlot:'t_sumJE'} },
+                    { attr: { prop: "t_quantity", label: "数量", width: 150, showOverflowTooltip: false  ,scopedSlot:'t_quantity'} },
+                    { attr: { prop: "t_price", label: "单价", width: 150, showOverflowTooltip: false ,scopedSlot:'t_price'} },
+                    { attr: { prop: "t_sumJE", label: "金额", width: 120 , showOverflowTooltip: false,scopedSlot:'t_sumJE'} },
                   ]
                 },
-                { attr: { prop: "created", label: "添加时间", "width": 120, }  },
-                { attr: { prop: "creator", label: "添加人",  "width": 120, }  },
+                { attr: { prop: "created", label: "添加时间", width: 120, }  },
+                { attr: { prop: "creator", label: "添加人",  width: 120, }  },
                 { "attr": { "prop": "id", fixed: "right" ,"label": "操作", "width": 65, align: "center", headerAlign: "center", "scopedSlot": "id" } },
             ],
             soltConf: [ 

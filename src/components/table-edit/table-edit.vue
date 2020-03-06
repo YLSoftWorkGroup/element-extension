@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-03-02 23:42:05
+ * @LastEditTime: 2020-03-06 15:29:00
  -->
 <template>
   <div class="table-edit">
@@ -35,7 +35,7 @@
           class="heji-text"
           v-text="getdataDX(capitalColItem.sumval)"
         />
-      </span> 
+      </span>
       <span v-for="(item,index) in sumItems" :key="index" class="heji-title" style="padding-left:10px;">
         {{ item.text }}：
         <span
@@ -108,6 +108,19 @@
         tableData: [],
         sumItems: {},
         capitalColItem: {}
+      }
+    },
+    computed: {
+      tableConfig: {
+        get () {
+          return Object.assign({}, {
+            table: {
+              attr: {
+                highlightCurrent: true
+              }
+            }
+          }, this.config)
+        }
       }
     },
     provide () {

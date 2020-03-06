@@ -15,7 +15,7 @@ export default {
         column: {
           // column的默认属性
           showOverflowTooltip: true,
-          headerAlign: 'left',
+          headerAlign: 'center',
           resizable: true,
           sortable: false
         }
