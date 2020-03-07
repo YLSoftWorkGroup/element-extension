@@ -12,7 +12,7 @@
       <div v-else class="nodata">暂无数据</div>
     </div>
     <div slot="fixed">
-      <div style="text-align:right; background:#fff;padding:5px;">
+      <div style="text-align:right; background:#fff;padding:2px;">
         <el-pagination
           :current-page="input.draw"
           :page-sizes="paginationAttr.pageSizes"

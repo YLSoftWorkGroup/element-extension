@@ -237,7 +237,7 @@ export default {
           </el-table>
         </div>
         <div slot="fixed">
-          <div style="text-align:right; background:#fff;padding:5px 10px;display:flex;justify-content:flex-end;">
+          <div style="text-align:right; background:#fff;padding:2px 10px;display:flex;justify-content:flex-end;">
             <el-pagination
               on-prev-click={this.prevClick}
               on-next-click={this.nextClick}

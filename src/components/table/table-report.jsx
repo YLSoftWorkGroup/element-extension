@@ -227,7 +227,7 @@ export default {
           </el-table>
         </div>
         <div slot="fixed">
-          <div style="text-align:right; background:#fff;padding:5px;">
+          <div style="text-align:right; background:#fff;padding:2px;">
             <el-pagination
               on-size-change={this.handleSizeChange}
               on-current-change={this.handleCurrentChange}
