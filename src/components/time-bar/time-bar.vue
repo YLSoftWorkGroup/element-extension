@@ -1,10 +1,3 @@
-/* eslint-disable complexity */
-<!--
- * @Description: 未描述
- * @Author: danielmlc
- * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-02-27 14:37:50
- -->
 
 <template>
   <div class="yl-time-bar">
@@ -130,7 +123,7 @@
       },
       _beginChange (node) {
         node = dayjs(node).format(this.format)
-        if (node > this.endDate) {
+        if (this.endDate !== 'Invalid Date' && node >= this.endDate) {
           this.$message.warning('起始时间不能大于结束时间！')
           this.beginDate = this.endDate
         } else {
@@ -139,7 +132,7 @@
       },
       _endChange (node) {
         node = dayjs(node).format(this.format)
-        if (this.beginDate > node) {
+        if (this.beginDate !== 'Invalid Date' && this.beginDate >= node) {
           this.$message.warning('结束时间不能小于开始时间！')
           this.endDate = this.beginDate
         } else {

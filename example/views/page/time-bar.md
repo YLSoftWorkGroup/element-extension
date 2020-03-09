@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-02-20 14:39:09
+ * @LastEditTime: 2020-03-09 15:37:23
  -->
 
   #### TimeBar 时间过滤器
@@ -33,12 +33,12 @@
      data(){
        return {
            dataPickOptions:{
-               format:"yyyy-MM",
+               format:"yyyy-MM-dd",
                size:'small',
                clearable:false,
                type:'month'
            },
-           format:"YYYY-MM",
+           format:"YYYY-MM-DD",
            btnItems:{
               day:true,
               week:true,
@@ -56,7 +56,12 @@
          
      },
      mounted(){
-       // this.$refs.timebar.setDate('2019-01-01','2019-12-01')
+       console.log('父组件')
+       this.$nextTick(()=>{
+         console.log('父组件')
+         console.log(this.$refs.timebar.getDate())
+       })
+       
      }
    }
    </script>
