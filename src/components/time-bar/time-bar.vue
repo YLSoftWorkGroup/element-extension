@@ -147,23 +147,23 @@
           switch (this.selectiton) {
             case 'day':
               this.beginDate = dayjs(this.beginDate).add(this._abs(isForward, 1), 'd')
-              this.endDate = dayjs(this.beginDate).add(1, 'd')
+              this.endDate = dayjs(this.beginDate).add(1, 'd').add(-1, 'd')
               break
             case 'week':
               this.beginDate = dayjs(this.beginDate).add(this._abs(isForward, 1), 'w')
-              this.endDate = dayjs(this.beginDate).add(1, 'w')
+              this.endDate = dayjs(this.beginDate).add(1, 'w').add(-1, 'd')
               break
             case 'month':
               this.beginDate = dayjs(this.beginDate).add(this._abs(isForward, 1), 'M')
-              this.endDate = dayjs(this.beginDate).add(1, 'M')
+              this.endDate = dayjs(this.beginDate).add(1, 'M').add(-1, 'd')
               break
             case 'quarter':
               this.beginDate = dayjs(this.beginDate).add(this._abs(isForward, 3), 'M')
-              this.endDate = dayjs(this.beginDate).add(3, 'M')
+              this.endDate = dayjs(this.beginDate).add(3, 'M').add(-1, 'd')
               break
             case 'year':
               this.beginDate = dayjs(this.beginDate).add(this._abs(isForward, 1), 'y')
-              this.endDate = dayjs(this.beginDate).add(1, 'y')
+              this.endDate = dayjs(this.beginDate).add(1, 'y').add(-1, 'd')
               break
           }
         } else {

@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-03-09 15:37:23
+ * @LastEditTime: 2020-03-11 19:46:59
  -->
 
   #### TimeBar 时间过滤器
@@ -18,27 +18,30 @@
   ```html
 
    <template>
-     <yl-time-bar 
-         ref ="timebar"
-        :dataPickOptions="dataPickOptions"
-        :currentValue="currentValue"
-        :btnItems="btnItems"
-        :format = "format"
-        @change="change"
-     >
-    </yl-time-bar>
+    <div>
+      <yl-time-bar 
+          ref ="timebar"
+          :dataPickOptions="dataPickOptions"
+          :currentValue="currentValue"
+          :btnItems="btnItems"
+          :format = "format"
+          @change="change"
+      >
+      </yl-time-bar>
+      <el-button size="small" type="info" @click="_getClick"> 获取值 </el-button>
+    </div>
    </template>
    <script>
    export default {
      data(){
        return {
            dataPickOptions:{
-               format:"yyyy-MM-dd",
+               format:"yyyy-MM",
                size:'small',
                clearable:false,
                type:'month'
            },
-           format:"YYYY-MM-DD",
+           format:"YYYY-MM",
            btnItems:{
               day:true,
               week:true,
@@ -53,7 +56,9 @@
          change(date){
              console.log(date)
          },
-         
+         _getClick() {
+           console.log(this.$refs.timebar.getDate())
+         }
      },
      mounted(){
        console.log('父组件')
