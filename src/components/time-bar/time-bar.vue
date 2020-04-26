@@ -132,6 +132,9 @@
       },
       _endChange (node) {
         node = dayjs(node).format(this.format)
+        if (node === 'Invalid Date') {
+          this.endDate = this.beginDate
+        }
         if (this.beginDate !== 'Invalid Date' && this.beginDate >= node) {
           this.$message.warning('结束时间不能小于开始时间！')
           this.endDate = this.beginDate
