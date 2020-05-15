@@ -122,8 +122,11 @@
         this.beginDate = dayjs(this.beginDate).format(this.format)
         if (this.format.indexOf('HH:mm:ss') > 0) {
           if (this.dataPickOptions.type === 'datetime' && flag === 1) {
+            this.beginDate = dayjs(this.beginDate).format('YYYY-MM-DD')
+            this.beginDate = dayjs(this.beginDate).format(this.format)
+            this.endDate = dayjs(this.endDate).format('YYYY-MM-DD')
             this.endDate = dayjs(this.endDate).add(1, 'day').add(-1, 's').format(this.format)
-          } else if (this.dataPickOptions.type === 'date') {
+          } else {
             this.endDate = dayjs(this.endDate).add(1, 'day').add(-1, 's').format(this.format)
           }
         } else {
@@ -133,7 +136,7 @@
       },
       _beginChange (node) {
         node = dayjs(node).format(this.format)
-        if (this.endDate !== 'Invalid Date' && node > this.endDate) {
+        if (this.endDate !== 'Invalid Date' && node > dayjs(this.endDate).format(this.format)) {
           this.$message.warning('起始时间不能大于结束时间！')
           this.beginDate = this.endDate
         } else {
@@ -145,7 +148,7 @@
         if (node === 'Invalid Date') {
           this.endDate = this.beginDate
         }
-        if (this.beginDate !== 'Invalid Date' && this.beginDate > node) {
+        if (this.beginDate !== 'Invalid Date' && dayjs(this.beginDate).format(this.format) > node) {
           this.$message.warning('结束时间不能小于开始时间！')
           this.endDate = this.beginDate
         } else {
