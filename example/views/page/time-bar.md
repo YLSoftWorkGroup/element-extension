@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-04-26 22:07:19
+ * @LastEditTime: 2020-05-15 14:00:02
  -->
 
   #### TimeBar 时间过滤器
@@ -36,12 +36,12 @@
      data(){
        return {
            dataPickOptions:{
-               format:"yyyy-MM-dd",
+               format:"yyyy-MM-dd HH:mm:ss",
                size:'small',
                clearable:false,
-               type:'date'
+               type:'datetime'
            },
-           format:"YYYY-MM-DD",
+           format:"YYYY-MM-DD HH:mm:ss",
            btnItems:{
               day:true,
               week:true,

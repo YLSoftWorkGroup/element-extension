@@ -32,6 +32,7 @@
         :format="dataPickOptions.format"
         :readonly="dataPickOptions.readonly"
         :size="dataPickOptions.size"
+        :clearable="false"
         placeholder="开始日期"
         @change="_beginChange" /> -
       <el-date-picker v-model="endDate"
@@ -41,6 +42,7 @@
         :format="dataPickOptions.format"
         :readonly="dataPickOptions.readonly"
         :size="dataPickOptions.size"
+        :clearable="false"
         placeholder="结束日期"
         @change="_endChange" />
       <i class="el-icon-caret-right" @click="_forward" />
@@ -116,14 +118,22 @@
       }
     },
     methods: {
-      _format () {
+      _format (flag = 0) {
         this.beginDate = dayjs(this.beginDate).format(this.format)
-        this.endDate = dayjs(this.endDate).format(this.format)
+        if (this.format.indexOf('HH:mm:ss') > 0) {
+          if (this.dataPickOptions.type === 'datetime' && flag === 1) {
+            this.endDate = dayjs(this.endDate).add(1, 'day').add(-1, 's').format(this.format)
+          } else if (this.dataPickOptions.type === 'date') {
+            this.endDate = dayjs(this.endDate).add(1, 'day').add(-1, 's').format(this.format)
+          }
+        } else {
+          this.endDate = dayjs(this.endDate).format(this.format)
+        }
         this.$emit('change', { beginDate: this.beginDate, endDate: this.endDate })
       },
       _beginChange (node) {
         node = dayjs(node).format(this.format)
-        if (this.endDate !== 'Invalid Date' && node >= this.endDate) {
+        if (this.endDate !== 'Invalid Date' && node > this.endDate) {
           this.$message.warning('起始时间不能大于结束时间！')
           this.beginDate = this.endDate
         } else {
@@ -135,7 +145,7 @@
         if (node === 'Invalid Date') {
           this.endDate = this.beginDate
         }
-        if (this.beginDate !== 'Invalid Date' && this.beginDate >= node) {
+        if (this.beginDate !== 'Invalid Date' && this.beginDate > node) {
           this.$message.warning('结束时间不能小于开始时间！')
           this.endDate = this.beginDate
         } else {
@@ -189,12 +199,12 @@
       _forward () {
         // 前进
         this._dealDate(true)
-        this._format()
+        this._format(1)
       },
       _back () {
         // 后退
         this._dealDate(false)
-        this._format()
+        this._format(1)
       },
       _getDate (type, oldVal) {
         this._initDate(type, oldVal)
