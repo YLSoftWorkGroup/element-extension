@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-05-15 14:00:02
+ * @LastEditTime: 2020-05-16 22:55:42
  -->
 
   #### TimeBar 时间过滤器
@@ -75,6 +75,9 @@
 
   ```
 :::
+
+> 注意在设定日期格式化时，如果日期格式是`YYYY-MM-DD HH:mm:ss` 日期控件的type应该为`datetime`
+
   **属性**
 
   | 参数        | 说明           |类型   |默认值|可选值|

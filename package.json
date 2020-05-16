@@ -1,6 +1,6 @@
 {
   "name": "element-extension",
-  "version": "2.1.6",
+  "version": "2.1.7",
   "description": "基于elementUI组件扩展组件库",
   "main": "lib/element-extension.js",
   "scripts": {

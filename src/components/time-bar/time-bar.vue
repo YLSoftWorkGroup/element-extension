@@ -121,11 +121,15 @@
       _format (flag = 0) {
         this.beginDate = dayjs(this.beginDate).format(this.format)
         if (this.format.indexOf('HH:mm:ss') > 0) {
-          if (this.dataPickOptions.type === 'datetime' && flag === 1) {
-            this.beginDate = dayjs(this.beginDate).format('YYYY-MM-DD')
-            this.beginDate = dayjs(this.beginDate).format(this.format)
-            this.endDate = dayjs(this.endDate).format('YYYY-MM-DD')
-            this.endDate = dayjs(this.endDate).add(1, 'day').add(-1, 's').format(this.format)
+          if (this.dataPickOptions.type === 'datetime') {
+            if (flag === 1) {
+              this.beginDate = dayjs(this.beginDate).format('YYYY-MM-DD')
+              this.beginDate = dayjs(this.beginDate).format(this.format)
+              this.endDate = dayjs(this.endDate).format('YYYY-MM-DD')
+              this.endDate = dayjs(this.endDate).add(1, 'day').add(-1, 's').format(this.format)
+            } else {
+              this.endDate = dayjs(this.endDate).format(this.format)
+            }
           } else {
             this.endDate = dayjs(this.endDate).add(1, 'day').add(-1, 's').format(this.format)
           }
