@@ -229,7 +229,9 @@
             break
           case 'week':
             this.selectiton = 'week'
-            const weekOfday = 1 - dayjs().day()
+            console.log(dayjs().day())
+            const weekindex = dayjs().day()
+            const weekOfday = 1 - (weekindex === 0 ? 7 : weekindex)
             this.beginDate = dayjs().add(weekOfday, 'd').format('YYYY-MM-DD')
             break
           case 'month':
