@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-03-03 00:13:13
+ * @LastEditTime: 2020-06-11 17:05:13
  -->
 <template>
   <yl-panel
@@ -102,6 +102,15 @@
           this._getTreeList(node.data.id, resolve)
         }
       },
+      _convetParams () {
+        let params = ''
+        for (const key in this.queryParams) {
+          if (this.queryParams[key] !== undefined && this.queryParams[key] !== null && key !== 'parentId') {
+            params += `&${key}=${this.queryParams[key]}`
+          }
+        }
+        return params
+      },
       _getTreeList (val, resolve) {
         const _this = this
         this.treeLoading = true
@@ -120,13 +129,7 @@
           this.$http
             .get(
               '/cbaseinfo/get-nodelist-parentid?parentId=' +
-                val +
-                '&orgId=' +
-                this.queryParams.orgId +
-                '&serviceId=' +
-                this.queryParams.serviceId +
-                '&path=' +
-                this.queryParams.path
+                val + this._convetParams(this.queryParams)
             )
             .then(data => {
               resolve(data)
