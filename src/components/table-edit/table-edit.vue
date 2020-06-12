@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-08-22 11:35:09
- * @LastEditTime: 2020-03-06 15:29:00
+ * @LastEditTime: 2020-06-12 16:46:05
  -->
 <template>
   <div class="table-edit">
@@ -46,7 +46,7 @@
   </div>
 </template>
 <script type="text/babel">
-  import YlRenderComs from './render-coms'
+  import YlRenderComs from './render-coms.vue'
   import util from '../../utils/util'
   export default {
     name: 'YlTableEdit',

@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-03-02 15:27:28
+ * @LastEditTime: 2020-06-12 17:09:59
  -->
 <template>
   <div class="yl-common-select">
@@ -71,7 +71,6 @@
           <p v-if="noData" class="infinite-list-tip">
             没有更多了
           </p>
-          <!-- <p class="infinite-list-tip" v-if="!listData.length">暂无数据</p> -->
         </div>
       </el-scrollbar>
     </el-popover>
@@ -245,7 +244,7 @@
       },
       _nodeClick (node) {
         this.selectNode = node
-        this.$emit('input', this.selectNode.id)
+        this.$emit('input', this.selectNode[this.defaultProps.id])
         this.$emit('getCurrentNode', this.selectNode)
         this.selectPanelVisible = false
       }
