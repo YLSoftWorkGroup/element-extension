@@ -11,7 +11,7 @@
       :displaytool-bar="displaytoolBar"
       :filter-visibe="filterVisibe"
       :width="width"
-      :panelWidth="panelWidth"
+      :panel-width="panelWidth"
       :disabled="disabled"
       @getCurrentNode="_getCurrentNode"
       @clear="_clear"
