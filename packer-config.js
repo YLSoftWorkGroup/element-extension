@@ -3,11 +3,17 @@ module.exports = {
   cwd: __dirname,
   global: {
     copy: {
+    },
+    browser:{
+      outPath:'browser/'
+    },
+    library:{
+      outPath:'lib/'
     }
   },
   server:{
     port: 8080,
-    staticPath:'dist/browser/'
+    staticPath:'browser/'
   },
   entries: {
     elementExtension: {
@@ -29,11 +35,9 @@ module.exports = {
         }
       },
     },
-    elementExtension: {
+    docs: {
       type: 'browser',
-      input: 'example/mian.js',
-      packerConfig: {
-      },
+      input: 'example/index.js',
     }
   }
 }
