@@ -4,12 +4,10 @@
   "description": "基于elementUI组件扩展组件库",
   "main": "lib/element-extension.js",
   "scripts": {
-    "start": "yarn || cnpm i || npm i",
-    "clean": "rimraf lib && rimraf src/*/lib",
-    "dev": "webpack-dev-server  --config build/webpack.dev.conf.js",
-    "build": "webpack --config build/webpack.build.conf.js ",
-    "docs": "webpack --config build/webpack.doc.conf.js ",
-    "pub": "npm run build && npm run docs"
+    "build": "webpages-packer packer/index.js --env production --config packer-config.js",
+    "demo": "webpages-packer --env development --config packer-config.js  --watch true",
+    "dev": "webpages-packer --env development --config packer-config.js  --watch true",
+    "start": "webpages-server --config packer-config.js"
   },
   "repository": {
     "url": "https://github.com/YLSoftWorkGroup/element-extension"
@@ -32,6 +30,6 @@
     "markdown-it-container": "^2.0.0",
     "markdown-it-emoji": "^1.4.0",
     "markdown-it-table-of-contents": "^0.4.4",
-    "webpages-packer": "^1.1.4"
+    "webpages-packer": "^1.1.5"
   }
 }

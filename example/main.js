@@ -16,7 +16,6 @@ import DemoBlock from './components/demoBlock'
 Vue.use(elementMini)
 Vue.use(elementExtension)
 Vue.component('demo-code', DemoBlock)
-// eslint-disable-next-line no-new
 new Vue({
   el: '#app',
   router,
