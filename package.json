@@ -23,7 +23,6 @@
   "author": "danielmlc",
   "license": "ISC",
   "dependencies": {
-    "vue-markdown-loader": "^2.4.1"
   },
   "devDependencies": {
     "dayjs": "^1.8.8",
