@@ -34,10 +34,12 @@ module.exports = {
           }
         }
       },
+      clear: ['browser']
     },
     docs: {
       type: 'browser',
       input: 'example/index.js',
+      clear: ['lib']
     }
   }
 }

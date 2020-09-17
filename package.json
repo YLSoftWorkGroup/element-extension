@@ -22,14 +22,12 @@
   ],
   "author": "danielmlc",
   "license": "ISC",
-  "dependencies": {
-  },
   "devDependencies": {
     "dayjs": "^1.8.8",
     "element-mini-ui": "^1.2.0",
     "vue": "^2.6.9",
     "vue-router": "^3.0.2",
     "vue-template-compiler": "^2.6.8",
-    "webpages-packer": "^1.1.6"
+    "webpages-packer": "^1.1.7"
   }
 }
