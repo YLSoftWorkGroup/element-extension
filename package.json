@@ -24,6 +24,7 @@
   "license": "ISC",
   "devDependencies": {
     "dayjs": "^1.8.8",
+    "highlight.js": "^9.3.0",
     "element-mini-ui": "^1.2.0",
     "vue": "^2.6.9",
     "vue-router": "^3.0.2",

@@ -3,6 +3,10 @@ module.exports = {
   cwd: __dirname,
   global: {
     copy: {
+      'node_modules/vue/dist': 'browser/lib/vue',
+      'node_modules/vue-router/dist': 'browser/lib/vue-router',
+      'node_modules/element-mini-ui/lib': 'browser/lib/element-mini-ui',
+      'lib/element-extension': 'browser/lib/element-extension',
     },
     browser:{
       outPath:'browser/'

@@ -4,10 +4,8 @@
  * @Date: 2020-02-16 23:59:04
  * @LastEditTime: 2020-02-17 22:29:22
  */
-import Vue from 'vue'
-import Router from 'vue-router'
 import menuData from './views/data/menuData.json'
-Vue.use(Router)
+Vue.use(VueRouter)
 function getRouter () {
   const routeList = []
   menuData.map((i, index) => {
@@ -34,7 +32,7 @@ function getRouter () {
   return routeList
 }
 const Main = resolve => require(['./views/Main'], resolve)
-export default new Router({
+export default new VueRouter({
   routes: [{
     path: '/',
     name: 'main',
