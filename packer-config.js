@@ -34,20 +34,9 @@ module.exports = {
       },
       clear: ['lib']
     },
-    // docs: {
-    //   type: 'browser',
-    //   input: 'example/index.js',
-    //   copy: {
-    //     'node_modules/vue/dist': 'browser/lib/vue',
-    //     'node_modules/vue-router/dist': 'browser/lib/vue-router',
-    //     'node_modules/element-mini-ui/lib': 'browser/lib/element-mini-ui',
-    //     'lib': 'browser/lib/element-extension',
-    //   },
-    //   clear: ['browser']
-    // },
-    test: {
+    docs: {
       type: 'browser',
-      input: 'test/index.js',
+      input: 'example/index.js',
       copy: {
         'node_modules/vue/dist': 'browser/lib/vue',
         'node_modules/vue-router/dist': 'browser/lib/vue-router',

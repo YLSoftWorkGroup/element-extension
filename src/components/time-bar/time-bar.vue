@@ -276,27 +276,3 @@
     }
   }
 </script>
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="postcss" scoped>
-  @import "../../styl/var.pcss";
-  .yl-time-bar {
-    box-sizing: border-box;
-    display: flex;
-    padding: 0px $layout-gap-b;
-    & > .btn {
-      line-height: 2;
-    }
-    & > .timepick {
-      padding-left: 150px;
-      & > i {
-        color: $text-regular;
-        &:hover {
-          cursor: pointer;
-        }
-      }
-      & > .date {
-        width: 150px;
-      }
-    }
-  }
-</style>
