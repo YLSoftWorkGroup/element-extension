@@ -144,10 +144,3 @@
   }
 </script>
 
-<style lang="postcss">
-  .el-tree > .el-tree-node {
-    display: inline-block !important;
-    min-width: 100%;
-    overflow: hidden;
-  }
-</style>

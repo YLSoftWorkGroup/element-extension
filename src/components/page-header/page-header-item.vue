@@ -63,25 +63,3 @@
   }
 </script>
 
-<style lang="postcss" scope>
-@import  '../../styl/var.pcss';
-.yl-page-header-item {
-  color: $text-regular;
-  padding: 0px $layout-gap-s;
-  &:last-child > .separator {
-    display: none;
-  }
-  & > .separator {
-    color: $text-placeholder;
-  }
-}
-.yl-page-header-title {
-  color: $text-primary;
-  padding: 0px $layout-gap-s;
-  font-weight: 600;
-  &:hover {
-    color: $primary;
-    cursor: pointer;
-  }
-}
-</style>

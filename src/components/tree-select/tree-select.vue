@@ -237,14 +237,3 @@
     }
   }
 </script>
-
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="postcss" >
-  @import "../../styl/var.pcss";
-  .el-tree > .el-tree-node {
-    display: inline-block !important;
-    min-width: 100%;
-    overflow: hidden;
-  }
-
-</style>

@@ -252,37 +252,3 @@
   }
 </script>
 
-<!-- Add "scoped" attribute to limit CSS to this component only -->
-<style lang="postcss" >
-  @import "../../styl/var.pcss";
-  .infinite-list-wrapper{
-    height: 100%;
-  }
-  .infinite-list-item{
-    min-height: 28px;
-    padding:5px;
-    &:hover{
-      cursor: pointer;
-      background:$background-color-b
-    }
-    & > p {
-      margin: 0px;
-      overflow: hidden;
-      text-overflow:ellipsis;
-      white-space: nowrap;
-    }
-    & > .label {
-       font-size:14px;
-      color:$text-regular;
-    }
-    & > .sub-label {
-      font-size:12px;
-      color:$info;
-    }
-  }
-  .infinite-list-tip{
-    font-size:12px;
-    text-align: center;
-    color:$text-regular;
-  }
-</style>
