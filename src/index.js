@@ -24,7 +24,10 @@ import Commonpaneltree from './components/common-tree/common-tree-panel.vue'
 import DictionarySelect from './components/dictionary/dictionary-select.vue'
 import DictionaryTree from './components/dictionary/dictionary-tree.vue'
 import UnitDictionaryTree from './components/dictionary/unit-dictionary-tree.vue'
+
+// 引入样式
 import './styl/index.pcss'
+
 const components = [
   FlexBox,
   Panel,

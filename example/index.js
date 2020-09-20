@@ -9,7 +9,10 @@ import router from './router'
 import './asset/style/index.css'
 import App from './App.vue'
 import DemoBlock from './components/demoBlock'
+const ee = require('../lib/element-extension/element-extension')
+import '../lib/element-extension/element-extension.css'
 Vue.component('demo-code', DemoBlock)
+console.log(ee)
 new Vue({
   el: '#app',
   router,

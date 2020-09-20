@@ -18,7 +18,7 @@ module.exports = {
       type: 'library',
       input: 'src/index.js',
       output:{
-        libraryTarget: 'umd',
+        libraryTarget: 'commonjs2',
         libraryExport: 'default',
         library: 'element-extension'
       },
