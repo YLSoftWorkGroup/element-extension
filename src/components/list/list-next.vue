@@ -4,14 +4,14 @@
     <div slot="flex"
       v-loading="listloading"
       element-loading-text="加载中...">
-      <div v-if="pageData.length" class="yl-list-warpper" :class="wrapClass">
+      <div v-if="pageData.length" class="list-warpper" :class="wrapClass">
         <div v-for="(item,index) in pageData" :key="index"
           :class="itemWrapClass"
           class="item-warpper">
           <slot :item="item" />
         </div>
       </div>
-      <div v-else class="yl-list-nodata">暂无数据</div>
+      <div v-else class="nodata">暂无数据</div>
     </div>
     <div slot="fixed">
       <div style="text-align:right; background:#fff;padding:2px 10px;display:flex;justify-content:flex-end;">
@@ -128,3 +128,26 @@
     }
   }
 </script>
+
+<!-- Add "scoped" attribute to limit CSS to this component only -->
+<style lang="postcss"  scoped>
+@import  '../../styl/var.pcss';
+.page-draw{
+  color:$text-regular;
+  display: inline-block;
+  font-size: 13px;
+  line-height:28px;
+  padding-bottom:4px;
+}
+.list-warpper {
+  overflow: auto;
+  width: 100%;
+  height: 100%;
+}
+.nodata {
+  height: 60px;
+  text-align: center;
+  font-size: 14px;
+  padding-top: 80px;
+}
+</style>

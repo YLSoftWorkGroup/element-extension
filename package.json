@@ -1,14 +1,15 @@
 {
   "name": "element-extension",
-  "version": "2.2.0",
+  "version": "2.1.9",
   "description": "基于elementUI组件扩展组件库",
-  "main": "lib/element-extension/element-extension.js",
+  "main": "lib/element-extension.js",
   "scripts": {
-    "build:docs": "webpages-packer packer/index.js --env production --config packer-config.js --include docs",
-    "build": "webpages-packer packer/index.js --env production --config packer-config.js --include elementExtension",
-    "dev:docs": "webpages-packer --env development --config packer-config.js  --watch true --include docs",
-    "dev": "webpages-packer --env development --config packer-config.js  --watch true --include elementExtension",
-    "start": "webpages-server --env development --config packer-config.js"
+    "start": "yarn || cnpm i || npm i",
+    "clean": "rimraf lib && rimraf src/*/lib",
+    "dev": "webpack-dev-server  --config build/webpack.dev.conf.js",
+    "build": "webpack --config build/webpack.build.conf.js ",
+    "docs": "webpack --config build/webpack.doc.conf.js ",
+    "pub": "npm run build && npm run docs"
   },
   "repository": {
     "url": "https://github.com/YLSoftWorkGroup/element-extension"
@@ -22,13 +23,57 @@
   ],
   "author": "danielmlc",
   "license": "ISC",
+  "dependencies": {},
   "devDependencies": {
+    "@babel/core": "^7.3.4",
+    "@babel/plugin-syntax-dynamic-import": "^7.2.0",
+    "@babel/plugin-transform-runtime": "^7.3.4",
+    "@babel/preset-env": "^7.3.4",
+    "@babel/runtime": "^7.3.4",
+    "autoprefixer": "^9.6.1",
+    "babel-helper-vue-jsx-merge-props": "^2.0.3",
+    "babel-loader": "^8.0.5",
+    "babel-plugin-syntax-jsx": "^6.18.0",
+    "babel-plugin-transform-vue-jsx": "^3.7.0",
+    "chalk": "^2.4.2",
+    "cheerio": "^1.0.0-rc.3",
+    "css-loader": "^2.1.0",
     "dayjs": "^1.8.8",
-    "highlight.js": "^9.3.0",
     "element-mini-ui": "^1.2.0",
+    "file-loader": "^3.0.1",
+    "friendly-errors-webpack-plugin": "^1.6.1",
+    "highlight.js": "^9.3.0",
+    "html-webpack-plugin": "^3.2.0",
+    "markdown-it": "^8.4.2",
+    "markdown-it-anchor": "^5.0.2",
+    "markdown-it-container": "^2.0.0",
+    "markdown-it-emoji": "^1.4.0",
+    "markdown-it-table-of-contents": "^0.4.4",
+    "postcss": "^7.0.14",
+    "postcss-import": "^12.0.1",
+    "postcss-loader": "^3.0.0",
+    "postcss-mix-color": "^0.1.6",
+    "postcss-mixins": "^6.2.1",
+    "postcss-nested": "^4.1.2",
+    "postcss-simple-vars": "^5.0.2",
+    "progress-bar-webpack-plugin": "^1.12.1",
+    "rimraf": "^2.6.3",
+    "style-loader": "^0.23.1",
+    "url-loader": "^1.1.2",
     "vue": "^2.6.9",
+    "vue-loader": "^15.7.0",
+    "vue-markdown-loader": "^2.4.1",
     "vue-router": "^3.0.2",
     "vue-template-compiler": "^2.6.8",
-    "webpages-packer": "^1.1.10"
-  }
+    "webpack": "^4.29.6",
+    "webpack-cli": "^3.3.2",
+    "webpack-dev-server": "^3.2.1",
+    "webpack-node-externals": "^1.7.2"
+  },
+  "engines": {
+    "node": ">=8.9.1",
+    "npm": ">=5.5.1",
+    "yarn": ">=1.3.2"
+  },
+  "browserslist": "> 0.25%, not dead"
 }

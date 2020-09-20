@@ -11,7 +11,7 @@
       :displaytool-bar="displaytoolBar"
       :filter-visibe="filterVisibe"
       :width="width"
-      :panel-width="panelWidth"
+      :panelWidth="panelWidth"
       :disabled="disabled"
       @getCurrentNode="_getCurrentNode"
       @clear="_clear"
@@ -142,3 +142,4 @@
     }
   }
 </script>
+<style lang="css"></style>

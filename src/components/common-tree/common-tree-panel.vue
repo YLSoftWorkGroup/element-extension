@@ -2,7 +2,7 @@
  * @Description: 未描述
  * @Author: danielmlc
  * @Date: 2019-10-12 12:20:18
- * @LastEditTime: 2020-07-13 17:42:37
+ * @LastEditTime: 2020-06-11 17:05:13
  -->
 <template>
   <yl-panel
@@ -144,3 +144,10 @@
   }
 </script>
 
+<style lang="postcss">
+  .el-tree > .el-tree-node {
+    display: inline-block !important;
+    min-width: 100%;
+    overflow: hidden;
+  }
+</style>

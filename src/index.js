@@ -1,3 +1,9 @@
+/*
+ * @Description: 未描述
+ * @Author: danielmlc
+ * @Date: 2019-08-22 11:35:09
+ * @LastEditTime: 2020-02-20 22:03:52
+ */
 import PageHeader from './components/page-header/page-header.vue'
 import PageHeaderItem from './components/page-header/page-header-item.vue'
 import FlexBox from './components/flex-box/flex-box.vue'
@@ -18,13 +24,13 @@ import TableNext from './components/table/table-next.jsx'
 import TableReport from './components/table/table-report.jsx'
 import OnlyTable from './components/table/only-table.jsx'
 
-// 业务组件
+// // 业务组件
 import Commontree from './components/common-tree/common-tree.vue'
 import Commonpaneltree from './components/common-tree/common-tree-panel.vue'
 import DictionarySelect from './components/dictionary/dictionary-select.vue'
 import DictionaryTree from './components/dictionary/dictionary-tree.vue'
 import UnitDictionaryTree from './components/dictionary/unit-dictionary-tree.vue'
-import './styl/index.pcss'
+
 const components = [
   FlexBox,
   Panel,
