@@ -144,9 +144,6 @@
     background: #F5F7FA;
     position: relative;
   }
-  .yl-flex-box > .flod:hover {
-      cursor: pointer;
-    }
   .yl-page-header-item {
   color: #606266;
   padding: 0px 3px;
@@ -358,3 +355,78 @@
     font-size: 14px;
     padding-top: 80px;
   }
+
+.splitter-pane-resizer[data-v-44869c40] {
+	box-sizing: border-box;
+	background: #000;
+	position: absolute;
+	opacity: .2;
+	z-index: 1;
+	-moz-background-clip: padding;
+	-webkit-background-clip: padding;
+	background-clip: padding-box;
+}
+.splitter-pane-resizer.horizontal[data-v-44869c40] {
+  height: 11px;
+	margin: -5px 0;
+	border-top: 5px solid rgba(255, 255, 255, 0);
+	border-bottom: 5px solid rgba(255, 255, 255, 0);
+	cursor: row-resize;
+	width: 100%;
+}
+.splitter-pane-resizer.vertical[data-v-44869c40] {
+  width: 11px;
+	height: 100%;
+	margin-left: -5px;
+	border-left: 5px solid rgba(255, 255, 255, 0);
+	border-right: 5px solid rgba(255, 255, 255, 0);
+	cursor: col-resize;
+}
+
+
+.splitter-pane.vertical.splitter-paneL[data-v-6602829a] {
+  position: absolute;
+  left: 0px;
+  height: 100%;
+  padding-right: 3px;
+}
+.splitter-pane.vertical.splitter-paneR[data-v-6602829a] {
+  position: absolute;
+  right: 0px;
+  height: 100%;
+  padding-left: 3px;
+}
+.splitter-pane.horizontal.splitter-paneL[data-v-6602829a] {
+  position: absolute;
+  top: 0px;
+  width: 100%;
+}
+.splitter-pane.horizontal.splitter-paneR[data-v-6602829a] {
+  position: absolute;
+  bottom: 0px;
+  width: 100%;
+  padding-top: 3px;
+}
+
+
+.clearfix[data-v-f7ac1e18]:after {
+  visibility: hidden;
+  display: block;
+  font-size: 0;
+  content: " ";
+  clear: both;
+  height: 0;
+}
+.yl-splitter-container[data-v-f7ac1e18] {
+  height: 100%;
+  position: relative;
+}
+.yl-splitter-container-mask[data-v-f7ac1e18] {
+  z-index: 9999;
+  width: 100%;
+  height: 100%;
+  position: absolute;
+  top: 0;
+  left: 0;
+}
+

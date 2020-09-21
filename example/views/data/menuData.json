@@ -27,7 +27,10 @@
                 "label":"Panel 面板",
                 "name":"panel"
             },
-            
+            {
+                "label":"SplitPanel 弹性布局面板",
+                "name":"split-panel"
+            },
             {
                 "label":"ToolBar 工具面板",
                 "name":"tool-bar"

@@ -1,7 +1,12 @@
+// 引入样式
+import './styl/index.pcss'
+
+// 引入组件
 import PageHeader from './components/page-header/page-header.vue'
 import PageHeaderItem from './components/page-header/page-header-item.vue'
 import FlexBox from './components/flex-box/flex-box.vue'
 import Panel from './components/panel/panel.vue'
+import SplitPanel from './components/split-panel/index.vue'
 import ToolBar from './components/tool-bar/tool-bar.vue'
 import TimeBar from './components/time-bar/time-bar.vue'
 
@@ -25,12 +30,12 @@ import DictionarySelect from './components/dictionary/dictionary-select.vue'
 import DictionaryTree from './components/dictionary/dictionary-tree.vue'
 import UnitDictionaryTree from './components/dictionary/unit-dictionary-tree.vue'
 
-// 引入样式
-import './styl/index.pcss'
+
 
 const components = [
   FlexBox,
   Panel,
+  SplitPanel,
   ToolBar,
   TimeBar,
   PageHeader,
@@ -68,6 +73,7 @@ export default {
   install,
   FlexBox,
   Panel,
+  SplitPanel,
   ToolBar,
   TimeBar,
   PageHeader,

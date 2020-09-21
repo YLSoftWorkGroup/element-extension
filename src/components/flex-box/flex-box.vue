@@ -78,11 +78,13 @@
         if (this.vertical) {
           return `height:6px;
                 border-top: 1px solid #E4E7ED;
-                border-bottom: 1px solid #E4E7ED;`
+                border-bottom: 1px solid #E4E7ED;
+                cursor: row-resize;`
         } else {
           return `width:6px;
                 border-left: 1px solid #E4E7ED;
-                border-right: 1px solid #E4E7ED;`
+                border-right: 1px solid #E4E7ED;
+                cursor: col-resize;`
         }
       }
     },

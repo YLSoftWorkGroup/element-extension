@@ -18,9 +18,9 @@ module.exports = {
       type: 'library',
       input: 'src/index.js',
       output:{
-        libraryTarget: 'commonjs2',
+        libraryTarget: 'umd',
         libraryExport: 'default',
-        library: 'element-extension'
+        library: 'elementExtension'
       },
       packerConfig: {
         externals : {
@@ -44,6 +44,10 @@ module.exports = {
         'lib/element-extension': 'browser/lib/element-extension',
       },
       clear: ['browser']
-    }
+    },
+    // test: {
+    //   type: 'browser',
+    //   input: 'test/index.js'
+    // }
   }
 }

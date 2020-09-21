@@ -30,5 +30,7 @@
     "vue-router": "^3.0.2",
     "vue-template-compiler": "^2.6.8",
     "webpages-packer": "^1.1.11"
+  },
+  "dependencies": {
   }
 }
