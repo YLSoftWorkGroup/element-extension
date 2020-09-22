@@ -7,36 +7,42 @@
 
   #### splitPanel
 
-  > 标签： `<yl-panel></yl-panel>` 
+  > 标签： `<yl-split-panel></yl-split-panel>` 
 
-  **功能：** 包裹内容块，提供工具栏、标题
+  **功能：**  提供弹性布局面板
 
   **示例：**
 :::demo
   ```html
 
    <template>
-
-     <yl-splitPanel v-on:resize="resize" :min-percent='20' :default-percent='30' split="vertical">
-      <template slot="paneL">
-        A
-      </template>
-      <template slot="paneR">
-        B
-      </template>
-    </yl-splitPanel>
-
+    <div style="height:300px;border:1px #ccc solid">
+      <yl-splitPanel @resize="resize" :min-percent='20' :default-percent='30' split="vertical">
+        <template slot="paneL">
+          A
+        </template>
+        <template slot="paneR">
+          <yl-splitPanel split="horizontal" :min-percent='20' :default-percent='50'>
+            <template slot="paneL">
+            B
+            </template>
+            <template slot="paneR">
+              C
+            </template>
+          </yl-splitPanel>
+        </template>
+      </yl-splitPanel>
+      </div>
    </template>
    <script>
    export default {
      data(){
        return {
-        title:'这是一个面板'
        }
      },
      methods:{
-       _reload(){
-         console.log('刷新')
+       resize(percent) {
+         console.log('拖动了...' + percent)
        }
      }
    }
@@ -50,17 +56,14 @@
 
   | 参数        | 说明           |类型   |默认值|可选值|
   | ------------- |:-------------:| -----:|---:|---:|
-  | icon| panel图标 | String| "" |--|
-  | title| 标题 | String|"" |--|
-  | width| 宽度 | String|"100%" |--|
-  | showHeader| 是否显示头部 | Boolean|true |false/true|
+  | min-percent| 最小分割百分比 | number | 10 |--|
+  | default-percent| 默认分割百分比 | number|50 |--|
 
- **slot**
-   
-  | 名称        | 说明             |
-  | ------------- |:-------------:|
-  | tool| 头部区域插槽 | 
-  | default| 内容区域插槽 | 
-  
+ **事件**
+
+| 事件        | 说明           |参数   |
+| ------------- |:-------------:| -----:|
+| resize| 拖动区域时触发 |percent|
+
 ---
 

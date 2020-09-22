@@ -3,7 +3,7 @@ module.exports = {
   cwd: __dirname,
   global: {
     browser:{
-      outPath:'browser/'
+      outPath:'docs/'
     },
     library:{
       outPath:'lib/'
@@ -11,7 +11,7 @@ module.exports = {
   },
   server:{
     port: 8080,
-    staticPath:'browser/'
+    staticPath:'docs/'
   },
   entries: {
     elementExtension: {
@@ -20,7 +20,7 @@ module.exports = {
       output:{
         libraryTarget: 'umd',
         libraryExport: 'default',
-        library: 'element-extension'
+        library: 'elementExtension'
       },
       packerConfig: {
         externals : {
@@ -34,16 +34,20 @@ module.exports = {
       },
       clear: ['lib']
     },
-    docs: {
+    document: {
       type: 'browser',
       input: 'example/index.js',
       copy: {
-        'node_modules/vue/dist': 'browser/lib/vue',
-        'node_modules/vue-router/dist': 'browser/lib/vue-router',
-        'node_modules/element-mini-ui/lib': 'browser/lib/element-mini-ui',
-        'lib/element-extension': 'browser/lib/element-extension',
+        'node_modules/vue/dist': 'docs/lib/vue',
+        'node_modules/vue-router/dist': 'docs/lib/vue-router',
+        'node_modules/element-mini-ui/lib': 'docs/lib/element-mini-ui',
+        'lib/element-extension': 'docs/lib/element-extension',
       },
-      clear: ['browser']
-    }
+      clear: ['docs']
+    },
+    // test: {
+    //   type: 'browser',
+    //   input: 'test/index.js'
+    // }
   }
 }
