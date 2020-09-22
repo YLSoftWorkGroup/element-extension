@@ -34,7 +34,7 @@ module.exports = {
       },
       clear: ['lib']
     },
-    document: {
+    index: {
       type: 'browser',
       input: 'example/index.js',
       copy: {
