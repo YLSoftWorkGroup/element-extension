@@ -9,15 +9,17 @@
 
 ```bash
 
-#eg
+### 开发模式下启动包编译
 npm run dev
 
-#build
+### 开发模式下启动文档编译
+npm run dev:docs
+
+#### 打包库
 npm run build
 
-#build:doc
-npm run build:doc
-
+#### 打包文档
+npm run build:docs
 ```
 
 
@@ -36,11 +38,18 @@ vue全部引入：
 
 ```js
 
- import element-extension from 'element-extension/src/index' //引入源码
- import element-extension from 'element-extension' //引入打包文件
+ import element-extension from 'element-extension'//引入打包文件
+ import  'element-extension/lib/element-extension/element-extension.css'//引入css
  
  Vue.use(element-extension)
 
+```
+
+浏览器头部引入：
+
+```js
+<link rel="stylesheet" href="../lib/element-extension/element-extension.css">
+<script type="text/javascript" src="../lib/element-extension/element-extension.js"></script>
 ```
 
 

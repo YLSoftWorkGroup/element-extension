@@ -1,0 +1,11 @@
+
+.doc-block{
+  height:100px;width:80%;margin:30px;padding:10px;text-align:center;border-radius:10px;
+}
+.doc-block-mid{
+  height:50px;width:80%;margin-left:30px;padding:10px;text-align:center;;border-radius:10px;
+}
+.column-style{
+  background-color:#ddd;
+}
+
