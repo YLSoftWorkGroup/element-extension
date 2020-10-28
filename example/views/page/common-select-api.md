@@ -7,6 +7,8 @@
 
 #### CommonSelectApi 选择器包含接口
 
+*2.2.2版本后移除*
+
 > 标签：  `<yl-common-select-api></yl-common-select-api>`
 
 **功能：**  提供可模糊查询并分页加载的下拉选择组件

@@ -1,6 +1,8 @@
 
 #### CommonTreePanel 通用树面板选择器
 
+*2.2.2版本后移除*
+
 > 标签：  `<yl-common-tree-panel></yl-common-tree-panel>`
 
 **功能：**  通用树面板选择器组件

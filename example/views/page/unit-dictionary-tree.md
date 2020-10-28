@@ -1,5 +1,7 @@
 #### UnitDictionaryTree 单位字典选择器
 
+*2.2.2版本后移除*
+
 > 标签： `<yl-unit-dictionary-tree />`
 
 

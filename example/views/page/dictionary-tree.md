@@ -1,5 +1,7 @@
 #### DictionaryTree 字典选择树
 
+*2.2.2版本后移除*
+
 > 标签： `<yl-dictionary-tree />`
 
 

@@ -1,12 +1,12 @@
 {
   "name": "element-extension",
-  "version": "2.2.0",
+  "version": "2.2.2",
   "description": "基于elementUI组件扩展组件库",
   "main": "lib/element-extension/element-extension.js",
   "scripts": {
     "pub": "npm run build && npm run build:docs",
-    "build:docs": "webpages-packer packer/index.js --env production --config packer-config.js --include index",
-    "build": "webpages-packer packer/index.js --env production --config packer-config.js --include elementExtension",
+    "build:docs": "webpages-packer  --env production --config packer-config.js --include index",
+    "build": "webpages-packer  --env production --config packer-config.js --include elementExtension",
     "dev:docs": "webpages-packer --env development --config packer-config.js  --watch true --include index",
     "dev": "webpages-packer --env development --config packer-config.js  --watch true --include elementExtension",
     "start": "webpages-server --env development --config packer-config.js"
@@ -30,7 +30,7 @@
     "vue": "^2.6.9",
     "vue-router": "^3.0.2",
     "vue-template-compiler": "^2.6.8",
-    "webpages-packer": "^1.1.12"
+    "webpages-packer": "1.1.17"
   },
   "dependencies": {
   }
