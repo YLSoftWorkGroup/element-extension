@@ -25,6 +25,7 @@
       :addRows="addRows"
       :usedVueComponent="{name,tableConfig}"
       style="height:300px"
+      @currentRow="_currentRow"
       @delItem="_delItem"
       @sumCount="_sumCount">
      </yl-table-edit>
@@ -214,6 +215,9 @@
        }
      },
      methods:{
+       _currentRow(val){
+         console.log('行选中', val)
+       },
        _blur(){
          console.log(this.value)
        },
@@ -651,5 +655,6 @@ sumRowConf:{
   | ------------- |:-------------:|--------:|
   | delItem| 点击删除明细时触发 | row  行对象|
   | sumCount| 触发合计 | table数据|
+  | currentRow| 点击删除明细时触发 | row  行对象|
 
 ---

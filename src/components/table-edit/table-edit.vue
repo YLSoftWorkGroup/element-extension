@@ -154,6 +154,7 @@
       },
       _currentChange (val) {
         // 单选时的方法
+        this.$emit('currentRow', val)
       },
       _delItem (row) {
         this.$emit('delItem', row)
