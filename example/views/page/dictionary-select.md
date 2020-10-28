@@ -1,5 +1,7 @@
 #### DictionarySelect 字典选择器
 
+*2.2.2版本后移除*
+
 > 标签： `<yl-dictionary-select></yl-dictionary-select>`
 
 
