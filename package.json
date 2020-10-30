@@ -12,9 +12,9 @@
     "start": "webpages-server --env development --config packer-config.js"
   },
   "repository": {
-    "url": "https://github.com/YLSoftWorkGroup/element-extension"
+    "url": "https://github.com/yearrow/element-extension"
   },
-  "homepage": "https://ylsoftworkgroup.github.io/element-extension/#/base",
+  "homepage": "https://yearrow.github.io/element-extension/#/base",
   "keywords": [
     "vue",
     "component",
