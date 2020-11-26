@@ -1,6 +1,8 @@
 
 #### CommonTree 通用树选择器
 
+*2.2.2版本后移除*
+
 > 标签：  `<yl-common-tree></yl-common-tree>`
 
 **功能：**  通用选中树组件

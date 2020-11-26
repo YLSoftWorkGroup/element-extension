@@ -6,6 +6,13 @@
  -->
 #### 更新日志
 
+##### 2020.10.28
+
+v2.2.2
+
+1.  移除`CommonSelectApi`、`Commontree`、`Commonpaneltree`、`DictionarySelect`、`DictionaryTree`、`UnitDictionaryTree`、`TableEdit`、 业务组件。
+
+
 ##### 2020.09.22
 
 v2.2.0

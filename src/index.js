@@ -11,10 +11,10 @@ import ToolBar from './components/tool-bar/tool-bar.vue'
 import TimeBar from './components/time-bar/time-bar.vue'
 
 import CommonSelect from './components/common-select/common-select.vue'
-import CommonSelectApi from './components/common-select/common-select-api.vue'
+// import CommonSelectApi from './components/common-select/common-select-api.vue'
 
 import TreeSelect from './components/tree-select/tree-select.vue'
-import TableEdit from './components/table-edit/table-edit.vue'
+// import TableEdit from './components/table-edit/table-edit.vue'
 import List from './components/list/list.vue'
 import ListReport from './components/list/list-report.vue'
 import ListNext from './components/list/list-next.vue'
@@ -24,11 +24,11 @@ import TableReport from './components/table/table-report.jsx'
 import OnlyTable from './components/table/only-table.jsx'
 
 // 业务组件
-import Commontree from './components/common-tree/common-tree.vue'
-import Commonpaneltree from './components/common-tree/common-tree-panel.vue'
-import DictionarySelect from './components/dictionary/dictionary-select.vue'
-import DictionaryTree from './components/dictionary/dictionary-tree.vue'
-import UnitDictionaryTree from './components/dictionary/unit-dictionary-tree.vue'
+// import Commontree from './components/common-tree/common-tree.vue'
+// import Commonpaneltree from './components/common-tree/common-tree-panel.vue'
+// import DictionarySelect from './components/dictionary/dictionary-select.vue'
+// import DictionaryTree from './components/dictionary/dictionary-tree.vue'
+// import UnitDictionaryTree from './components/dictionary/unit-dictionary-tree.vue'
 
 
 
@@ -41,18 +41,18 @@ const components = [
   PageHeader,
   PageHeaderItem,
   CommonSelect,
-  CommonSelectApi,
+  // CommonSelectApi,
   TreeSelect,
-  Commontree,
-  Commonpaneltree,
-  DictionarySelect,
-  DictionaryTree,
-  UnitDictionaryTree,
+  // Commontree,
+  // Commonpaneltree,
+  // DictionarySelect,
+  // DictionaryTree,
+  // UnitDictionaryTree,
   Table,
   TableNext,
   TableReport,
   OnlyTable,
-  TableEdit,
+  // TableEdit,
   List,
   ListReport,
   ListNext
@@ -78,18 +78,18 @@ export default {
   TimeBar,
   PageHeader,
   CommonSelect,
-  CommonSelectApi,
+  // CommonSelectApi,
   TreeSelect,
-  Commontree,
-  Commonpaneltree,
-  DictionarySelect,
-  DictionaryTree,
-  UnitDictionaryTree,
+  // Commontree,
+  // Commonpaneltree,
+  // DictionarySelect,
+  // DictionaryTree,
+  // UnitDictionaryTree,
   Table,
   TableReport,
   TableNext,
   OnlyTable,
-  TableEdit,
+  // TableEdit,
   List,
   ListReport,
   ListNext

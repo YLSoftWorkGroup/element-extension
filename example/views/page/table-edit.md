@@ -7,6 +7,8 @@
 
   #### TableEdit 表格编辑器
 
+*2.2.2版本后移除*
+
   > 标签： `<yl-table-edit></yl-table-edit>` 
 
  
