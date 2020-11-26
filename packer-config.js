@@ -20,6 +20,8 @@ module.exports = {
       output:{
         libraryTarget: 'umd',
         libraryExport: 'default',
+        filePath:'elementExtension',
+        fileName:'index',
         library: 'elementExtension'
       },
       packerConfig: {
