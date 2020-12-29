@@ -9,9 +9,9 @@ import router from './router'
 import './asset/style/index.css'
 import App from './App.vue'
 import DemoBlock from './components/demoBlock'
+Vue.component('demo-code', DemoBlock)
 // import elementExtension from '../lib/element-extension/element-extension.js'
 // import '../lib/element-extension/element-extension.css'
-Vue.component('demo-code', DemoBlock)
 // console.log(elementExtension)
 // Vue.use(elementExtension)
 new Vue({

@@ -1,8 +1,6 @@
 <template>
   <div id="app">
-    <transition name="bounce">
       <router-view />
-    </transition>
   </div>
 </template>
 <script type="text/babel">
